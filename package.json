@@ -1,0 +1,81 @@
+{
+  "name": "creator-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "react"
+  ],
+  "dependencies": {
+    "@rollup/plugin-babel": "^5.3.1",
+    "prop-types": ">=15.0.0",
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
+    "react-scripts": ">=5.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "web-vitals": ">=2.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
+    "@testing-library/jest-dom": ">=5.0.0",
+    "@testing-library/react": ">=12.0.0",
+    "@testing-library/user-event": ">=13.0.0",
+    "@types/react": ">=16.0.0",
+    "@types/react-dom": ">=16.0.0",
+    "babel-loader": "^8.2.3",
+    "rollup": "^2.67.2",
+    "rollup-plugin-import-css": "^3.0.3",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-watch": "^4.3.1",
+    "typescript": "^4.5.5",
+    "typings": "^2.1.1",
+    "webpack": "^5.70.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "rollup -c",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6010"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/thecorebooks/corebooks-pass/creator-backoffice-components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
