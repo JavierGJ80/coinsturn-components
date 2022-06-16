@@ -1,18 +1,26 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FileUploader } from "../components";
 import { action } from "@storybook/addon-actions";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
-  title: "Example/MainPlugin",
+  title: "Components/FileUploader",
   component: FileUploader,
   argTypes: {},
 } as ComponentMeta<typeof FileUploader>;
 
 const Template: ComponentStory<typeof FileUploader> = (args: any) => (
-  <FileUploader {...args} />
+  <div style={{ width: "100px", height: "100px" }}>
+    <FileUploader {...args} />
+  </div>
 );
 
 export const Main = Template.bind({});
 
-Main.args = {};
+Main.args = {
+  endpoint: "",
+  fileType: "IMAGE",
+  updateValue: (data: any) => action(data)(data),
+  imageSource: "",
+  design: "SIMPLE",
+};
