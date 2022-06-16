@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import babel from "@rollup/plugin-babel";
+import json from "@rollup/plugin-json";
 
 export default {
   input: "./components/index.tsx",
@@ -22,5 +23,6 @@ export default {
     postcss({
       extensions: [".css"],
     }),
+    json(),
   ],
 };
