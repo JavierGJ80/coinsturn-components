@@ -8,26 +8,32 @@ const s3 = new AWS.S3({
 const uploadToS3 = async (file) => {
   const params = {
     Bucket: "corebookspass",
-    Body: file,
+    Body: file.data,
     Key: file.name,
   };
-  return s3.upload(params, (err, data) => {
-    if (err) reject(err);
-    resolve(data.Location);
+  return new Promise((resolve, reject) => {
+    s3.upload(params, (err, data) => {
+      if (err) reject(err);
+      resolve(data.Location);
+    });
   });
 };
 
 const uploadFile = async (req, res) => {
-  const file = req.file;
-  if (!file) res.status(500).send("Missing file");
+  if (!req.files || !Object.values(req.files)[0]) {
+    res.status(500).send("Missing file");
+    return;
+  }
+  const file = Object.values(req.files)[0];
   try {
     const location = await uploadToS3(file);
     if (!location) throw "Missing location";
-    console.log(location);
     res.status(200).send(location);
+    return;
   } catch (err) {
     console.error(err);
     res.status(500).send("Error uploading to Amazon S3");
+    return;
   }
 };
 

@@ -4,7 +4,7 @@ declare type UploaderDesign = "SIMPLE" | "DETAILED";
 declare type FileType = "IMAGE" | "FILE";
 declare type FileUploaderProps = {
     endpoint: string;
-    updateValue: (imgLink: string) => void;
+    onUpload: (imgLink: string) => void;
     fileType: FileType;
     imageSource?: string;
     design?: UploaderDesign;

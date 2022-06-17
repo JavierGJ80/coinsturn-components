@@ -7,7 +7,7 @@ type UploaderDesign = "SIMPLE" | "DETAILED";
 type FileType = "IMAGE" | "FILE";
 type FileUploaderProps = {
   endpoint: string;
-  updateValue: (imgLink: string) => void;
+  onUpload: (imgLink: string) => void;
   fileType: FileType;
   imageSource?: string;
   design?: UploaderDesign;
@@ -18,7 +18,7 @@ const defaultFile = "https://cdn-icons-png.flaticon.com/512/569/569800.png";
 const imageTypes = ["image/png", "image/jpg", "image/jpeg"];
 
 const FileUploader = (props: FileUploaderProps) => {
-  const { endpoint, fileType, updateValue, imageSource, design } = props;
+  const { endpoint, fileType, onUpload, imageSource, design } = props;
 
   const [isHovered, setIsHovered] = useState(false);
   const [file, setFile] = useState<File>();
@@ -26,12 +26,16 @@ const FileUploader = (props: FileUploaderProps) => {
   useEffect(() => {
     if (!file) return;
     if (fileType === "IMAGE" && !imageTypes.includes(file.type)) return;
-    const formData = new FormData();
+    var formData = new FormData();
     const code: string = v4();
-    formData.append(code, file);
+    formData.append(code, file, `${code}.${file.name.split(".").at(-1)}`);
     axios
-      .post(endpoint, formData)
-      .then((res) => updateValue(res.data.imgLink))
+      .post(endpoint, formData, {
+        headers: {
+          "Content-Type": "application/octet-stream",
+        },
+      })
+      .then((res) => onUpload(res.data))
       .catch((err) => console.error(err));
   }, [file]);
 
@@ -62,21 +66,13 @@ const FileUploader = (props: FileUploaderProps) => {
           }
         />
       </div>
-      {isHovered ? (
-        <label
-          className="uploader-simple-text"
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          Upload an Image
-          <input
-            type="file"
-            className="uploader-input"
-            onChange={onChangeFile}
-          />
-        </label>
-      ) : (
-        <></>
-      )}
+      <label
+        className={`uploader-simple-text ${isHovered ? "" : "hide"}`}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {fileType === "IMAGE" ? "Upload an Image" : "Upload a File"}
+        <input type="file" className="uploader-input" onChange={onChangeFile} />
+      </label>
     </div>
   );
 };
