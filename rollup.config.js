@@ -9,7 +9,7 @@ import json from "@rollup/plugin-json";
 export default {
   input: "./components/index.tsx",
   output: { dir: "./lib", format: "cjs" },
-  external: ["rechart"],
+  external: ["axios"],
   plugins: [
     peerDepsExternal(),
     resolve(),
