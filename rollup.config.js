@@ -14,7 +14,13 @@ export default {
     peerDepsExternal(),
     resolve(),
     babel({
-      exclude: ["node_modules/**", "server/**", "stories/**", ".storybook/**"],
+      exclude: [
+        "node_modules/**",
+        "server/**",
+        "stories/**",
+        ".storybook/**",
+        "scripts/**",
+      ],
       presets: ["@babel/env", "@babel/preset-react"],
     }),
     ,
