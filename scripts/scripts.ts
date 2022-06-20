@@ -1,10 +1,9 @@
-const { v4 } = require("uuid");
-const axios = require("axios");
-require("dotenv").config();
+import { v4 } from "uuid";
+import axios from "axios";
 
 const imageTypes = ["image/png", "image/jpg", "image/jpeg"];
 
-export const uploadFile = async (file) => {
+export const uploadFile = async (file: File, endpoint: string) => {
   return new Promise((resolve, reject) => {
     if (!file) reject("Missing file");
     if (!imageTypes.includes(file.type)) reject("Not an image");
@@ -15,17 +14,11 @@ export const uploadFile = async (file) => {
     formData.append(code, file, `${code}.${file.name.split(".").at(-1)}`);
 
     axios
-      .post(
-        `${
-          process.env.DOMAIN ? process.env.DOMAIN : "http://localhost:8080"
-        }/cloudFunctions/uploadFile`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/octet-stream",
-          },
-        }
-      )
+      .post(endpoint, formData, {
+        headers: {
+          "Content-Type": "application/octet-stream",
+        },
+      })
       .then((res) => resolve(res.data))
       .catch((err) => reject(err));
   });

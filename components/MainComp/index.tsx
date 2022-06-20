@@ -17,13 +17,15 @@ const MainComp = () => {
     setGlobal({ ...global, [name]: newPath });
   };
 
-  const domain = "http://localhost:8080";
-
   return (
     <GlobalContext.Provider value={[global, setGlobal]}>
       <div style={{ width: "150px", height: "150px" }}>
         <FileUploader
-          endpoint={`${domain}/cloudFunctions/uploadFile`}
+          endpoint={`${
+            process.env.REACT_APP_DOMAIN
+              ? process.env.REACT_APP_DOMAIN
+              : "http://localhost:8080"
+          }/cloudFunctions/uploadFile`}
           onUpload={(newVal) => handleNewImage("test", newVal)}
           fileType="FILE"
           imageSource={global && global.test ? global.test : ""}

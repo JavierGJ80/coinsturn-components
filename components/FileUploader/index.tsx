@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { v4 } from "uuid";
-import axios from "axios";
 import "./FileUploader.css";
+import { uploadFile } from "../../scripts/scripts";
 
 type UploaderDesign = "SIMPLE" | "DETAILED";
 type FileType = "IMAGE" | "FILE";
@@ -25,17 +24,12 @@ const FileUploader = (props: FileUploaderProps) => {
 
   useEffect(() => {
     if (!file) return;
-    if (fileType === "IMAGE" && !imageTypes.includes(file.type)) return;
-    var formData = new FormData();
-    const code: string = v4();
-    formData.append(code, file, `${code}.${file.name.split(".").at(-1)}`);
-    axios
-      .post(endpoint, formData, {
-        headers: {
-          "Content-Type": "application/octet-stream",
-        },
+    uploadFile(file, endpoint)
+      .then((res) => {
+        console.log(res);
+        if (!res || typeof res !== "string") return;
+        onUpload(res);
       })
-      .then((res) => onUpload(res.data))
       .catch((err) => console.error(err));
   }, [file]);
 

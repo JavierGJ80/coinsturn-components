@@ -9,18 +9,12 @@ import json from "@rollup/plugin-json";
 export default {
   input: "./components/index.tsx",
   output: { dir: "./lib", format: "cjs" },
-  external: ["axios"],
+  external: ["axios", "dotenv"],
   plugins: [
     peerDepsExternal(),
     resolve(),
     babel({
-      exclude: [
-        "node_modules/**",
-        "server/**",
-        "stories/**",
-        ".storybook/**",
-        "scripts/**",
-      ],
+      exclude: ["node_modules/**", "server/**", "stories/**", ".storybook/**"],
       presets: ["@babel/env", "@babel/preset-react"],
     }),
     ,
