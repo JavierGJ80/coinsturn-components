@@ -4,7 +4,7 @@ import React, {
   SetStateAction,
   useState,
 } from "react";
-import { FileUploader } from "..";
+import FileUploader from "../FileUploader";
 
 const GlobalContext =
   createContext<[any, Dispatch<SetStateAction<any>>] | any>(undefined);
