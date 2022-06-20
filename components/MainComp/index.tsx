@@ -2,7 +2,6 @@ import React, {
   createContext,
   Dispatch,
   SetStateAction,
-  useContext,
   useState,
 } from "react";
 import { FileUploader } from "..";
