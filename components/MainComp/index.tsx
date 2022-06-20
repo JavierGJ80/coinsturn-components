@@ -27,9 +27,11 @@ const MainComp = () => {
               : "http://localhost:8080"
           }/cloudFunctions/uploadFile`}
           onUpload={(newVal) => handleNewImage("test", newVal)}
-          fileType="FILE"
+          fileType="IMAGE"
           imageSource={global && global.test ? global.test : ""}
-          design="SIMPLE"
+          design="DETAILED"
+          uploadText="Upload"
+          description="This is a test description"
         />
       </div>
     </GlobalContext.Provider>
