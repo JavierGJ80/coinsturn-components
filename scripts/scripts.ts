@@ -37,3 +37,53 @@ export const uploadFile = async (
       .catch((err) => reject(err));
   });
 };
+
+export const gitSync = async (
+  oldRepo: string,
+  newRepo: string,
+  user: string,
+  password: string
+) => {
+  if (!oldRepo) {
+    console.error("Missing old repo url");
+    return;
+  }
+  if (!newRepo) {
+    console.error("Missing new repo");
+  }
+  if (!user) {
+    console.error("Missing user");
+    return;
+  }
+  if (!password) {
+    console.error("Missing password");
+    return;
+  }
+  const validUrlOld =
+    /^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/.test(
+      oldRepo
+    );
+  if (!validUrlOld) {
+    console.error("Not a valid Url");
+    return;
+  }
+  const validUrlNew =
+    /^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/.test(
+      oldRepo
+    );
+  if (!validUrlNew) {
+    console.error("Not a valid Url");
+    return;
+  }
+  const response = await axios.post(`${process.env.domain}/git/pushToNewRepo`, {
+    oldRepo,
+    newRepo,
+    user,
+    password,
+  });
+  if (response.status === 200) {
+    console.log("Succesfully synced repos");
+    return true;
+  }
+  return false;
+};
