@@ -25,6 +25,7 @@
     "react-dom": ">=16.0.0",
     "react-draft-wysiwyg": "^1.14.7",
     "react-scripts": ">=5.0.0",
+    "react-star-rate": "^0.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "uuid": "^8.3.2"
