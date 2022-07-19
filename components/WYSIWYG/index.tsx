@@ -6,19 +6,15 @@ import htmlToDraft from 'html-to-draftjs';
 import { convertToRaw, ContentState, EditorState } from 'draft-js';
 
 type WYSIWYGParams = {
-  valueSaved: any;
-  obtainHTML: Function;
+  name: string;
+  valueSaved: string;
+  onChange: Function;
 }
 
-const WYSIWYG = React.forwardRef((props: WYSIWYGParams, ref) => {
-  const { valueSaved, obtainHTML } = props;
+let handleTimeout: string | number | NodeJS.Timeout | undefined;
+
+const WYSIWYG = ({ name, valueSaved, onChange }: WYSIWYGParams) => {
   const [editorState, setEditorState] = React.useState(EditorState.createEmpty());
-  React.useImperativeHandle(ref, () => ({
-    handleSave() {
-      if(editorState) 
-        obtainHTML(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    }
-  }));
   const getInitialState = (defaultValue: any) => {
     if (defaultValue) {
       const { contentBlocks, entityMap } = htmlToDraft(defaultValue);
@@ -34,14 +30,20 @@ const WYSIWYG = React.forwardRef((props: WYSIWYGParams, ref) => {
       setEditorState(initialState)
     }
   }, [valueSaved]);
+  const triggerOnChange = (editorState: EditorState) => onChange({name, value: draftToHtml(convertToRaw(editorState.getCurrentContent()))})
+  const handleEditorState = (editorState: EditorState) => {
+    setEditorState(editorState);
+    clearTimeout(handleTimeout);
+    handleTimeout = setTimeout(() => triggerOnChange(editorState), 2000);
+  }
   return (
     <Editor
       editorState={editorState}
       toolbarClassName="toolbarClassName"
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
-      onEditorStateChange={value => setEditorState(value)}
+      onEditorStateChange={handleEditorState}
     />
   )
-})
+}
 export default WYSIWYG;
