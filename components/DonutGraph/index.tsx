@@ -42,7 +42,7 @@ const DonutGraph = React.forwardRef((props: DonutGraphProps, ref) => {
             },
             cutout: "95%",
         }
-    return((backgroundColors && borderColors && borderWith) ? (<Doughnut data={ graphData } options={options}/>) : (<title>Loading ...</title>));
+    return((backgroundColors && borderColors && borderWith) ? (<Doughnut data={ graphData }/>) : (<title>Loading ...</title>));
 });
 
 export default DonutGraph;
