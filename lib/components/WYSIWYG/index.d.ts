@@ -1,8 +1,9 @@
-import React from 'react';
+/// <reference types="react" />
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 declare type WYSIWYGParams = {
-    valueSaved: any;
-    obtainHTML: Function;
+    name: string;
+    valueSaved: string;
+    onChange: Function;
 };
-declare const WYSIWYG: React.ForwardRefExoticComponent<WYSIWYGParams & React.RefAttributes<unknown>>;
+declare const WYSIWYG: ({ name, valueSaved, onChange }: WYSIWYGParams) => JSX.Element;
 export default WYSIWYG;
