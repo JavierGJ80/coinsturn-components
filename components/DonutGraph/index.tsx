@@ -31,7 +31,7 @@ const DonutGraph = (props: DonutGraphProps) => {
     const options = {
         plugins: {
             legend: {
-                // position: 'right',
+                position: 'right',
                 rtl : true,
                 labels: {
                 usePointStyle: true,
@@ -42,6 +42,7 @@ const DonutGraph = (props: DonutGraphProps) => {
         },
         cutout: "95%",
     }
+    // @ts-ignore
     return(<Doughnut options={options} data={ graphData }/>);
 };
 
