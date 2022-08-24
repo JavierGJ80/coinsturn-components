@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const uploadFile = require("../cloud_functions/uploadFile");
+const uploadFile = require("../cloud_functions/uploadFileCF");
 
 router.post("/uploadFile", uploadFile);
 

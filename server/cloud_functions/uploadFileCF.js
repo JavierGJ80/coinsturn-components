@@ -1,4 +1,5 @@
 const AWS = require("aws-sdk");
+require("dotenv").config();
 
 const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -7,7 +8,7 @@ const s3 = new AWS.S3({
 
 const uploadToS3 = async (file) => {
   const params = {
-    Bucket: "corebookspass",
+    Bucket: process.env.AWS_BUCKET,
     Body: file.data,
     Key: file.name,
   };

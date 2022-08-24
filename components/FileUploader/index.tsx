@@ -1,41 +1,46 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { v4 } from "uuid";
-import axios from "axios";
 import "./FileUploader.css";
+import { FileType, uploadFile } from "../../scripts/scripts";
 
-type UploaderDesign = "SIMPLE" | "DETAILED";
-type FileType = "IMAGE" | "FILE";
+type UploaderDesign = "SIMPLE" | "DETAILED" | "IMAGELESS";
+
 type FileUploaderProps = {
   endpoint: string;
   onUpload: (imgLink: string) => void;
   fileType: FileType;
   imageSource?: string;
   design?: UploaderDesign;
+  description?: string;
+  uploadText?: string;
 };
 
 const defaultImage = "https://cdn-icons-png.flaticon.com/512/739/739249.png";
 const defaultFile = "https://cdn-icons-png.flaticon.com/512/569/569800.png";
-const imageTypes = ["image/png", "image/jpg", "image/jpeg"];
+const uploadIcon =
+  "https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1655752480~hmac=11f964f9b3374fd947497854fbfaf62f";
 
 const FileUploader = (props: FileUploaderProps) => {
-  const { endpoint, fileType, onUpload, imageSource, design } = props;
+  const {
+    endpoint,
+    fileType,
+    onUpload,
+    imageSource,
+    design,
+    description,
+    uploadText,
+  } = props;
 
   const [isHovered, setIsHovered] = useState(false);
   const [file, setFile] = useState<File>();
 
   useEffect(() => {
     if (!file) return;
-    if (fileType === "IMAGE" && !imageTypes.includes(file.type)) return;
-    var formData = new FormData();
-    const code: string = v4();
-    formData.append(code, file, `${code}.${file.name.split(".").at(-1)}`);
-    axios
-      .post(endpoint, formData, {
-        headers: {
-          "Content-Type": "application/octet-stream",
-        },
+    uploadFile(file, endpoint, fileType)
+      .then((res) => {
+        console.log(res);
+        if (!res || typeof res !== "string") return;
+        onUpload(res);
       })
-      .then((res) => onUpload(res.data))
       .catch((err) => console.error(err));
   }, [file]);
 
@@ -44,8 +49,51 @@ const FileUploader = (props: FileUploaderProps) => {
     setFile(event.target.files[0]);
   };
 
-  if (design === "DETAILED")
-    return <div className="uploader-detailed-main"></div>;
+  if (design === "DETAILED") {
+    return (
+      <label className="uploader-detailed-main">
+        <div className="uploader-detailed-container">
+          <div className="uploader-detail-img-container">
+            <img
+              className="uploader-detail-img"
+              src={
+                fileType === "IMAGE"
+                  ? imageSource
+                    ? imageSource
+                    : defaultImage
+                  : defaultFile
+              }
+            />
+          </div>
+          <div className="uploader-detail-container">
+            <div className="uploader-cloud-container">
+              <img className="uploader-cloud" src={uploadIcon} />
+              <div className="uploader-cloud-text">{uploadText}</div>
+            </div>
+            <div className="uploader-description">{description}</div>
+          </div>
+        </div>
+        <input type="file" className="uploader-input" onChange={onChangeFile} />
+      </label>
+    );
+  }
+
+  if (design === "IMAGELESS") {
+    return (
+      <label className="uploader-imageless-main">
+        <div className="uploader-imageless-container">
+          <div className="uploader-detail-container">
+            <div className="uploader-cloud-container">
+              <img className="uploader-cloud" src={uploadIcon} />
+              <div className="uploader-cloud-text">{uploadText}</div>
+            </div>
+            <div className="uploader-description">{description}</div>
+          </div>
+        </div>
+        <input type="file" className="uploader-input" onChange={onChangeFile} />
+      </label>
+    );
+  }
 
   return (
     <div className="uploader-simple-main">
