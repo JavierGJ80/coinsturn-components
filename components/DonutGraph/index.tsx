@@ -28,9 +28,10 @@ const DonutGraph = (props: DonutGraphProps) => {
             },
         ],
     };
-        const options = {
+    const options = {
+        plugins: {
             legend: {
-                position: 'right',
+                // position: 'right',
                 rtl : true,
                 labels: {
                 usePointStyle: true,
@@ -38,9 +39,10 @@ const DonutGraph = (props: DonutGraphProps) => {
                 padding: 20,
                 },
             },
-            cutout: "95%",
-        }
-    return((backgroundColors && borderColors && borderWith) ? (<Doughnut options={options} data={ graphData }/>) : (<title>Loading ...</title>));
+        },
+        cutout: "95%",
+    }
+    return(<Doughnut options={options} data={ graphData }/>);
 };
 
 export default DonutGraph;
