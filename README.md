@@ -1,3 +1,3 @@
-# Creator Backoffice Components
+# Coinsturn Backoffice Components
 
-## A Library containing all the custom components to be used in Creator's Backoffice
+## A Library containing all the custom components to be used in coinsturn
