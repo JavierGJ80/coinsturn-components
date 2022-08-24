@@ -7,14 +7,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export interface DonutGraphProps {
     labels: string[];
     data: number[];
-    backgroundColors: string[];
     borderColors: string[];
-    borderWith: number;
     hoverOffset : number;
 }
 
 const DonutGraph = (props: DonutGraphProps) => {
-    const { labels, data, backgroundColors, borderColors, borderWith, hoverOffset} = props;
+    const { labels, data, borderColors, hoverOffset} = props;
     const graphData = {
         labels: labels,
         datasets: [
