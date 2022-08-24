@@ -21,9 +21,8 @@ const DonutGraph = (props: DonutGraphProps) => {
             {
             label: 'Current crypto currency',
             data: data,
-            backgroundColor: backgroundColors,
+            backgroundColor: borderColors,
             borderColor: borderColors,
-            borderWidth: borderWith,
             hoverOffset : hoverOffset,
             },
         ],
