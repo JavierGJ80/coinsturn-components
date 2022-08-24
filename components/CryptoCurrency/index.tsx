@@ -52,30 +52,23 @@ function AssetsCharts({
 }){
   let Labels:Date[] = [new Date()];
   let Values:number[] = [1];
-
-  if (["COVER", "ETH", "USDT"].includes(asset)) {
-    const { data, status } = useAssetsCharts({asset_codes: [assetList[asset]], charts_type, currency : 'usd'})
-    if (status === DataStatus.requested) {
-      return <span>Loading...</span>;
-    }
-    if (!data) {
-      return <span>No data</span>;
-    }
-    Labels = Object.values(data.charts)[0].map((entry) => {
-          const epoch = new Date(0);
-          epoch.setUTCSeconds(entry[0]);
-          return epoch;
-        });
-    Labels = Labels.reverse()
-    Values = Object.values(data.charts)[0].map(
-      (entry) => entry[1]
-    );
-    Values = Values.reverse()
-
+  const { data, status } = useAssetsCharts({asset_codes: [assetList[asset]], charts_type, currency : 'usd'})
+  if (status === DataStatus.requested) {
+    return <span>Loading...</span>;
   }
-  else{
-    return <span>Invalid token</span>;
+  if (!data) {
+    return <span>No data</span>;
   }
+  Labels = Object.values(data.charts)[0].map((entry) => {
+        const epoch = new Date(0);
+        epoch.setUTCSeconds(entry[0]);
+        return epoch;
+      });
+  Labels = Labels.reverse()
+  Values = Object.values(data.charts)[0].map(
+    (entry) => entry[1]
+  );
+  Values = Values.reverse()
   return (
     <Line
       data={{
@@ -179,10 +172,14 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
       :
       <span>Loading...</span>)
     :
-    <AssetsCharts 
-    asset={asset} 
-    charts_type={charts_type} 
-    borderColor={borderColor}/>
+    (["COVER", "ETH", "USDT"].includes(asset)? 
+      <AssetsCharts 
+      asset={asset} 
+      charts_type={charts_type} 
+      borderColor={borderColor}/>
+      :
+      <span>Invalid token</span>
+    )
   );
 };
 
