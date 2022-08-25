@@ -174,7 +174,7 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
       <span>Loading...</span>)
     :
     (["COVER", "ETH", "USDT"].includes(asset)? 
-      <AssetsCharts asset="COVER" charts_type="y" borderColor="#E6A828" />
+      <AssetsCharts asset={asset} charts_type={charts_type} borderColor={borderColor} />
       :
       <span>Invalid token</span>
     )
