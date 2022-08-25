@@ -32,7 +32,7 @@ const DonutGraph = (props: DonutGraphProps) => {
                     },
                 },
             },
-            cutout: "95%",
+            cutout: "96%",
         }
     } 
     data={ 
