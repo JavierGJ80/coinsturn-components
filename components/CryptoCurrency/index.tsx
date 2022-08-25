@@ -113,6 +113,16 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
   const { asset, charts_type, borderColor } = props
   const [graphData, setGraphData] = useState([1]);
   const [graphLabels, setGraphLabels] = useState([new Date()]);
+  useEffect(() => {
+    if (["BTC", "CBTC"].includes(asset)) {
+      try {
+        fetchHistoricBitcoinData();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [charts_type, asset]);
+  
   const fetchHistoricBitcoinData = async () => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${timeList[charts_type]}`
@@ -127,15 +137,6 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
     setGraphLabels(Labels);
   };
 
-  useEffect(() => {
-    if (["BTC", "CBTC"].includes(asset)) {
-      try {
-        fetchHistoricBitcoinData();
-      } catch (e) {
-        console.log(e);
-      }
-    }
-  }, [charts_type, asset]);
 
   return(["BTC", "CBTC"].includes(asset)?
     (graphData?
