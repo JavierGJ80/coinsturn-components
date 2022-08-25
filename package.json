@@ -4,9 +4,6 @@
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "workspaces":[
-    "coinsturn-plugins"
-  ],
   "keywords": [
     "react"
   ],
