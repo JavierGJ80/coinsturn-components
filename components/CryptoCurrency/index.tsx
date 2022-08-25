@@ -122,7 +122,7 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
       }
     }
   }, [charts_type, asset]);
-  
+
   const fetchHistoricBitcoinData = async () => {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${timeList[charts_type]}`
@@ -174,7 +174,7 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
       <span>Loading...</span>)
     :
     (["COVER", "ETH", "USDT"].includes(asset)? 
-      <span>La mama de la mama</span>
+      <AssetsCharts asset="COVER" charts_type="y" borderColor="#E6A828" />
       :
       <span>Invalid token</span>
     )
