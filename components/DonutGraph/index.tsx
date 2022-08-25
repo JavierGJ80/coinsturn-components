@@ -5,22 +5,27 @@ import { Doughnut } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export interface DonutGraphProps {
-    labels: string[];
-    data: number[];
-    borderColors: string[];
+    COVER_value: number;
+    COVER_color: string;
+    BTC_value: number;
+    BTC_color: string;
+    ETH_value: number;
+    ETH_color: string;
+    USDT_value: number;
+    USDT_color: string;
     hoverOffset : number;
 }
 
 const DonutGraph = (props: DonutGraphProps) => {
-    const { labels, data, borderColors, hoverOffset} = props;
+    const { COVER_value, COVER_color, BTC_value, BTC_color, ETH_value, ETH_color, USDT_value, USDT_color, hoverOffset} = props;
     const graphData = {
-        labels: labels,
+        labels: ["COVER", "BTC", "ETH", "USDT"],
         datasets: [
             {
             label: 'Current crypto currency',
-            data: data,
-            backgroundColor: borderColors,
-            borderColor: borderColors,
+            data: [COVER_value, BTC_value, ETH_value, USDT_value],
+            backgroundColor: [COVER_color, BTC_color, ETH_color, USDT_color],
+            borderColor: [COVER_color, BTC_color, ETH_color, USDT_color],
             hoverOffset : hoverOffset,
             },
         ],
