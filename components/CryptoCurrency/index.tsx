@@ -53,19 +53,49 @@ function AssetsCharts({
   let Labels:Date[] = [new Date()];
   let Values:number[] = [1];
   const { data, status } = useAssetsCharts({asset_codes: [assetList[asset]], charts_type, currency : 'usd'})
-  if (status === DataStatus.requested) {
-    return <span>Loading...</span>;
-  }
+  // if (status === DataStatus.requested) {
+  //   return <span>Loading...</span>;
+  // }
   if (!data) {
-    return <span>No data</span>;
+    return <Line
+      data={{
+        labels: Labels,
+        datasets: [
+          {
+            label: asset,
+            data: Values,
+            borderColor: borderColor,
+            backgroundColor: borderColor,
+            tension: 0.2,
+            pointRadius: 0,
+          },
+        ],
+      }}
+      options={{
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        scales: {
+          xAxes: {
+            display: false,
+          },
+          yAxes: {
+            beginAtZero: false,
+          },
+        },
+      }}
+      redraw={false}
+    />;
   }
-  Labels = Object.values(data.charts)[0].map((entry) => {
+  Labels = Object.values(data!.charts)[0].map((entry) => {
         const epoch = new Date(0);
         epoch.setUTCSeconds(entry[0]);
         return epoch;
       });
   Labels = Labels.reverse()
-  Values = Object.values(data.charts)[0].map(
+  Values = Object.values(data!.charts)[0].map(
     (entry) => entry[1]
   );
   Values = Values.reverse()
@@ -99,6 +129,7 @@ function AssetsCharts({
           },
         },
       }}
+      redraw={false}
     />
   );
 }
@@ -139,7 +170,6 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
 
 
   return(["BTC", "CBTC"].includes(asset)?
-    (graphData?
       <Line
         data={{
           labels: graphLabels,
@@ -169,9 +199,8 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
             },
           },
         }}
+        redraw={false}
       />
-      :
-      <span>Loading...</span>)
     :
     (["COVER", "ETH", "USDT"].includes(asset)? 
       <AssetsCharts asset={asset} charts_type={charts_type} borderColor={borderColor} />
