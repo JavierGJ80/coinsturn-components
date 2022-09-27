@@ -6,3 +6,4 @@ export { default as DonutGraph } from "./DonutGraph";
 export { default as CryptoCurrency } from "./CryptoCurrency"
 export { default as ContractPerformance } from "./ContractPerformance"
 export { default as BalancePerformance} from  "./BalancePerformance"
+export { default as CryptoCurrencyV2 } from "./CryptoCurrencyV2"

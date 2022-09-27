@@ -83,8 +83,8 @@
     "webpack": "^5.70.0"
   },
   "peerDependencies": {
-   "react": ">=16.8.0",
-   "react-dom": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
