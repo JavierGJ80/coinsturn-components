@@ -7,3 +7,4 @@ export { default as CryptoCurrency } from "./CryptoCurrency";
 export { default as ContractPerformance } from "./ContractPerformance";
 export { default as BalancePerformance } from "./BalancePerformance";
 export { default as CryptoCurrencyV2 } from "./CryptoCurrencyV2";
+export { default as CoverComposition } from "./CoverComposition";
