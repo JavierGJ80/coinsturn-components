@@ -39,7 +39,7 @@ const timeList: any = {
   y: 365,
 };
 
-client.configure({ url: "wss://api-staging.zerion.io", apiToken: "BackofficeCoinsturn.1Vf6l3CiuLNaEoHsewF6OYiOzAzULZ2x" });
+client.configure({ url: "wss://api-v4.zerion.io", apiToken: "BackofficeCoinsturn.1Vf6l3CiuLNaEoHsewF6OYiOzAzULZ2x" });
 
 function AssetsCharts({
   asset,
