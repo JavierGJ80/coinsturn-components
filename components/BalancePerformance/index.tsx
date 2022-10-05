@@ -48,6 +48,7 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
             backgroundColor: borderColorBalance,
             tension: 0.2,
             pointRadius: 0,
+            pointHitRadius : 8
           },
           {
             label: "Balance Performance of contracts",
@@ -56,6 +57,7 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
             backgroundColor: borderColorContracts,
             tension: 0.2,
             pointRadius: 0,
+            pointHitRadius : 8
           },
         ],
       }}

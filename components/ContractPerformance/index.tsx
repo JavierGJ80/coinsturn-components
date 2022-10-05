@@ -45,6 +45,7 @@ const ContractPerformance = (props: ContractPerformanceProps) => {
             backgroundColor: borderColor,
             tension: 0.2,
             pointRadius: 0,
+            pointHitRadius : 8
           },
         ],
       }}
