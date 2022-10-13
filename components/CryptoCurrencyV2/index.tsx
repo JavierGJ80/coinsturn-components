@@ -153,6 +153,9 @@ const CryptoCurrencyV2 = (props: CryptoCurrencyV2Props) => {
             },
             yAxes: {
               beginAtZero: false,
+              grid: {
+                drawOnChartArea: false,
+              },
             },
           },
         }}

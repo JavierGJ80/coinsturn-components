@@ -112,7 +112,7 @@ function AssetsCharts({
             backgroundColor: borderColor,
             tension: 0.2,
             pointRadius: 0,
-            pointHitRadius : 8
+            pointHitRadius : 16
           },
         ],
       }}
@@ -128,6 +128,9 @@ function AssetsCharts({
           },
           yAxes: {
             beginAtZero: false,
+            grid: {
+              drawOnChartArea: false,
+            },
           },
         },
       }}
@@ -198,6 +201,9 @@ const CryptoCurrency = (props: CryptoCurrencyProps) => {
             },
             yAxes: {
               beginAtZero: false,
+              grid: {
+                drawOnChartArea: false,
+              },
             },
           },
         }}

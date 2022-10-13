@@ -59,6 +59,11 @@ const ContractPerformance = (props: ContractPerformanceProps) => {
           xAxes: {
             display: false,
           },
+          yAxes: {
+            grid: {
+              drawOnChartArea: false,
+            },
+          },
         },
       }}
       redraw={false}
