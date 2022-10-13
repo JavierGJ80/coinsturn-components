@@ -71,6 +71,11 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
           xAxes: {
             display: false,
           },
+          yAxes: {
+            grid: {
+              drawOnChartArea: false,
+            },
+          },
         },
       }}
       redraw={false}
