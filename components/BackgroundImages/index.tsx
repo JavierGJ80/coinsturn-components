@@ -1,19 +1,25 @@
 import React from "react";
 import CSS from 'csstype';
 
-const h1Styles: CSS.Properties = {
+let h1Styles: CSS.Properties = {
     backgroundColor: 'black',
     width: '100%',
-    height: 'auto',
   };
 
 export interface BackgroundImagesProps {
     selectedImage : string;
+    cssProps : string;
 }
 
 const BackgroundImages = (props: BackgroundImagesProps) => {
-    const { selectedImage } = props;
+    const { selectedImage, cssProps } = props;
+    const JSONcss : any = JSON.parse(cssProps);
     let gif : string;
+
+    for(let i = 0; i < JSONcss.length; i += 2){
+        // @ts-ignore
+        h1Styles[JSONcss[i]] = JSONcss[i+1];
+    }
 
     switch(selectedImage) {
         case("Home1"):{
