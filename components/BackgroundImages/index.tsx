@@ -11,9 +11,10 @@ export interface BackgroundImagesProps {
     cssProps : string;
 }
 
-const BackgroundImages = (props: BackgroundImagesProps) => {
+const BackgroundImages = (props: BackgroundImagesProps) => { "[\"height\",\"675px\"]"
     const { selectedImage, cssProps } = props;
-    const JSONcss : any = JSON.parse(cssProps);
+    const cleanCss = cssProps.replace('\\','');
+    const JSONcss : any = JSON.parse(cleanCss);
     let gif : string;
     console.log(cssProps);
 
