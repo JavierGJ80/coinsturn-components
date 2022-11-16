@@ -42,7 +42,7 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
         labels: dataArray.labels,
         datasets: [
           {
-            label: "Balance Performance",
+            label: "Coverage Value Performance",
             data: dataArray.balanceData,
             borderColor: borderColorBalance,
             backgroundColor: borderColorBalance,
@@ -51,7 +51,7 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
             pointHitRadius : 8
           },
           {
-            label: "Balance Performance of contracts",
+            label: "Current Value Performance",
             data: dataArray.contractsData,
             borderColor: borderColorContracts,
             backgroundColor: borderColorContracts,
