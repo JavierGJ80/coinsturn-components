@@ -2,7 +2,7 @@
 import "react-datepicker/dist/react-datepicker.css";
 export interface DateInputProps {
     className: string;
-    onChange: Function;
+    onChange: (startDate: Date) => void;
 }
 declare const DateInput: (props: DateInputProps) => JSX.Element;
 export default DateInput;

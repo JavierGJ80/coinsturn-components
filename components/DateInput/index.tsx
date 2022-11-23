@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { EventHandler, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export interface DateInputProps {
     className : string,
-    onChange : Function
+    onChange : (startDate: Date) => void
 }
 
 const DateInput = (props: DateInputProps) => {
@@ -12,6 +12,7 @@ const DateInput = (props: DateInputProps) => {
     const [startDate, setStartDate] = useState(new Date());
 
     useEffect(()=>{
+        console.log("Triggering event")
         onChange(startDate);
     },[startDate])
 
