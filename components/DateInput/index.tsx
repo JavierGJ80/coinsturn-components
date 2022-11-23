@@ -13,7 +13,7 @@ const DateInput = (props: DateInputProps) => {
 
     useEffect(()=>{
         console.log("Triggering event")
-        props.onChange(startDate);
+        onChange(startDate);
     },[startDate])
 
     return (
