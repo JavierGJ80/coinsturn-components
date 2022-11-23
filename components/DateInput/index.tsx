@@ -13,12 +13,11 @@ const DateInput = (props: DateInputProps) => {
 
     useEffect(()=>{
         console.log("Triggering event")
-        onChange(startDate);
+        onChange(startDate.toISOString().split('T')[0]);
     },[startDate])
 
     return (
         <DatePicker
-            dateFormat="yyyy-MM-dd"
             selected={startDate} 
             onChange={(date:Date) => setStartDate(date)}
             className={className}
