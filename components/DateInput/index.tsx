@@ -12,7 +12,6 @@ const DateInput = (props: DateInputProps) => {
     const [startDate, setStartDate] = useState(new Date());
 
     useEffect(()=>{
-        console.log("Triggering event")
         onChange(startDate.toISOString().split('T')[0]);
     },[startDate])
 
