@@ -9,3 +9,4 @@ export { default as BalancePerformance } from "./BalancePerformance";
 export { default as CryptoCurrencyV2 } from "./CryptoCurrencyV2";
 export { default as CoverComposition } from "./CoverComposition";
 export { default as BackgroundImages } from "./BackgroundImages";
+export { default as DateInput } from "./DateInput";
