@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export interface DateInputProps {
     className : string,
-    onChange : (startDate: Date) => void
+    onChange : (params: any) => void
 }
 
 const DateInput = (props: DateInputProps) => {
@@ -13,7 +13,7 @@ const DateInput = (props: DateInputProps) => {
 
     useEffect(()=>{
         console.log("Triggering event")
-        onChange(startDate);
+        props.onChange(startDate);
     },[startDate])
 
     return (
