@@ -1,0 +1,199 @@
+.tokenSpecificMainContainer{
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins";
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.tokenSpecificLeftContainer{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 10px;
+  width: 758px;
+}
+
+.tokenSpecificHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap: 20px;
+}
+
+.tokenSpecificGraphContainer{
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+.headerGraphContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 30px;
+  gap: 15px;
+}
+
+.tokenSpecificGraphInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+}
+
+.tokenSpecificButtonRow{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.tokenSpecificButtonRow button{
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  float: left;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.tokenSpecificButtonRow button:hover{
+  background-color: rgba(230, 168, 40, 0.5);
+}
+
+.tokenSpecificActiveButton{
+  background-color: rgba(230, 168, 40, 1)!important;
+}
+
+.tokenSpecificGraphRender{
+  width: 758px;
+  height: 379px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.table-dark-coinsturn {
+  --bs-table-bg: #000000;
+  --bs-table-striped-bg: #000000;
+  --bs-table-striped-color: rgb(6, 6, 6);
+  --bs-table-active-bg: #151617;
+  --bs-table-active-color: #ffffff;
+  --bs-table-hover-bg: #1c2025;
+  --bs-table-hover-color: #ffffff;
+  color: #ffffff;
+  border-color: #000000;
+  margin: 0px!important;
+}
+
+.table-dark-stats {
+  --bs-table-bg: #000000;
+  --bs-table-striped-bg: #000000;
+  --bs-table-striped-color: rgb(6, 6, 6);
+  --bs-table-active-bg: #000000;
+  --bs-table-active-color: #ffffff;
+  --bs-table-hover-bg: #000000;
+  --bs-table-hover-color: #ffffff;
+  color: #ffffff;
+  border-color: #272525;
+  height: 300px;
+  width: 400px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.tokenSpecificCoinStats{
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tokenSpecificCoinStats header{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+.tokenSpecificCoinStats text{
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(174, 174, 174, 1);
+}
+
+.tokenSpecificStats {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #25282F;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 20px;
+  justify-content: space-between;
+  height: 408px;
+  width: 388px;
+}
+
+.tokenSpecificStats header{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  color: rgba(174, 174, 174, 1);
+}
+
+.tokenSpecificStatsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tokenSpecificStatsDiv header{
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: white;
+}
+
+.tokenSpecificStatsDiv text{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.tokenSpecificRightContainer{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-content: flex-start;
+  width: 408px;
+}
+
+.tokenSpecificTableCoinsContainer{
+  display: flex;
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 20px;
+  width: 388px;
+}
