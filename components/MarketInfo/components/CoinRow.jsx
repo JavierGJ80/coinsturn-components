@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const CoinRow = ({ coin, index }) => {
   const [urlFlag, setUrlFlag] = useState(false);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const data = [];
 
   useEffect(() => {
     if (!urlFlag) {
-      navigate(`/market/${coin.id}`);
+      //navigate(`/market/${coin.id}`);
     }
   }, []);
 
@@ -31,11 +31,11 @@ const CoinRow = ({ coin, index }) => {
         : { name: "", uv: coin.sparkline_in_7d.price[price_len] }
     );
   }
+  const newData = coin.sparkline_in_7d.price.map((price) => {
+    return { name: " ", uv: price };
+  });
   const color =
-    coin.sparkline_in_7d.price[0] <
-    coin.sparkline_in_7d.price[coin.sparkline_in_7d.price.length - 1]
-      ? "green"
-      : "red";
+    coin.price_change_percentage_7d_in_currency > 0 ? "#187C4A" : "#D72F3C";
   return (
     <tr onClick={(e) => setUrlFlag(true)}>
       <td className='text-muted'>{index}</td>
@@ -54,7 +54,7 @@ const CoinRow = ({ coin, index }) => {
 
       <td>
         <span>
-          <LineChart width={100} height={50} data={data}>
+          <LineChart width={100} height={50} data={newData}>
             <Line dataKey='uv' stroke={color} dot={false} />
             <YAxis
               type='number'

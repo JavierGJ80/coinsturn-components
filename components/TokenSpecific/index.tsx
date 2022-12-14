@@ -115,12 +115,12 @@ const TokenSpecific = (props: TokenSpecificProps) => {
       <div className="tokenSpecificLeftContainer">
         <div className="tokenSpecificHeader">
           <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
-          <text style={{fontWeight:700, fontSize:"26px", lineHeight:"39px"}}>{asset.toUpperCase()}</text>
+          <text style={{fontWeight:700, fontSize:"26px", lineHeight:"39px"}}>{(asset.replace("-"," ")).toUpperCase()}</text>
           <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:"#AEAEAE"}}>{coin.symbol?.toUpperCase()}</text>
         </div>
         <div className="tokenSpecificGraphContainer">
           <div className="headerGraphContainer">
-            <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
+            <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset.replace("-"," ")}`: `${asset.replace("-"," ")} price`}</text>
             <div className="tokenSpecificGraphInfo">
               <text style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
               <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
@@ -176,19 +176,19 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
         </div>
         <div className="tokenSpecificCoinStats">
-          <header>{`¿Que es ${asset}?`}</header>
+          <header>{`¿Que es ${asset.replace("-"," ")}?`}</header>
           {/* @ts-ignore */}
           <text>{coinDescription[asset].es}</text>
-          <header>{`El precio de ${asset} `}</header>
+          <header>{`El precio de ${asset.replace("-"," ")} `}</header>
           {/* @ts-ignore */}
-          <text>{`El precio de ${asset} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+          <text>{`El precio de ${asset.replace("-"," ")} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset.replace("-"," ")}, Coinsturn es actualmente el mercado mas seguro.`}</text>
         </div>
       </div>
       <div className="tokenSpecificRightContainer">
         <div className="tokenSpecificStats">
           <header>Estadísticas de precio</header>
           <div className="tokenSpecificStatsDiv">
-            <header>{`Precio de ${asset}`}</header>
+            <header>{`Precio de ${asset.replace("-"," ")}`}</header>
             {/* @ts-ignore */}
             <text>$ {stats.current_price}</text>
           </div>
