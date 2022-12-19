@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { LineChart, Line, YAxis } from "recharts";
-//import { useNavigate } from "react-router-dom";
+import { Route, useHistory, useParams } from "react-router-dom";
 
 const CoinRow = ({ coin, index }) => {
-  const [urlFlag, setUrlFlag] = useState(false);
-  ////const navigate = useNavigate();
+  const history = useHistory();
   const data = [];
-
-  //useEffect(() => {
-   // if (!urlFlag) {
-   //   navigate(`/market/${coin.id}`);
-   // }
-  //}, []);
 
   for (
     let price_len = 0;
@@ -37,14 +30,17 @@ const CoinRow = ({ coin, index }) => {
       ? "green"
       : "red";
   return (
-    <tr onClick={(e) => setUrlFlag(true)}>
+    <tr
+      onClick={(e) => {
+        history.push(`/markets/${coin.id}`);
+      }}>
       <td className='text-muted'>{index}</td>
       <td style={{ display: "flex", displayDirection: "row" }}>
         <img
           src={coin.image}
           alt=''
           className='img-fluid me-4'
-          style={{width:"60px", height:"60px"}}
+          style={{ width: "60px", height: "60px" }}
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span>{coin.name}</span>
