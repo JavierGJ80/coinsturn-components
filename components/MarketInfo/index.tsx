@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import TableCoins from "./components/TableCoins";
 import TableCoinsTwo from "./components/TableCoinsTwo";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import{Box, Grid} from "@material-ui/core";
+import {Box, Grid} from "@material-ui/core";
 
 export interface MarketInfoProps {
 }
