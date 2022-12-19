@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LineChart, Line, YAxis } from "recharts";
-import { Route, useHistory, useParams } from "react-router-dom";
+import { Route, useHistory, useParams, withRouter } from "react-router-dom";
 
 const CoinRow = ({ coin, index }) => {
   const history = useHistory();
@@ -83,4 +83,4 @@ const CoinRow = ({ coin, index }) => {
   );
 };
 
-export default CoinRow;
+export default withRouter(CoinRow);
