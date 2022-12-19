@@ -4,9 +4,9 @@ import CoinRow from "./CoinRow";
 const titles = [
   "#",
   "Activo",
-  "Ultimos 7 dias",
+  "Ultimos 7 días",
   "Precio",
-  "Ultimos 7 dias",
+  "Ultimos 7 días",
   "Volumen 24h",
   "Cap. de mercado",
 ];

@@ -1,11 +1,15 @@
 import React from "react";
-import CoinRow from "./CoinRow";
+import CoinRowTwo from "./CoinRowTwo";
 
-const TableCoins = ({ coins }) => {
+
+
+const TableCoinsTwo = ({ coins }) => {
   if (!coins) return <div>no coins</div>;
+ 
+
 
   return (
-    <table className='table table-dark-coinsturn mt-4 '>
+    <table className='table table-dark-coinsturn mt-4 table-hover '>
       <thead>
         <tr
           style={{
@@ -15,17 +19,17 @@ const TableCoins = ({ coins }) => {
             color: "rgba(174, 174, 174, 1)",
           }}>
           <td colSpan={3} style={{ paddingLeft: "20px" }}>
-            {"Top Crypto"}
+            {""}
           </td>
         </tr>
       </thead>
       <tbody>
         {coins.map((coin, index) => (
-          <CoinRow key={coin.id} coin={coin} index={index + 1} />
+          <CoinRowTwo key={coin.id} coin={coin} index={index + 1} />
         ))}
       </tbody>
     </table>
   );
 };
 
-export default TableCoins;
+export default TableCoinsTwo;
