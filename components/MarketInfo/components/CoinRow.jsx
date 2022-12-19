@@ -4,7 +4,7 @@ import { LineChart, Line, YAxis } from "recharts";
 
 const CoinRow = ({ coin, index }) => {
   const [urlFlag, setUrlFlag] = useState(false);
-  //const navigate = useNavigate();
+  ////const navigate = useNavigate();
   const data = [];
 
   //useEffect(() => {

@@ -18,11 +18,11 @@ const CoinRow = ({ coin, index }) => {
           <span>{coin.name}</span>
           <span className='text-muted'>{coin.symbol}</span>
         </td>
-      </td>
-      <td>
-        <span>${coin.current_price.toLocaleString()}</span>
+         </td>
+          <td>
+          <span>${coin.current_price.toLocaleString()}</span>
 
-        <td
+          <td
           className={
             coin.price_change_percentage_7d_in_currency > 0
               ? "text-success"
