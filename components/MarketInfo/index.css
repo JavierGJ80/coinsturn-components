@@ -47,3 +47,29 @@
   color:#fff;
   border-color:#25282F;
 }
+
+.tokenSpecificTableTabCoinsContainer{
+  display: flex;
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 20px;
+  width: px;
+}
+
+.tokenSpecificRightContainer{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-content: flex-start;
+  width: 758px;
+}
+.tokenSpecificTableCoinsContainerMob{
+  display: flex;
+  overflow: hidden;
+  padding-top: 20px;
+  width: 388px;
+}

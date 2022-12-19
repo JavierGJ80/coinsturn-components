@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { LineChart, Line, YAxis } from "recharts";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 const CoinRow = ({ coin, index }) => {
   const [urlFlag, setUrlFlag] = useState(false);
-  //const navigate = useNavigate();
+  ////const navigate = useNavigate();
   const data = [];
 
-  useEffect(() => {
-    if (!urlFlag) {
-      //navigate(`/market/${coin.id}`);
-    }
-  }, []);
+  //useEffect(() => {
+   // if (!urlFlag) {
+   //   navigate(`/market/${coin.id}`);
+   // }
+  //}, []);
 
   for (
     let price_len = 0;
@@ -31,11 +31,11 @@ const CoinRow = ({ coin, index }) => {
         : { name: "", uv: coin.sparkline_in_7d.price[price_len] }
     );
   }
-  const newData = coin.sparkline_in_7d.price.map((price) => {
-    return { name: " ", uv: price };
-  });
   const color =
-    coin.price_change_percentage_7d_in_currency > 0 ? "#187C4A" : "#D72F3C";
+    coin.sparkline_in_7d.price[0] <
+    coin.sparkline_in_7d.price[coin.sparkline_in_7d.price.length - 1]
+      ? "green"
+      : "red";
   return (
     <tr onClick={(e) => setUrlFlag(true)}>
       <td className='text-muted'>{index}</td>
@@ -44,7 +44,7 @@ const CoinRow = ({ coin, index }) => {
           src={coin.image}
           alt=''
           className='img-fluid me-4'
-          style={{ width: "12%" }}
+          style={{width:"60px", height:"60px"}}
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span>{coin.name}</span>
@@ -54,7 +54,7 @@ const CoinRow = ({ coin, index }) => {
 
       <td>
         <span>
-          <LineChart width={100} height={50} data={newData}>
+          <LineChart width={80} height={45} data={data}>
             <Line dataKey='uv' stroke={color} dot={false} />
             <YAxis
               type='number'

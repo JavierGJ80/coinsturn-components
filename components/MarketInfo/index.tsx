@@ -2,7 +2,9 @@ import "./index.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import TableCoins from "./components/TableCoins";
+import TableCoinsTwo from "./components/TableCoinsTwo";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import{Box, Grid} from "@material-ui/core";
 
 export interface MarketInfoProps {
 }
@@ -38,6 +40,9 @@ const MarketInfo = (props: MarketInfoProps) => {
         /> */}
 
         <TableCoins coins={coins} search={search} />
+      </div>
+      <div className="tokenSpecificTableCoinsContainerMob">
+      <TableCoinsTwo coins={coins}/>
       </div>
     </div>
   );

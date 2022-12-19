@@ -1,0 +1,55 @@
+{
+"bitcoin":{
+    "color": "#f2a900",
+    "es":"Bitcoin es el primer caso de éxito de dinero de Internet basado en la tecnología punto a punto, por la que no hay ningún banco central ni autoridad involucrado en las transacciones ni la producción de esta moneda. Su creación se debe a una persona o grupo anónimo con el pseudónimo Satoshi Nakamoto. El código fuente está disponible públicamente como un proyecto de código abierto, por lo que cualquiera puede consultarlo y participar en el proceso de desarrollo. En estos momentos, Bitcoin está cambiando la forma de ver el dinero. La idea era crear una moneda de cambio independiente de toda autoridad central que pudiera transferirse electrónicamente de forma segura, verificable inmutable.",
+    "en":"Bitcoin is the first successful case of Internet money based on peer-to-peer technology, whereby there is no central bank or authority involved in the transactions or production of this currency. Its creation is due to an anonymous person or group with the pseudonym Satoshi Nakamoto. The source code is publicly available as an open source project, so anyone can consult it and participate in the development process. Bitcoin is currently changing the way we look at money. The idea was to create an exchange currency independent of any central authority that could be transferred electronically in a secure, verifiable immutable form."
+},
+"ethereum":{
+    "color": "#556ECC",
+    "es":"Ethereum es una plataforma de contratos inteligentes que permite a los desarrolladores crear tokens y aplicaciones descentralizadas (dapps). ETH es la moneda nativa de la plataforma Ethereum, con la que también se pagan las comisiones de transacción a los mineros de la red Ethereum. La plataforma Ethereum es pionera en los contratos inteligentes basados en blockchain. Un contrato inteligente es básicamente un código informático que se ejecuta exactamente como se programa, sin posibilidad alguna de que se produzcan tiempos de inactividad, censuras, fraudes ni interferencias con terceros.",
+    "en":"Ethereum is a smart contract platform that allows developers to create tokens and decentralized applications (dapps). ETH is the native currency of the Ethereum platform, with which transaction fees are also paid to Ethereum network miners. The Ethereum platform pioneered blockchain-based smart contracts. A smart contract is basically computer code that executes exactly as programmed, without any possibility of downtime, censorship, fraud or interference with third parties."
+    },
+"tether":{
+    "color": "#218C6B",
+  "es":"Tether es una stablecoin o moneda estable, aunque al mismo tiempo también es una criptomoneda. Lo que diferencia a esta divisa digital con el resto de monedas, como bitcoin o ethereum, es que su misión es replicar el precio del dólar esto significa que un USDT, el nombre del token, siempre será equivalente a un dólar. Así las cosas, es una divisa digital que está pensada para ser usada masivamente o quizás sea más parecida a lo que conocemos por el dinero normal o dinero Fiat es decir no es una moneda pensada para la inversión sino para su uso.",
+  "en":"Tether is a stablecoin or stable currency, although at the same time it is also a cryptocurrency. What differentiates this digital currency from other currencies, such as bitcoin or ethereum, is that its mission is to replicate the price of the dollar, which means that one USDT, the name of the token, will always be equivalent to one dollar. Thus, it is a digital currency that is intended to be used massively or perhaps it is more similar to what we know as normal money or fiat money, i.e. it is not a currency designed for investment but for use."
+        },
+"matic-network":{
+    "color": "#713EC7",
+   "es":"Polygon (anteriormente Matic Network) es la primera plataforma estructurada e intuitiva para escalar Ethereum y desarrollar infraestructura. Su componente central es Polygon SDK, un marco modular y flexible que permite crear varios tipos de aplicaciones. Con Polygon se pueden crear cadenas Optimistic Rollup, ZK Rollup e independientes o cualquier otro tipo de infraestructura que requiera el desarrollador. Polygon transforma Ethereum en un sistema multicadena completo (también conocido como Internet de Blockchains). Dicho sistema es similar a otros como Polkadot, Cosmos o Avalanche, pero con las ventajas de seguridad, el ecosistema dinámico y la apertura de Ethereum.",
+   "en":"Polygon (formerly Matic Network) is the first structured and intuitive platform for scaling Ethereum and developing infrastructure. Its core component is Polygon SDK, a modular and flexible framework that allows you to create various types of applications. With Polygon you can create Optimistic Rollup, ZK Rollup and standalone chains or any other type of infrastructure required by the developer. Polygon transforms Ethereum into a complete multi-chain system (also known as Internet of Blockchains). Such a system is similar to others such as Polkadot, Cosmos or Avalanche, but with the advantages of security, the dynamic ecosystem and openness of Ethereum."
+            },
+"solana":{
+    "color": "#6AD7B5",
+  "es":"La criptomoneda Solana es un blockchain de alto rendimiento basado en el consenso prueba de historial (PoH) y prueba de participación (PoS). Creada por un equipo de ingenieros de redes, Solana pretende convertirse en la infraestructura de blockchain para las aplicaciones modernas de Internet. Solana es un blockchain para fines generales similar a Ethereum. Tiene una base técnica diferente, de modo que los desarrolladores escriben las aplicaciones con Rust en lugar de Solidity o Vyper. Entre las aplicaciones destinadas a los usuarios finales se incluyen ahora las finanzas descentralizadas (DeFi), los tokens no fungibles (NFT), los mercados y los juegos.",
+  "en":"The Solana cryptocurrency is a high-performance blockchain based on proof-of-history (PoH) and proof-of-stake (PoS) consensus. Created by a team of network engineers, Solana aims to become the blockchain infrastructure for modern Internet applications. Solana is a general-purpose blockchain similar to Ethereum. It has a different technical foundation, so developers write applications with Rust instead of Solidity or Vyper. End-user applications now include decentralized finance (DeFi), non-fungible tokens (NFT), marketplaces and gaming."
+                },
+"wrapped-bitcoin":{
+    "color": "#D78017",
+  "es":"Wrapped Bitcoin es un token de Ethereum cuya finalidad es representar a bitcoin (BTC) en la cadena de bloques de Ethereum. WBTC se lanzó en enero de 2019. WBTC puede ser utilizado en prácticamente cualquiera de las DApps, plataformas DeFi y exchanges descentralizados existentes en Ethereum.",
+  "en":"Wrapped Bitcoin is an Ethereum token whose purpose is to represent bitcoin (BTC) on the Ethereum blockchain. WBTC was launched in January 2019. WBTC can be used on virtually any of the existing Ethereum DApps, DeFi platforms and decentralized exchanges."
+     },
+"chainlink":{
+    "color": "#2C51B7",
+   "es":"Chainlink es un marco para generar redes de Oracle descentralizadas (DON) que envían datos del mundo real a las redes blockchain, lo que permite crear contratos inteligentes híbridos. Estas DON ofrecen servicios descentralizados como indicadores de precios, pruebas de reserva, aleatoriedad verificable, guardianes y opciones para conectarse a cualquier API web. Su objetivo es garantizar que la información externa (precios, datos meteorológicos, resultados de eventos, etc.) y los cálculos fuera de la cadena (aleatoriedad, automatización de transacciones, etc.) que se usan para crear los contratos inteligentes en la cadena sean fiables y no manipulables.",
+   "en":"Chainlink is a framework for generating decentralized Oracle networks (DONs) that send real-world data to blockchain networks, enabling the creation of hybrid smart contracts. These DONs offer decentralized services such as price indicators, proof of booking, verifiable randomization, gatekeepers and options to connect to any web API. They aim to ensure that external information (prices, weather data, event results, etc.) and off-chain calculations (randomization, transaction automation, etc.) used to create on-chain smart contracts are reliable and non-manipulable."
+        },
+ "aave":{
+    "color": "#90508E",
+     "es":"Aave, una de las numerosas criptomonedas de DeFi emergentes, es un sistema de préstamos descentralizados que permite a los usuarios prestar, pedir prestado y obtener intereses a partir de criptoactivos, todo sin intermediarios.",
+      "en":"Aave, one of the many emerging DeFi cryptocurrencies, is a decentralized lending system that allows users to lend, borrow and earn interest from cryptoassets, all without intermediaries."
+               },
+
+ "decentraland":{
+    "color": "#DE394B",
+   "es":"Decentraland (MANA) es una plataforma blockchain y metaverso, que permite adquirir terrenos virtuales y participar en una comunidad virtual única, que busca crear una experiencia virtual única",
+   "en":"Decentraland (MANA) is a blockchain platform and metaverse, which allows to acquire virtual land and participate in a unique virtual community, which seeks to create a unique virtual experience."
+                 },
+
+ "fantom":{
+    "color": "#119ECD",
+    "es":"Fantom es una red centrada en ofrecer smart contracts avanzados (compatibles con EVM) para aplicaciones DeFi. Por ejemplo, en Fantom podemos tener acceso a servicios DeFi cómo Curve o SushiSwap, que usan su red para ofrecer servicios DEX que son mucho más rápidos y económicos que sus contrapartes en Ethereum.",
+    "en":"Fantom is a network focused on offering advanced smart contracts (EVM compatible) for DeFi applications. For example, on Fantom we can access DeFi services such as Curve or SushiSwap, which use their network to offer DEX services that are much faster and cheaper than their Ethereum counterparts."
+    }
+  
+}
