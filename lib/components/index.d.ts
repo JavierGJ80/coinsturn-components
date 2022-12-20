@@ -13,3 +13,4 @@ export { default as DateInput } from "./DateInput";
 export { default as MarketInfo } from "./MarketInfo";
 export { default as TokenSpecific } from "./TokenSpecific";
 export { default as TokenSpecificMobile } from "./TokenSpecificMobile";
+export { default as MarketRouter } from "./MarketRouter";
