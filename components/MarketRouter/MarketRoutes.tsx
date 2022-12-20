@@ -19,7 +19,7 @@ function MarketRoutes(props: MarketRoutesProps) {
    
     return (
         <Switch>
-            <Route exact path={location.pathname + "/"} component={MarketInfo}/>
+            <Route exact path="/" component={MarketInfo}/>
             <Route path="/:asset" component={() => <TokenSpecific backgroundColor={backgroundColor} fontColor={fontColor} resPartner={resPartner}/>}/>
         </Switch>
     );
