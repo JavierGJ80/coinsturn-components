@@ -7,6 +7,7 @@ import { LineChart, Line, YAxis, } from 'recharts';
 import { ChartType } from "defi-sdk/lib/entities/Chart";
 import coinDescription from "./diccionario.json";
 import TableCoins from "./components/TableCoins";
+import { useParams } from "react-router-dom"
 
 import {
   Chart as ChartJS,
@@ -43,7 +44,6 @@ const timeList: any = {
 export interface TokenSpecificProps {
   backgroundColor : string;
   fontColor : string;
-  asset : string
   resPartner : [{[key:string] : any;}];
 }
 
@@ -54,7 +54,8 @@ interface Coin {
 }
 
 const TokenSpecific = (props: TokenSpecificProps) => {
-  const { backgroundColor, fontColor, asset, resPartner } = props
+  const { backgroundColor, fontColor, resPartner } = props
+  const { asset } = useParams<{ asset : string }>();
   const [coin, setCoin] = useState<Coin>({});
   const [time, setTime] = useState('d');
   const [graphData, setGraphData] = useState([1]);
@@ -139,9 +140,9 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                     label: asset,
                     data: graphData,
                     // @ts-ignore
-                    borderColor: coinDescription[asset].color,
+                    borderColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
                     // @ts-ignore
-                    backgroundColor: coinDescription[asset].color,
+                    backgroundColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
                     tension: 0.2,
                     pointRadius: 0,
                     pointHitRadius : 8
@@ -180,7 +181,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
         <div className="tokenSpecificCoinStats">
           <header>{`¿Que es ${asset.replace("-"," ").replace("-"," ")}?`}</header>
           {/* @ts-ignore */}
-          <text>{coinDescription[asset].es}</text>
+          <text>{(coinDescription[asset]?coinDescription[asset][language] : " ")}</text>
           <header>{`El precio de ${asset.replace("-"," ").replace("-"," ")} `}</header>
           {/* @ts-ignore */}
           <text>{`El precio de ${asset.replace("-"," ").replace("-"," ")} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset.replace("-"," ").replace("-"," ")}, Coinsturn es actualmente el mercado mas seguro.`}</text>
