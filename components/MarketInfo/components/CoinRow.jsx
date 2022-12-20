@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { LineChart, Line, YAxis } from "recharts";
-import { Route, useHistory, useParams, withRouter } from "react-router-dom";
+import {
+  Route,
+  useHistory,
+  useParams,
+  withRouter,
+  useLocation,
+} from "react-router-dom";
 
 const CoinRow = ({ coin, index }) => {
   const history = useHistory();
+  const location = useLocation();
   const data = [];
 
   for (
@@ -32,7 +39,8 @@ const CoinRow = ({ coin, index }) => {
   return (
     <tr
       onClick={(e) => {
-        history.push(`/markets/${coin.id}`);
+        history.push(`/${coin.id}`);
+        console.log(`New route /${coin.id}`);
       }}>
       <td className='text-muted'>{index}</td>
       <td style={{ display: "flex", displayDirection: "row" }}>
@@ -83,4 +91,4 @@ const CoinRow = ({ coin, index }) => {
   );
 };
 
-export default withRouter(CoinRow);
+export default CoinRow;
