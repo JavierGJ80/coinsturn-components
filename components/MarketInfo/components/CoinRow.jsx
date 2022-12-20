@@ -39,7 +39,7 @@ const CoinRow = ({ coin, index }) => {
   return (
     <tr
       onClick={(e) => {
-        history.push(`/${coin.id}`);
+        history.push(`/markets/${coin.id}`);
         console.log(`New route /${coin.id}`);
       }}>
       <td className='text-muted'>{index}</td>
