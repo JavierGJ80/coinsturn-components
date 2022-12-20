@@ -4,7 +4,6 @@ import "@fontsource/poppins";
 export interface TokenSpecificProps {
     backgroundColor: string;
     fontColor: string;
-    asset: string;
     resPartner: [{
         [key: string]: any;
     }];

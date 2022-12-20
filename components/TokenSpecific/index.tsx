@@ -7,6 +7,7 @@ import { LineChart, Line, YAxis, } from 'recharts';
 import { ChartType } from "defi-sdk/lib/entities/Chart";
 import coinDescription from "./diccionario.json";
 import TableCoins from "./components/TableCoins";
+import { useParams } from "react-router-dom"
 
 import {
   Chart as ChartJS,
@@ -43,7 +44,6 @@ const timeList: any = {
 export interface TokenSpecificProps {
   backgroundColor : string;
   fontColor : string;
-  asset : string
   resPartner : [{[key:string] : any;}];
 }
 
@@ -54,7 +54,8 @@ interface Coin {
 }
 
 const TokenSpecific = (props: TokenSpecificProps) => {
-  const { backgroundColor, fontColor, asset, resPartner } = props
+  const { backgroundColor, fontColor, resPartner } = props
+  const { asset } = useParams<{ asset : string }>();
   const [coin, setCoin] = useState<Coin>({});
   const [time, setTime] = useState('d');
   const [graphData, setGraphData] = useState([1]);
