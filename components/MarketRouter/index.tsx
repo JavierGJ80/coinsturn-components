@@ -2,10 +2,11 @@ import React from 'react';
 import {
     Switch,
     Route,
-    BrowserRouter as Router
+    Router,
+    useHistory
 } from "react-router-dom";
-import MarketInfo from "../MarketInfo";
-import TokenSpecific from "../TokenSpecific";
+import { createBrowserHistory } from 'history'
+import MarketRoutes from "./MarketRoutes";
 
 export interface MarketRouterProps {
   backgroundColor : string;
@@ -15,16 +16,12 @@ export interface MarketRouterProps {
 
 function MarketRouter(props: MarketRouterProps) {
     const { backgroundColor, fontColor, resPartner } = props
+    const history = createBrowserHistory()
    
     return (
         // @ts-ignore
-        <Router>
-            <Switch>
-                <Route path="/" component={MarketInfo} />
-                <Route path="/:asset">
-                    <TokenSpecific backgroundColor={backgroundColor} fontColor={fontColor} resPartner={resPartner}/>
-                </Route>
-            </Switch>
+        <Router history={history}>
+            <Route path="/" component={()=><MarketRoutes backgroundColor={backgroundColor} fontColor={fontColor} resPartner={resPartner}/>}/>
         </Router>
 
     );
