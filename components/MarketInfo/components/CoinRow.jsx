@@ -56,7 +56,7 @@ const CoinRow = ({ coin, index }) => {
         </div>
       </td>
 
-      <td>
+      <td className='hide-content'>
         <span>
           <LineChart width={80} height={45} data={data}>
             <Line dataKey='uv' stroke={color} dot={false} />
@@ -72,21 +72,33 @@ const CoinRow = ({ coin, index }) => {
         </span>
       </td>
 
-      <td>${coin.current_price.toLocaleString()}</td>
+      <td>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span>${coin.current_price.toLocaleString()}</span>
+          <span
+            className={
+              coin.price_change_percentage_7d_in_currency > 0
+                ? "text-success show-content"
+                : "text-danger show-content"
+            }>
+            {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
+          </span>
+        </div>
+      </td>
 
       <td
         className={
           coin.price_change_percentage_7d_in_currency > 0
-            ? "text-success"
-            : "text-danger"
+            ? "text-success hide-content"
+            : "text-danger hide-content"
         }>
         <span>
           {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
         </span>
       </td>
 
-      <td>${coin.total_volume.toLocaleString()}</td>
-      <td>${coin.market_cap.toLocaleString()}</td>
+      <td className='hide-content'>${coin.total_volume.toLocaleString()}</td>
+      <td className='hide-content'>${coin.market_cap.toLocaleString()}</td>
     </tr>
   );
 };

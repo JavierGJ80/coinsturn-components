@@ -11,24 +11,24 @@ const CoinRow = ({ coin, index }) => {
         <img
           src={coin.image}
           alt=''
-          className='img-fluid me-4'
+          className='img-fluid me-4 img'
           style={{ width: "25%" }}
         />
         <td style={{ display: "flex", flexDirection: "column" }}>
-          <span>{coin.name}</span>
-          <span className='text-muted'>{coin.symbol}</span>
+          <span className='normal'>{coin.name}</span>
+          <span className='text-muted normal'>{coin.symbol}</span>
         </td>
       </td>
       <td>
-        <span>${coin.current_price.toLocaleString()}</span>
+        <span className='normal'>${coin.current_price.toLocaleString()}</span>
 
         <td
           className={
             coin.price_change_percentage_7d_in_currency > 0
-              ? "text-success"
-              : "text-danger"
+              ? "text-success normal"
+              : "text-danger normal"
           }>
-          <span>
+          <span className='normal'>
             {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
           </span>
         </td>
