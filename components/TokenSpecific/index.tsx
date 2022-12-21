@@ -311,8 +311,9 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                     },
                   ],
                 }}
-                width={"100%"}
+                width={"99%"}
                 options={{
+                  aspectRatio: 2,
                   plugins: {
                     legend: {
                       display: false,
