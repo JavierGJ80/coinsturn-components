@@ -56,7 +56,7 @@ const CoinRow = ({ coin, index }) => {
         </div>
       </td>
 
-      <td>
+      <td className='hide-content'>
         <span>
           <LineChart width={80} height={45} data={data}>
             <Line dataKey='uv' stroke={color} dot={false} />

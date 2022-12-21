@@ -73,3 +73,9 @@
   padding-top: 20px;
   width: 388px;
 }
+
+@media (max-width: 750px) {
+  .hide-content {
+    display: none;
+  }
+}
