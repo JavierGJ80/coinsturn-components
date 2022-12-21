@@ -11,6 +11,8 @@ const titles = [
   "Cap. de mercado",
 ];
 
+const showTitles = ["#", "Activo", "Precio"];
+
 const TableCoins = ({ coins, search }) => {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
@@ -23,7 +25,11 @@ const TableCoins = ({ coins, search }) => {
       <thead>
         <tr>
           {titles.map((title, i) => (
-            <td key={i}>{title}</td>
+            <td
+              key={i}
+              className={showTitles.includes(title) ? "" : "hide-content"}>
+              {title}
+            </td>
           ))}
         </tr>
       </thead>

@@ -80,13 +80,13 @@ const CoinRow = ({ coin, index }) => {
             ? "text-success"
             : "text-danger"
         }>
-        <span>
+        <span className='hide-content'>
           {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
         </span>
       </td>
 
-      <td>${coin.total_volume.toLocaleString()}</td>
-      <td>${coin.market_cap.toLocaleString()}</td>
+      <td className='hide-content'>${coin.total_volume.toLocaleString()}</td>
+      <td className='hide-content'>${coin.market_cap.toLocaleString()}</td>
     </tr>
   );
 };
