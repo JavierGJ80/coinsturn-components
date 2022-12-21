@@ -324,3 +324,25 @@
     display: none !important;
   }
 }
+
+@media (min-width: 500px) {
+  .tokenSpecificStats header {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificCoinStats header {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificCoinStats text {
+    font-size: 10px !important;
+  }
+
+  .tit {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificButtonRow button {
+    font-size: 10px;
+  }
+}

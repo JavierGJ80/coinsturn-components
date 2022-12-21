@@ -118,13 +118,13 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           <div className="tokenSpecificHeader">
             <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
             <div className="dividerText">
-            <span style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
+            <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
             <span className='text-muted'>{coin.symbol}</span>
             </div>
           </div>
           <div className="tokenSpecificGraphContainer">
             <div className="headerGraphContainer">
-              <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset.replace("-"," ").replace("-"," ")}`: `${asset.replace("-"," ").replace("-"," ")} price`}</text>
+              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset.replace("-"," ").replace("-"," ")}`: `${asset.replace("-"," ").replace("-"," ")} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
                 <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
@@ -239,7 +239,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
         <div className="tokenSpecificHeaderTab">
             <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
             <div className="dividerText">
-            <span style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
+            <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
             <span className='text-muted'>{coin.symbol}</span>
             </div>
           </div>
@@ -285,7 +285,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
           <div className="tokenSpecificGraphContainerTab">
             <div className="headerGraphContainerTab">
-              <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
+              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
                 <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
