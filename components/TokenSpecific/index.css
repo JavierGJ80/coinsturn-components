@@ -373,4 +373,8 @@
   .tokenSpecificMainContainerTab {
     gap: 3px !important;
   }
+
+  .tokenSpecificStatsTab {
+    height: 250px!important;
+  }
 }
