@@ -233,7 +233,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
         </div>
       </div>
-      
+
       <div className="tokenSpecificMainContainerTab" style={{ backgroundColor :  backgroundColor, color : fontColor }}>
         <div className="tokenSpecificLeftContainerTab">
         <div className="tokenSpecificHeaderTab">
@@ -311,6 +311,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                     },
                   ],
                 }}
+                width={"100%"}
                 options={{
                   plugins: {
                     legend: {

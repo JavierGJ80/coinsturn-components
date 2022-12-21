@@ -205,7 +205,7 @@ flex-direction: column;
 /* Tablet config */
 
 .tokenSpecificMainContainerTab {
-  width: 780px;
+  width: 100%;
   height: 100%;
   font-family: "Poppins";
   padding-left: 20px;
@@ -296,7 +296,7 @@ flex-direction: column;
   padding-top: 20px;
   gap: 20px;
   align-content: flex-start;
-  width: 360px;
+  width: 100%;
 }
 
 .tokenSpecificTableCoinsContainerTab {
@@ -307,7 +307,7 @@ flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: 740px !important;
+  width: 100%!important;
 }
 
 /*Conditionals*/
