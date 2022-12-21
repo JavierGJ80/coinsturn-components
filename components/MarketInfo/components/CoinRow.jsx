@@ -72,7 +72,19 @@ const CoinRow = ({ coin, index }) => {
         </span>
       </td>
 
-      <td>${coin.current_price.toLocaleString()}</td>
+      <td>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span>${coin.current_price.toLocaleString()}</span>
+          <span
+            className={
+              coin.price_change_percentage_7d_in_currency > 0
+                ? "text-success hide-content"
+                : "text-danger hide-content"
+            }>
+            {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
+          </span>
+        </div>
+      </td>
 
       <td
         className={
