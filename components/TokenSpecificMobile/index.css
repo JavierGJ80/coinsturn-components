@@ -345,4 +345,20 @@
   .tokenSpecificButtonRow button {
     font-size: 10px;
   }
+
+  .tokenSpecificStatsDiv header {
+    font-size: 10px;
+  }
+
+  .tokenSpecificStatsDiv text {
+    font-size: 10px;
+  }
+
+  .gig {
+    font-size: 20px;
+  }
+
+  .med {
+    font-size: 15px;
+  }
 }

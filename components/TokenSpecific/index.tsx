@@ -126,8 +126,8 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             <div className="headerGraphContainer">
               <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset.replace("-"," ").replace("-"," ")}`: `${asset.replace("-"," ").replace("-"," ")} price`}</text>
               <div className="tokenSpecificGraphInfo">
-                <text style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
-                <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
+                <text className="gig" style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
+                <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
                   {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
                 </text>
               </div>
@@ -191,7 +191,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
         <div className="tokenSpecificRightContainer">
         <div className="tokenSpecificStatsTab">
             
-            <header style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
+            <header className="tit" style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
             <div className="tokenSpecificStatsDiv">
               <header>{`Precio de ${asset.replace("-"," ")}`}</header>
               {/* @ts-ignore */}
@@ -245,7 +245,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
           <div className="tokenSpecificStatsTab">
             
-            <header style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
+            <header className="tit" style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
             <div className="tokenSpecificStatsDiv">
               <header>{`Precio de ${asset}`}</header>
               {/* @ts-ignore */}
@@ -287,8 +287,8 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             <div className="headerGraphContainerTab">
               <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
               <div className="tokenSpecificGraphInfo">
-                <text style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
-                <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
+                <text className="gig" style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
+                <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
                   {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
                 </text>
               </div>

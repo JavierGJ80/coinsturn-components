@@ -1,4 +1,4 @@
-.tokenSpecificMainContainer{
+.tokenSpecificMainContainer {
   width: 100%;
   height: 100%;
   font-family: "Poppins";
@@ -10,12 +10,13 @@
   gap: 10px;
   overflow-y: scroll;
 }
-.dividerText{
-display: flex;
-flex-direction: column;
+
+.dividerText {
+  display: flex;
+  flex-direction: column;
 }
 
-.tokenSpecificLeftContainer{
+.tokenSpecificLeftContainer {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
@@ -23,7 +24,7 @@ flex-direction: column;
   width: 758px;
 }
 
-.tokenSpecificHeader{
+.tokenSpecificHeader {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,7 +32,7 @@ flex-direction: column;
   gap: 20px;
 }
 
-.tokenSpecificGraphContainer{
+.tokenSpecificGraphContainer {
   border-style: solid;
   border-color: #25282F;
   border-width: 1px;
@@ -44,7 +45,7 @@ flex-direction: column;
   gap: 10px;
 }
 
-.headerGraphContainer{
+.headerGraphContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -52,7 +53,7 @@ flex-direction: column;
   gap: 15px;
 }
 
-.tokenSpecificGraphInfo{
+.tokenSpecificGraphInfo {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -61,13 +62,13 @@ flex-direction: column;
   gap: 20px;
 }
 
-.tokenSpecificButtonRow{
+.tokenSpecificButtonRow {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 
-.tokenSpecificButtonRow button{
+.tokenSpecificButtonRow button {
   background-color: transparent;
   border: 1px solid transparent;
   color: white;
@@ -80,15 +81,15 @@ flex-direction: column;
   line-height: 22px;
 }
 
-.tokenSpecificButtonRow button:hover{
+.tokenSpecificButtonRow button:hover {
   background-color: rgba(230, 168, 40, 0.5);
 }
 
-.tokenSpecificActiveButton{
-  background-color: rgba(230, 168, 40, 1)!important;
+.tokenSpecificActiveButton {
+  background-color: rgba(230, 168, 40, 1) !important;
 }
 
-.tokenSpecificGraphRender{
+.tokenSpecificGraphRender {
   width: 758px;
   height: 379px;
   padding-left: 30px;
@@ -105,7 +106,7 @@ flex-direction: column;
   --bs-table-hover-color: #ffffff;
   color: #ffffff;
   border-color: #000000;
-  margin: 0px!important;
+  margin: 0px !important;
 }
 
 .table-dark-stats {
@@ -124,19 +125,19 @@ flex-direction: column;
   border-radius: 10px;
 }
 
-.tokenSpecificCoinStats{
+.tokenSpecificCoinStats {
   gap: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.tokenSpecificCoinStats header{
+.tokenSpecificCoinStats header {
   font-weight: 400;
   font-size: 24px;
   line-height: 100%;
 }
 
-.tokenSpecificCoinStats text{
+.tokenSpecificCoinStats text {
   font-weight: 600;
   font-size: 12px;
   line-height: 100%;
@@ -156,7 +157,7 @@ flex-direction: column;
   width: 388px;
 }
 
-.tokenSpecificStats header{
+.tokenSpecificStats header {
   font-weight: 400;
   font-size: 24px;
   line-height: 100%;
@@ -169,20 +170,20 @@ flex-direction: column;
   justify-content: space-between;
 }
 
-.tokenSpecificStatsDiv header{
+.tokenSpecificStatsDiv header {
   font-weight: 700;
   font-size: 15px;
   line-height: 22px;
   color: white;
 }
 
-.tokenSpecificStatsDiv text{
+.tokenSpecificStatsDiv text {
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
 }
 
-.tokenSpecificRightContainer{
+.tokenSpecificRightContainer {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
@@ -191,7 +192,7 @@ flex-direction: column;
   width: 408px;
 }
 
-.tokenSpecificTableCoinsContainer{
+.tokenSpecificTableCoinsContainer {
   display: flex;
   border-style: solid;
   border-color: #25282F;
@@ -271,7 +272,7 @@ flex-direction: column;
 }
 
 .tokenSpecificGraphRenderTab {
-  width: 100vw!important;
+  width: 100vw !important;
   height: 50vw;
   padding-left: 30px;
   padding-right: 30px;
@@ -307,7 +308,7 @@ flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: 100%!important;
+  width: 100% !important;
 }
 
 /*Conditionals*/
@@ -317,25 +318,45 @@ flex-direction: column;
     display: none;
   }
 }
+
 @media (min-width: 1080px) {
   .tokenSpecificMainContainerTab {
-    display: none!important;
+    display: none !important;
   }
 }
+
 @media (max-width: 500px) {
   .tokenSpecificStats header {
-    font-size: 16px!important;
+    font-size: 16px !important;
   }
+
   .tokenSpecificCoinStats header {
-    font-size: 16px!important;
+    font-size: 16px !important;
   }
-  .tokenSpecificCoinStats text{
-    font-size: 10px!important;
+
+  .tokenSpecificCoinStats text {
+    font-size: 10px !important;
   }
+
   .tit {
-    font-size: 16px!important;
+    font-size: 16px !important;
   }
-  .tokenSpecificButtonRow button{
+
+  .tokenSpecificButtonRow button {
     font-size: 10px;
+  }
+
+  .tokenSpecificStatsDiv header {
+    font-size: 10px;
+  }
+
+  .tokenSpecificStatsDiv text {
+    font-size: 10px;
+  }
+  .gig {
+    font-size: 20px;
+  }
+  .med {
+    font-size: 15px;
   }
 }
