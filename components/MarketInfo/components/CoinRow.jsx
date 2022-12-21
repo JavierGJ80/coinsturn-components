@@ -77,10 +77,10 @@ const CoinRow = ({ coin, index }) => {
       <td
         className={
           coin.price_change_percentage_7d_in_currency > 0
-            ? "text-success"
-            : "text-danger"
+            ? "text-success hide-content"
+            : "text-danger hide-content"
         }>
-        <span className='hide-content'>
+        <span>
           {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
         </span>
       </td>
