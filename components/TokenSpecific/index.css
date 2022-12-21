@@ -271,8 +271,8 @@ flex-direction: column;
 }
 
 .tokenSpecificGraphRenderTab {
-  width: 758px !important;
-  height: 379px;
+  width: 100vw!important;
+  height: 50vw;
   padding-left: 30px;
   padding-right: 30px;
 }
