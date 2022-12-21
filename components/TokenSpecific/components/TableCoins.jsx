@@ -14,7 +14,7 @@ const TableCoins = ({ coins }) => {
             lineHeight: "100%",
             color: "rgba(174, 174, 174, 1)",
           }}>
-          <td colSpan={3} style={{ paddingLeft: "20px" }}>
+          <td className='tit' colSpan={3} style={{ paddingLeft: "20px" }}>
             {"Top Crypto"}
           </td>
         </tr>
