@@ -1,25 +1,30 @@
-.tokenSpecificMainContainerTab{
-  width: 780px;
+.tokenSpecificMainContainer {
+  width: 100%;
   height: 100%;
   font-family: "Poppins";
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   overflow-y: scroll;
 }
 
-.tokenSpecificLeftContainerTab{
+.dividerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.tokenSpecificLeftContainer {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   gap: 10px;
-  width: 390;
+  width: 758px;
 }
 
-.tokenSpecificHeaderTab{
+.tokenSpecificHeader {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,7 +32,7 @@
   gap: 20px;
 }
 
-.tokenSpecificGraphContainerTab{
+.tokenSpecificGraphContainer {
   border-style: solid;
   border-color: #25282F;
   border-width: 1px;
@@ -38,10 +43,9 @@
   padding-top: 30px;
   padding-bottom: 10px;
   gap: 10px;
-  width: 360;
 }
 
-.headerGraphContainerTab{
+.headerGraphContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -49,7 +53,7 @@
   gap: 15px;
 }
 
-.tokenSpecificGraphInfoTab{
+.tokenSpecificGraphInfo {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -58,13 +62,13 @@
   gap: 20px;
 }
 
-.tokenSpecificButtonRowTab{
+.tokenSpecificButtonRow {
   display: flex;
   justify-content: space-around;
-  width:758!important;
+  width: 100%;
 }
 
-.tokenSpecificButtonRow button{
+.tokenSpecificButtonRow button {
   background-color: transparent;
   border: 1px solid transparent;
   color: white;
@@ -77,16 +81,16 @@
   line-height: 22px;
 }
 
-.tokenSpecificButtonRow button:hover{
+.tokenSpecificButtonRow button:hover {
   background-color: rgba(230, 168, 40, 0.5);
 }
 
-.tokenSpecificActiveButton{
-  background-color: rgba(230, 168, 40, 1)!important;
+.tokenSpecificActiveButton {
+  background-color: rgba(230, 168, 40, 1) !important;
 }
 
-.tokenSpecificGraphRenderTab{
-  width: 758px!important;
+.tokenSpecificGraphRender {
+  width: 758px;
   height: 379px;
   padding-left: 30px;
   padding-right: 30px;
@@ -102,7 +106,7 @@
   --bs-table-hover-color: #ffffff;
   color: #ffffff;
   border-color: #000000;
-  margin: 0px!important;
+  margin: 0px !important;
 }
 
 .table-dark-stats {
@@ -116,31 +120,31 @@
   color: #ffffff;
   border-color: #272525;
   height: 300px;
-  width: 390px!important;
+  width: 400px;
   border-style: solid;
   border-radius: 10px;
 }
 
-.tokenSpecificCoinStats{
+.tokenSpecificCoinStats {
   gap: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.tokenSpecificCoinStats header{
+.tokenSpecificCoinStats header {
   font-weight: 400;
   font-size: 24px;
   line-height: 100%;
 }
 
-.tokenSpecificCoinStats text{
+.tokenSpecificCoinStats text {
   font-weight: 600;
   font-size: 12px;
   line-height: 100%;
   color: rgba(174, 174, 174, 1);
 }
 
-.tokenSpecificStatsTab {
+.tokenSpecificStats {
   display: flex;
   flex-direction: column;
   border-style: solid;
@@ -150,15 +154,10 @@
   padding: 20px;
   justify-content: space-between;
   height: 408px;
-  width: 100%!important;
+  width: 388px;
 }
 
-.dividerText{
-display: flex;
-flex-direction: column;
-}
-
-.tokenSpecificStats header{
+.tokenSpecificStats header {
   font-weight: 400;
   font-size: 24px;
   line-height: 100%;
@@ -171,29 +170,29 @@ flex-direction: column;
   justify-content: space-between;
 }
 
-.tokenSpecificStatsDiv header{
-  font-weight: 390;
+.tokenSpecificStatsDiv header {
+  font-weight: 700;
   font-size: 15px;
   line-height: 22px;
   color: white;
 }
 
-.tokenSpecificStatsDiv text{
+.tokenSpecificStatsDiv text {
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
 }
 
-.tokenSpecificRightContainerTab{
+.tokenSpecificRightContainer {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   gap: 20px;
   align-content: flex-start;
-  width: 360px;
+  width: 408px;
 }
 
-.tokenSpecificTableCoinsContainerTab{
+.tokenSpecificTableCoinsContainer {
   display: flex;
   border-style: solid;
   border-color: #25282F;
@@ -201,5 +200,181 @@ flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: 740px!important;
+  width: 388px;
+}
+
+/* Tablet config */
+
+.tokenSpecificMainContainerTab {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins";
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.tokenSpecificLeftContainerTab {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 10px;
+  width: 390;
+}
+
+.tokenSpecificHeaderTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap: 20px;
+}
+
+.tokenSpecificGraphContainerTab {
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 10px;
+  width: 360;
+}
+
+.headerGraphContainerTab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 30px;
+  gap: 15px;
+}
+
+.tokenSpecificGraphInfoTab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+}
+
+.tokenSpecificButtonRowTab {
+  display: flex;
+  justify-content: space-around;
+  width: 758 !important;
+}
+
+.tokenSpecificGraphRenderTab {
+  width: 100vw !important;
+  height: 50vw;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.tokenSpecificStatsTab {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #25282F;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 20px;
+  justify-content: space-between;
+  height: 408px;
+  width: 100% !important;
+}
+
+.tokenSpecificRightContainerTab {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.tokenSpecificTableCoinsContainerTab {
+  display: flex;
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 20px;
+  width: 100% !important;
+}
+
+/*Conditionals*/
+
+@media (max-width: 1080px) {
+  .tokenSpecificMainContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 1080px) {
+  .tokenSpecificMainContainerTab {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .tokenSpecificStats header {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificCoinStats header {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificCoinStats text {
+    font-size: 10px !important;
+  }
+
+  .tit {
+    font-size: 16px !important;
+  }
+
+  .tokenSpecificButtonRow button {
+    font-size: 10px !important;
+  }
+
+  .tokenSpecificStatsDiv header {
+    font-size: 10px !important;
+  }
+
+  .tokenSpecificStatsDiv text {
+    font-size: 10px !important;
+  }
+
+  .gig {
+    font-size: 20px !important;
+  }
+
+  .med {
+    font-size: 15px !important;
+  }
+
+  .normal {
+    font-size: 10px !important;
+  }
+
+  .img {
+    width: 10% !important;
+  }
+
+  .tokenSpecificMainContainerTab {
+    gap: 3px !important;
+  }
+
+  .tokenSpecificStatsTab {
+    height: 250px !important;
+  }
 }
