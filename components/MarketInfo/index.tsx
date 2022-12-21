@@ -41,9 +41,6 @@ const MarketInfo = (props: MarketInfoProps) => {
 
         <TableCoins coins={coins} search={search} />
       </div>
-      <div className="tokenSpecificTableCoinsContainerMob">
-      <TableCoinsTwo coins={coins}/>
-      </div>
     </div>
   );
 };
