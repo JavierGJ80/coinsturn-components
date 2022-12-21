@@ -11,7 +11,7 @@ const CoinRow = ({ coin, index }) => {
         <img
           src={coin.image}
           alt=''
-          className='img-fluid me-4'
+          className='img-fluid me-4 img'
           style={{ width: "25%" }}
         />
         <td style={{ display: "flex", flexDirection: "column" }}>
