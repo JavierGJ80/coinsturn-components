@@ -201,3 +201,124 @@ flex-direction: column;
   padding-top: 20px;
   width: 388px;
 }
+
+/* Tablet config */
+
+.tokenSpecificMainContainerTab {
+  width: 780px;
+  height: 100%;
+  font-family: "Poppins";
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.tokenSpecificLeftContainerTab {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 10px;
+  width: 390;
+}
+
+.tokenSpecificHeaderTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap: 20px;
+}
+
+.tokenSpecificGraphContainerTab {
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 10px;
+  width: 360;
+}
+
+.headerGraphContainerTab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 30px;
+  gap: 15px;
+}
+
+.tokenSpecificGraphInfoTab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+}
+
+.tokenSpecificButtonRowTab {
+  display: flex;
+  justify-content: space-around;
+  width: 758 !important;
+}
+
+.tokenSpecificGraphRenderTab {
+  width: 758px !important;
+  height: 379px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.tokenSpecificStatsTab {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #25282F;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 20px;
+  justify-content: space-between;
+  height: 408px;
+  width: 100% !important;
+}
+
+.tokenSpecificRightContainerTab {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-content: flex-start;
+  width: 360px;
+}
+
+.tokenSpecificTableCoinsContainerTab {
+  display: flex;
+  border-style: solid;
+  border-color: #25282F;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 20px;
+  width: 740px !important;
+}
+
+/*Conditionals*/
+
+@media (max-width: 1080px) {
+  .tokenSpecificMainContainer {
+    display: none;
+  }
+}
+@media (max-width: 750px) and (max-width: 1080px) {
+  .tokenSpecificMainContainerTab {
+    display: none;
+  }
+}
