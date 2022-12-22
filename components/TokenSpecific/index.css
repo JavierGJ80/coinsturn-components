@@ -1,3 +1,9 @@
+.full-component {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
 .tokenSpecificMainContainer {
   width: 100%;
   height: 100%;
