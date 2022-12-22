@@ -112,7 +112,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
   }, [time]);
 
   return (
-    <div>
+    <div className="full-component">
       <div className="tokenSpecificMainContainer" style={{ backgroundColor :  backgroundColor, color : fontColor }}>
         <div className="tokenSpecificLeftContainer">
           <div className="tokenSpecificHeader">
