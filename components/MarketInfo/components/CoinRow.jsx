@@ -41,7 +41,8 @@ const CoinRow = ({ coin, index }) => {
       onClick={(e) => {
         history.push(`/markets/${coin.id}/token`);
         console.log(`New route /${coin.id}`);
-      }}>
+      }}
+      style={{ cursor: "pointer" }}>
       <td className='text-muted'>{index}</td>
       <td style={{ display: "flex", displayDirection: "row" }}>
         <img
@@ -57,7 +58,7 @@ const CoinRow = ({ coin, index }) => {
       </td>
 
       <td className='hide-content'>
-        <span>
+        <span style={{ cursor: "pointer" }}>
           <LineChart width={80} height={45} data={data}>
             <Line dataKey='uv' stroke={color} dot={false} />
             <YAxis
