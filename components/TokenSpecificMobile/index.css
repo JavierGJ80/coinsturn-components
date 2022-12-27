@@ -2,6 +2,7 @@
   position: absolute;
   left: 0px;
   top: 0px;
+  width: 100%;
 }
 
 .tokenSpecificMainContainer {
@@ -14,6 +15,7 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  justify-content: center;
 }
 
 .dividerText {
