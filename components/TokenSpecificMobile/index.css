@@ -16,6 +16,7 @@
   flex-direction: row;
   gap: 10px;
   justify-content: center;
+  color: white;
 }
 
 .dividerText {
@@ -222,6 +223,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: white;
 }
 
 .tokenSpecificLeftContainerTab {
