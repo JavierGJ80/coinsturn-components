@@ -278,8 +278,7 @@
 }
 
 .tokenSpecificGraphRenderTab {
-  width: 100vw !important;
-  height: 50vw;
+  width: 100% !important;
   padding-left: 30px;
   padding-right: 30px;
 }
