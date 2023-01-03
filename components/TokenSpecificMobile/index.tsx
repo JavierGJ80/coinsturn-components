@@ -126,7 +126,7 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           
           <header style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
           <div className="tokenSpecificStatsDiv">
-            <header>{`Precio de ${asset}`}</header>
+            <header>{`Precio de ${coin.name}`}</header>
             {/* @ts-ignore */}
             <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
           </div>
@@ -158,7 +158,7 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           <div className="tokenSpecificStatsDiv">
             <header>{"Total en circulación"}</header>
             {/* @ts-ignore */}
-            <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null ')} {stats.symbol}</text>
+            <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
           </div>
           
         </div>
@@ -220,12 +220,12 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           </div>
         </div>
         <div className="tokenSpecificCoinStats">
-          <header>{`¿Qué es ${asset}?`}</header>
+          <header>{`¿Qué es ${coin.name}?`}</header>
           {/* @ts-ignore */}
-          <text>{coinDescription[asset].es}</text>
-          <header>{`El precio de ${asset} `}</header>
+          <text>{coinDescription[coin.name].es}</text>
+          <header>{`El precio de ${coin.name} `}</header>
           {/* @ts-ignore */}
-          <text>{`El precio de ${asset} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+          <text>{`El precio de ${coin.name} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
         </div>
       </div>
       <div className="tokenSpecificRightContainerTab">
