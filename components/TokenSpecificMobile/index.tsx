@@ -143,7 +143,7 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           <div className="tokenSpecificStatsDiv">
             <header>{"Volumen de comercio"}</header>
             {/* @ts-ignore */}
-            <text>{prettifyNumber(stats.total_volume, 2, 'null', 'null')} </text>
+            <text>{prettifyNumber(stats.total_volume, 2, 'null', '$ ')} </text>
           </div>
           <div className="tokenSpecificStatsDiv">
             <header>{"Máximo en 24h"}</header>
@@ -158,13 +158,13 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           <div className="tokenSpecificStatsDiv">
             <header>{"Total en circulación"}</header>
             {/* @ts-ignore */}
-            <text>{prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} {stats.symbol}</text>
+            <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null ')} {stats.symbol}</text>
           </div>
           
         </div>
         <div className="tokenSpecificGraphContainerTab">
           <div className="headerGraphContainerTab">
-            <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
+            <text style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
             <div className="tokenSpecificGraphInfo">
               <text style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
               <text style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
@@ -220,7 +220,7 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
           </div>
         </div>
         <div className="tokenSpecificCoinStats">
-          <header>{`¿Que es ${asset}?`}</header>
+          <header>{`¿Qué es ${asset}?`}</header>
           {/* @ts-ignore */}
           <text>{coinDescription[asset].es}</text>
           <header>{`El precio de ${asset} `}</header>
