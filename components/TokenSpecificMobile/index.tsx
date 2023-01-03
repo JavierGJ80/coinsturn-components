@@ -222,7 +222,7 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
         <div className="tokenSpecificCoinStats">
           <header>{`¿Qué es ${coin.name}?`}</header>
           {/* @ts-ignore */}
-          <text>{coinDescription[coin.name].es}</text>
+          <text>{coinDescription[asset].es}</text>
           <header>{`El precio de ${coin.name} `}</header>
           {/* @ts-ignore */}
           <text>{`El precio de ${coin.name} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
