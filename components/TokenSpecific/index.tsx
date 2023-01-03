@@ -123,7 +123,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             </div>
           </div>
           <div className="tokenSpecificGraphContainer">
-            <div className="headerGraphContainer">
+            <div className="headerGraphContainerTab">
               <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text className="gig" style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
@@ -284,7 +284,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             
           </div>
           <div className="tokenSpecificGraphContainerTab">
-            <div className="headerGraphContainerTab">
+            <div className="headerGraphContainerDesk">
               <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text className="gig" style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
