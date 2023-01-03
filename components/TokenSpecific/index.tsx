@@ -124,7 +124,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
           <div className="tokenSpecificGraphContainer">
             <div className="headerGraphContainer">
-              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset.replace("-"," ").replace("-"," ")}`: `${asset.replace("-"," ").replace("-"," ")} price`}</text>
+              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text className="gig" style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
                 <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
@@ -180,12 +180,12 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             </div>
           </div>
           <div className="tokenSpecificCoinStats">
-            <header>{`¿Que es ${asset.replace("-"," ").replace("-"," ")}?`}</header>
+            <header>{`¿Qué es ${coin.name}?`}</header>
             {/* @ts-ignore */}
             <text>{(coinDescription[asset]?coinDescription[asset][language] : " ")}</text>
-            <header>{`El precio de ${asset.replace("-"," ").replace("-"," ")} `}</header>
+            <header>{`El precio de ${coin.name} `}</header>
             {/* @ts-ignore */}
-            <text>{`El precio de ${asset.replace("-"," ").replace("-"," ")} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset.replace("-"," ").replace("-"," ")}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+            <text>{`El precio de ${coin.name} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
           </div>
         </div>
         <div className="tokenSpecificRightContainer">
@@ -193,7 +193,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             
             <header className="tit" style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
             <div className="tokenSpecificStatsDiv">
-              <header>{`Precio de ${asset.replace("-"," ")}`}</header>
+              <header>{`Precio de ${coin.name}`}</header>
               {/* @ts-ignore */}
               <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
             </div>
@@ -210,7 +210,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             <div className="tokenSpecificStatsDiv">
               <header>{"Volumen de comercio"}</header>
               {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.total_volume, 2, 'null', 'null')} </text>
+              <text>{prettifyNumber(stats.total_volume, 2, 'null', '$ ')} </text>
             </div>
             <div className="tokenSpecificStatsDiv">
               <header>{"Máximo en 24h"}</header>
@@ -225,7 +225,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             <div className="tokenSpecificStatsDiv">
               <header>{"Total en circulación"}</header>
               {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} {stats.symbol}</text>
+              <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
             </div>
           </div>
           <div className="tokenSpecificTableCoinsContainer">
@@ -285,7 +285,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
           <div className="tokenSpecificGraphContainerTab">
             <div className="headerGraphContainerTab">
-              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
+              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
               <div className="tokenSpecificGraphInfo">
                 <text className="gig" style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
                 <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>

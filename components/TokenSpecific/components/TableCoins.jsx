@@ -15,7 +15,7 @@ const TableCoins = ({ coins }) => {
             color: "rgba(174, 174, 174, 1)",
           }}>
           <td className='tit' colSpan={3} style={{ paddingLeft: "20px" }}>
-            {"Top Crypto"}
+            {"Top Performers"}
           </td>
         </tr>
       </thead>
