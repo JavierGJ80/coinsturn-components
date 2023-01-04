@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import "react-datepicker/dist/react-datepicker.css";
+import "./index.css";
 export interface DateInputProps {
     fontColor: string;
     onChange: (params: any) => void;
