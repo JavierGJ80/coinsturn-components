@@ -40,7 +40,7 @@
     border-radius: 7px;
     border: solid 2px var(--brand) !important;
     background-color: rgb(123, 196, 133) !important;
-    color: var(--white) !important;
+    color: white !important;
     width: 30px;
     height: 30px;
   }
