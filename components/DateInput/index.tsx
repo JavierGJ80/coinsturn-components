@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import subDays from "date-fns/subDays";
 import CSS from 'csstype';
+import "./index.css";
 
 export interface DateInputProps {
     fontColor : string,
@@ -24,6 +25,7 @@ const DateInput = (props: DateInputProps) => {
 
     const DateInput = forwardRef<HTMLButtonElement>(({ value, onClick }:any, ref) => (
     <button  style={DateInputCss} className="DateInputCss" onClick={onClick} ref={ref}>
+        
       {value}
     </button>
   ));
