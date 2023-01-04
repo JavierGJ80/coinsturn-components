@@ -9,7 +9,7 @@ export interface DateInputProps {
     onChange : (params: any) => void
     
 }
-const SubDays = (new Date)
+
 
 const DateInput = (props: DateInputProps) => {
     const { fontColor, onChange } = props;
@@ -34,7 +34,9 @@ const DateInput = (props: DateInputProps) => {
 
     
     return (
+
         <DatePicker
+      customInput={<DateInput/>}
       selected={startDate}
       onChange={(date:Date) => setStartDate(date)}
       minDate={subDays(new Date(), 365)}
