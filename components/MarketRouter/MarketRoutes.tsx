@@ -9,17 +9,17 @@ import TokenSpecific from "../TokenSpecific";
 
 interface MarketRoutesProps {
   resPartner : [{[key:string] : any;}];
-  theme : string;
 }
 
 function MarketRoutes(props: MarketRoutesProps) {
-    const { theme, resPartner } = props
+    const { resPartner } = props
     const location = useLocation()
+    const theme = resPartner[0].coinsturn_theme
    
     return (
         <Switch>
             <Route exact path="/markets/:asset/token" component={() => <TokenSpecific theme={theme} resPartner={resPartner}/>}/>
-            <Route exact path="/markets" component={MarketInfo}/>
+            <Route exact path="/markets" component={() => <MarketInfo theme={theme}/>}/>
         </Switch>
     );
 }
