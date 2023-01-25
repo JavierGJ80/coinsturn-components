@@ -267,7 +267,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
         </div>
 
         {/* @ts-ignore */}
-        <div className="tokenSpecificMainContainerTab" style={{ backgroundColor :  ColorTheme.background[theme], "color":ColorTheme.text[theme] }}>
+        <div className="tokenSpecificMainContainerTab" style={{ backgroundColor :  ColorTheme.content[theme], "color":ColorTheme.text[theme] }}>
           <div className="tokenSpecificLeftContainerTab">
           <div className="tokenSpecificHeaderTab">
               <img src={coin.image} style={{width:"60px", height:"60px"}}></img>

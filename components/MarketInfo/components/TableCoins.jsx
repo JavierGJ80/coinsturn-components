@@ -3,18 +3,22 @@ import CoinRow from "./CoinRow";
 import ColorTheme from "./ColorTheme.json";
 
 const titles = [
-  "#",
-  "Activo",
-  "Ultimos 7 días",
-  "Precio",
-  "Ultimos 7 días",
-  "Volumen 24h",
-  "Cap. de mercado",
+  { es: "#", en: "#" },
+  { es: "Activo", en: "Token" },
+  { es: "Ultimos 7 días", en: "Las 7 days" },
+  { es: "Precio", en: "Price" },
+  { es: "Ultimos 7 días", en: "Las 7 days" },
+  { es: "Volumen 24h", en: "24h Volume" },
+  { es: "Cap. de mercado", en: "Market cap." },
 ];
 
-const showTitles = ["#", "Activo", "Precio"];
+const showTitles = [
+  { es: "#", en: "#" },
+  { es: "Activo", en: "Token" },
+  { es: "Precio", en: "Price" },
+];
 
-const TableCoins = ({ coins, search, theme }) => {
+const TableCoins = ({ coins, search, theme, language }) => {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -34,7 +38,7 @@ const TableCoins = ({ coins, search, theme }) => {
               style={{ "--bs-table-bg": ColorTheme.background[theme] }}
               key={i}
               className={showTitles.includes(title) ? "" : "hide-content"}>
-              {title}
+              {title[language]}
             </td>
           ))}
         </tr>
