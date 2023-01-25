@@ -11,7 +11,7 @@ import ColorTheme from "./ColorTheme.json";
 
 const CoinRow = ({ coin, index, theme }) => {
   const history = useHistory();
-  //const location = useLocation();
+  const location = useLocation();
   const data = [];
 
   for (

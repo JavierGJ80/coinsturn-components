@@ -43,10 +43,7 @@ const timeList: any = {
 };
 
 export interface TokenSpecificProps {
-  backgroundColor : string;
-  fontColor : string;
   resPartner : [{[key:string] : any;}];
-  asset : string;
   theme: string;
 }
 
@@ -57,8 +54,8 @@ interface Coin {
 }
 
 const TokenSpecific = (props: TokenSpecificProps) => {
-  const { backgroundColor, fontColor, resPartner, asset, theme } = props
-  //const { asset } = useParams<{ asset : string }>();
+  const { resPartner, theme } = props
+  const { asset } = useParams<{ asset : string }>();
   const [coin, setCoin] = useState<Coin>({});
   const [time, setTime] = useState('d');
   const [graphData, setGraphData] = useState([1]);
