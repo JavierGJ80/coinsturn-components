@@ -16,7 +16,7 @@
   flex-direction: row;
   gap: 10px;
   justify-content: center;
-  color:#ffffff
+  color: #ffffff
 }
 
 .dividerText {
@@ -379,6 +379,6 @@
   }
 
   .tokenSpecificStatsTab {
-    height: 250px!important;
+    height: 250px !important;
   }
 }

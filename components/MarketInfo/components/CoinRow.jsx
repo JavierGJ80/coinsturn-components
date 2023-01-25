@@ -7,10 +7,11 @@ import {
   withRouter,
   useLocation,
 } from "react-router-dom";
+import ColorTheme from "./ColorTheme.json";
 
-const CoinRow = ({ coin, index }) => {
+const CoinRow = ({ coin, index, theme }) => {
   const history = useHistory();
-  const location = useLocation();
+  //const location = useLocation();
   const data = [];
 
   for (
@@ -41,8 +42,15 @@ const CoinRow = ({ coin, index }) => {
       onClick={(e) => {
         history.push(`/markets/${coin.id}/token`);
       }}
-      style={{ cursor: "pointer" }}>
-      <td className='text-muted'>{index}</td>
+      style={{
+        cursor: "pointer",
+        "--bs-table-bg": ColorTheme.background[theme],
+        "--bs-table-hover-bg": ColorTheme.hover[theme],
+        borderColor: ColorTheme.strokes[theme],
+      }}>
+      <td className='text-muted' style={{}}>
+        {index}
+      </td>
       <td style={{ display: "flex", displayDirection: "row" }}>
         <img
           src={coin.image}
@@ -51,7 +59,7 @@ const CoinRow = ({ coin, index }) => {
           style={{ width: "60px", height: "60px" }}
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span>{coin.name}</span>
+          <span style={{ color: ColorTheme.text[theme] }}>{coin.name}</span>
           <span className='text-muted'>{coin.symbol}</span>
         </div>
       </td>
@@ -74,7 +82,9 @@ const CoinRow = ({ coin, index }) => {
 
       <td>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span>${coin.current_price.toLocaleString()}</span>
+          <span style={{ color: ColorTheme.text[theme] }}>
+            ${coin.current_price.toLocaleString()}
+          </span>
           <span
             className={
               coin.price_change_percentage_7d_in_currency > 0
@@ -97,8 +107,12 @@ const CoinRow = ({ coin, index }) => {
         </span>
       </td>
 
-      <td className='hide-content'>${coin.total_volume.toLocaleString()}</td>
-      <td className='hide-content'>${coin.market_cap.toLocaleString()}</td>
+      <td style={{ color: ColorTheme.text[theme] }} className='hide-content'>
+        ${coin.total_volume.toLocaleString()}
+      </td>
+      <td style={{ color: ColorTheme.text[theme] }} className='hide-content'>
+        ${coin.market_cap.toLocaleString()}
+      </td>
     </tr>
   );
 };

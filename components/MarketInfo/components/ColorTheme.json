@@ -1,0 +1,59 @@
+{
+   "background" : {
+      "light" : "#FFFFFF",
+      "dark" : "#000000"
+  },
+  "notifications" : {
+      "light" : "#DFDFDF",
+      "dark" : "#101115"
+  },
+  "content" : {
+      "light" : "#F5F5F5",
+      "dark" : "#000000"
+  },
+  "text" : {
+      "light" : "#5D626D",
+      "dark" : "#FFFFFF"
+  },
+  "textgray" : {
+      "light" : "#AEAEAE",
+      "dark" : "#AEAEAE"
+  },
+  "titles" : {
+      "light" : "#5D626D",
+      "dark" : "#AEAEAE"
+  },
+  "strokes" : {
+      "light" : "#E4E6EA",
+      "dark" : "#25282F"
+  },
+  "numbers" : {
+      "light" : "#25282F",
+      "dark" : "#FFFFFF"
+  },
+  "hover" : {
+      "light" : "#CACACA",
+      "dark" : "#1C1C1C"
+  },
+  "click" : {
+      "light" : "#B4B4B4",
+      "dark" : "#25282F"
+  },
+  "modal" : {
+      "light" : "#F5F5F5",
+      "dark" : "#1F2024"
+  },
+  "stateline" : {
+      "light" : "#000000",
+      "dark" : "#FFFFFF"
+  },
+  "statext" : {
+      "light" : "#000000",
+      "dark" : "#FFFFFF"
+  },
+  "default" : {
+      "light" : "#FFFFFF",
+      "dark" : "#000000"
+  }
+}
+  

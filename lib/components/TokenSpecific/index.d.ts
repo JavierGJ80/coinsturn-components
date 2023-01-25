@@ -7,6 +7,8 @@ export interface TokenSpecificProps {
     resPartner: [{
         [key: string]: any;
     }];
+    asset: string;
+    theme: string;
 }
 declare const TokenSpecific: (props: TokenSpecificProps) => JSX.Element;
 export default TokenSpecific;

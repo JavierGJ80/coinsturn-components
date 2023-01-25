@@ -1,5 +1,6 @@
 import React from "react";
 import CoinRow from "./CoinRow";
+import ColorTheme from "./ColorTheme.json";
 
 const titles = [
   "#",
@@ -13,7 +14,7 @@ const titles = [
 
 const showTitles = ["#", "Activo", "Precio"];
 
-const TableCoins = ({ coins, search }) => {
+const TableCoins = ({ coins, search, theme }) => {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -23,9 +24,14 @@ const TableCoins = ({ coins, search }) => {
   return (
     <table className='table table-dark-coinsturn mt-4 table-hover'>
       <thead>
-        <tr>
+        <tr
+          style={{
+            color: ColorTheme.text[theme],
+            borderColor: ColorTheme.strokes[theme],
+          }}>
           {titles.map((title, i) => (
             <td
+              style={{ "--bs-table-bg": ColorTheme.background[theme] }}
               key={i}
               className={showTitles.includes(title) ? "" : "hide-content"}>
               {title}
@@ -35,7 +41,7 @@ const TableCoins = ({ coins, search }) => {
       </thead>
       <tbody>
         {filteredCoins.map((coin, index) => (
-          <CoinRow key={coin.id} coin={coin} index={index + 1} />
+          <CoinRow key={coin.id} coin={coin} index={index + 1} theme={theme} />
         ))}
       </tbody>
     </table>

@@ -8,6 +8,7 @@ import { ChartType } from "defi-sdk/lib/entities/Chart";
 import coinDescription from "./diccionario.json";
 import TableCoins from "./components/TableCoins";
 import { useParams } from "react-router-dom"
+import ColorTheme from "../MarketInfo/components/ColorTheme.json";
 
 import {
   Chart as ChartJS,
@@ -45,6 +46,8 @@ export interface TokenSpecificProps {
   backgroundColor : string;
   fontColor : string;
   resPartner : [{[key:string] : any;}];
+  asset : string;
+  theme: string;
 }
 
 interface Coin {
@@ -54,8 +57,8 @@ interface Coin {
 }
 
 const TokenSpecific = (props: TokenSpecificProps) => {
-  const { backgroundColor, fontColor, resPartner } = props
-  const { asset } = useParams<{ asset : string }>();
+  const { backgroundColor, fontColor, resPartner, asset, theme } = props
+  //const { asset } = useParams<{ asset : string }>();
   const [coin, setCoin] = useState<Coin>({});
   const [time, setTime] = useState('d');
   const [graphData, setGraphData] = useState([1]);
@@ -64,7 +67,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
   const [color,setColor] = useState("");
   const [data,setData] =useState<{[key:string] : any}[]>([]);
   const [coins, setCoins] = useState([]);
-  const language = resPartner[0].language
+  const language = resPartner[0].coinsturn_language
 
   const getData = async () => {
     try {
@@ -112,252 +115,311 @@ const TokenSpecific = (props: TokenSpecificProps) => {
   }, [time]);
 
   return (
-    <div className="full-component">
-      <div className="tokenSpecificMainContainer" style={{ backgroundColor :  backgroundColor, color : fontColor }}>
-        <div className="tokenSpecificLeftContainer">
-          <div className="tokenSpecificHeader">
-            <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
-            <div className="dividerText">
-            <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
-            <span className='text-muted'>{coin.symbol}</span>
-            </div>
-          </div>
-          <div className="tokenSpecificGraphContainer">
-            <div className="headerGraphContainerTab">
-              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${asset}`: `${asset} price`}</text>
-              <div className="tokenSpecificGraphInfo">
-                <text className="gig" style={{fontWeight:600, fontSize:"40px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
-                <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
-                  {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
-                </text>
+    <div>
+      {/* @ts-ignore */}
+      <div className="full-component" style={{"backgroundColor":ColorTheme.content[theme]}}>
+        <div className="tokenSpecificMainContainer">
+          <div className="tokenSpecificLeftContainer">
+            <div className="tokenSpecificHeader">
+              <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
+              <div className="dividerText">
+                {/* @ts-ignore */}
+              <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.numbers[theme]}}>{coin.name}</span>
+              <span className='text-muted'>{coin.symbol}</span>
               </div>
             </div>
-            <div className="tokenSpecificGraphRender">
-              <ChartJsLine
-                data={{
-                  labels: graphLabels,
-                  datasets: [
-                    {
-                      label: asset,
-                      data: graphData,
-                      // @ts-ignore
-                      borderColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
-                      // @ts-ignore
-                      backgroundColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
-                      tension: 0.2,
-                      pointRadius: 0,
-                      pointHitRadius : 8
-                    },
-                  ],
-                }}
-                options={{
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                  },
-                  scales: {
-                    xAxes: {
-                      display: false,
-                    },
-                    yAxes: {
-                      beginAtZero: false,
-                      grid: {
-                        drawOnChartArea: false,
+            {/* @ts-ignore */}
+            <div className="tokenSpecificGraphContainer" style={{"backgroundColor":ColorTheme.background[theme],"borderColor":ColorTheme.strokes[theme]}}>
+              <div className="headerGraphContainerTab">
+                {/* @ts-ignore */}
+                <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
+                <div className="tokenSpecificGraphInfo">
+                  {/* @ts-ignore */}
+                  <text className="gig" style={{fontWeight:600, fontSize:"40px", lineHeight:"100%", "color":ColorTheme.numbers[theme]}}>{prettifyNumber(coin.current_price, 2, 'null', '$')}</text>
+                  <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:"#7ac486"}}>
+                    {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
+                  </text>
+                </div>
+              </div>
+              <div className="tokenSpecificGraphRender">
+                <ChartJsLine
+                  data={{
+                    labels: graphLabels,
+                    datasets: [
+                      {
+                        label: asset,
+                        data: graphData,
+                        // @ts-ignore
+                        borderColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
+                        // @ts-ignore
+                        backgroundColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
+                        tension: 0.2,
+                        pointRadius: 0,
+                        pointHitRadius : 8
+                      },
+                    ],
+                  }}
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: false,
                       },
                     },
-                  },
-                }}
-                redraw={false}
-              />
+                    scales: {
+                      xAxes: {
+                        display: false,
+                      },
+                      yAxes: {
+                        beginAtZero: false,
+                        grid: {
+                          drawOnChartArea: false,
+                        },
+                      },
+                    },
+                  }}
+                  redraw={false}
+                />
+              </div>
+              <div className="tokenSpecificButtonRow">
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'h'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('h')}>{language=="es"?"Hora":"Hour"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'd'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('d')}>{language=="es"?"Día":"Day"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'w'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('w')}>{language=="es"?"Semana":"Week"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'm'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('m')}>{language=="es"?"Mes":"Month"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'y'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('y')}>{language=="es"?"Año":"Year"}</button>
+              </div>
             </div>
-            <div className="tokenSpecificButtonRow">
-              <button className={time == 'h'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('h')}>Hour</button>
-              <button className={time == 'd'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('d')}>Day</button>
-              <button className={time == 'w'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('w')}>Week</button>
-              <button className={time == 'm'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('m')}>Month</button>
-              <button className={time == 'y'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('y')}>Year</button>
+            {/* @ts-ignore */}
+            <div className="tokenSpecificCoinStats" style={{"color":ColorTheme.text[theme]}}>
+              {/* @ts-ignore */}
+              <header style={{"color":ColorTheme.titles[theme]}}>{language=="es"?`¿Qué es ${coin.name}?`:`What is ${coin.name}?`}</header>
+              {/* @ts-ignore */}
+              <text>{(coinDescription[asset] ? coinDescription[asset][language] : " ")}</text>
+              {/* @ts-ignore */}
+              <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`El precio de ${coin.name}`:`Price of ${coin.name}`}</header>
+              {/* @ts-ignore */}
+              <text>{language=="es"?`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${coin.name}, Coinsturn es actualmente el mercado mas seguro.`:
+              /* @ts-ignore */
+              `${coin.name} price today is ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} with a 24-hour trade volume of ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')}. The price changed to ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} in the last 24 hours. It has a circulating supply of ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} ${stats.symbol} coins and a total supply of ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. If you want to buy ${coin.name}, Coinsturn is currently the safest marketplace.`}</text>
             </div>
           </div>
-          <div className="tokenSpecificCoinStats">
-            <header>{`¿Qué es ${coin.name}?`}</header>
+          <div className="tokenSpecificRightContainer">
             {/* @ts-ignore */}
-            <text>{(coinDescription[asset]?coinDescription[asset][language] : " ")}</text>
-            <header>{`El precio de ${coin.name} `}</header>
-            {/* @ts-ignore */}
-            <text>{`El precio de ${coin.name} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+          <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+              {/* @ts-ignore */}
+              <header className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language=="es"?"Estadísticas de precio":"Price stats"}</header>
+              {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?`Precio de ${coin.name}`:`${coin.name} price`}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div style={{"color":ColorTheme.text[theme]}} className="tokenSpecificStatsDiv">
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Capitalización de mercado":"Market capitalization"}</header>
+                {/* @ts-ignore */}
+                <text>${prettifyNumber(stats.market_cap, 0, 'null', 'null')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Ranking Capitalización de mercado":"Market capitalization ranking"}</header>
+                {/* @ts-ignore */}
+                <text># {stats.market_cap_rank}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Volumen de comercio":"Trade volume"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.total_volume, 2, 'null', '$ ')} </text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Máximo en 24h":"24h maximum"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.high_24h, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Mínimo en 24h":"24h minimum"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.low_24h, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Total en circulación":"Total circulation"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
+              </div>
+            </div>
+                {/* @ts-ignore */}
+            <div className="tokenSpecificTableCoinsContainer" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+              <TableCoins coins={coins} theme={theme}/>
+            </div>
           </div>
         </div>
-        <div className="tokenSpecificRightContainer">
-        <div className="tokenSpecificStatsTab">
-            
-            <header className="tit" style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
-            <div className="tokenSpecificStatsDiv">
-              <header>{`Precio de ${coin.name}`}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Capitalización de mercado"}</header>
-              {/* @ts-ignore */}
-              <text>${prettifyNumber(stats.market_cap, 0, 'null', 'null')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Ranking Capitalización de mercado"}</header>
-              {/* @ts-ignore */}
-              <text># {stats.market_cap_rank}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Volumen de comercio"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.total_volume, 2, 'null', '$ ')} </text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Máximo en 24h"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.high_24h, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Mínimo en 24h"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.low_24h, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Total en circulación"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
-            </div>
-          </div>
-          <div className="tokenSpecificTableCoinsContainer">
-            <TableCoins coins={coins}/>
-          </div>
-        </div>
-      </div>
 
-      <div className="tokenSpecificMainContainerTab" style={{ backgroundColor :  backgroundColor, color : fontColor }}>
-        <div className="tokenSpecificLeftContainerTab">
-        <div className="tokenSpecificHeaderTab">
-            <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
-            <div className="dividerText">
-            <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#FFFFFF"}}>{coin.name}</span>
-            <span className='text-muted'>{coin.symbol}</span>
-            </div>
-          </div>
-          <div className="tokenSpecificStatsTab">
-            
-            <header className="tit" style={{fontWeight:400, fontSize:"22px", lineHeight:"100%", color:"#AEAEAE"}}>Estadísticas de precio</header>
-            <div className="tokenSpecificStatsDiv">
-              <header>{`Precio de ${coin.name}`}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Capitalización de mercado"}</header>
-              {/* @ts-ignore */}
-              <text>${prettifyNumber(stats.market_cap, 0, 'null', 'null')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Ranking Capitalización de mercado"}</header>
-              {/* @ts-ignore */}
-              <text># {stats.market_cap_rank}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Volumen de comercio"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.total_volume, 2, 'null', 'null')} </text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Máximo en 24h"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.high_24h, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Mínimo en 24h"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.low_24h, 2, 'null', '$ ')}</text>
-            </div>
-            <div className="tokenSpecificStatsDiv">
-              <header>{"Total en circulación"}</header>
-              {/* @ts-ignore */}
-              <text>{prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} {stats.symbol}</text>
-            </div>
-            
-          </div>
-          <div className="tokenSpecificGraphContainerTab">
-            <div className="headerGraphContainerDesk">
-              <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE"}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
-              <div className="tokenSpecificGraphInfo">
-                <text className="gig" style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
-                <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:coin.price_change_percentage_7d_in_currency < 0 ? "#DF5656" : "#4CF049"}}>
-                  {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
-                </text>
+        {/* @ts-ignore */}
+        <div className="tokenSpecificMainContainerTab" style={{ backgroundColor :  backgroundColor, "color":ColorTheme.text[theme] }}>
+          <div className="tokenSpecificLeftContainerTab">
+          <div className="tokenSpecificHeaderTab">
+              <img src={coin.image} style={{width:"60px", height:"60px"}}></img>
+              <div className="dividerText">
+                {/* @ts-ignore */}
+              <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{coin.name}</span>
+              <span className='text-muted'>{coin.symbol}</span>
               </div>
             </div>
-            <div className="tokenSpecificGraphRenderTab">
-              <ChartJsLine
-                data={{
-                  labels: graphLabels,
-                  datasets: [
-                    {
-                      label: asset,
-                      data: graphData,
-                      // @ts-ignore
-                      borderColor: coinDescription[asset].color,
-                      // @ts-ignore
-                      backgroundColor: coinDescription[asset].color,
-                      tension: 0.2,
-                      pointRadius: 0,
-                      pointHitRadius : 8
-                    },
-                  ],
-                }}
-                width={"99%"}
-                options={{
-                  aspectRatio: 2,
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                  },
-                  scales: {
-                    xAxes: {
-                      display: false,
-                    },
-                    yAxes: {
-                      beginAtZero: false,
-                      grid: {
-                        drawOnChartArea: false,
+            {/* @ts-ignore */}
+            <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+              {/* @ts-ignore */}
+              <header className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language=="es"?"Estadísticas de precio":"Price stats"}</header>
+              {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?`Precio de ${coin.name}`:`${coin.name} price`}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.current_price, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div style={{"color":ColorTheme.text[theme]}} className="tokenSpecificStatsDiv">
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Capitalización de mercado":"Market capitalization"}</header>
+                {/* @ts-ignore */}
+                <text>${prettifyNumber(stats.market_cap, 0, 'null', 'null')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Ranking Capitalización de mercado":"Market capitalization ranking"}</header>
+                {/* @ts-ignore */}
+                <text># {stats.market_cap_rank}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Volumen de comercio":"Trade volume"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.total_volume, 2, 'null', '$ ')} </text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Máximo en 24h":"24h maximum"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.high_24h, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Mínimo en 24h":"24h minimum"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.low_24h, 2, 'null', '$ ')}</text>
+              </div>
+                {/* @ts-ignore */}
+              <div className="tokenSpecificStatsDiv" style={{"color":ColorTheme.text[theme]}}>
+                {/* @ts-ignore */}
+                <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Total en circulación":"Total circulation"}</header>
+                {/* @ts-ignore */}
+                <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
+              </div>
+            </div>
+            {/* @ts-ignore */}
+            <div className="tokenSpecificGraphContainerTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+              <div className="headerGraphContainerDesk">
+                <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE",}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
+                <div className="tokenSpecificGraphInfo">
+                  <text className="gig" style={{fontWeight:600, fontSize:"34px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
+                  <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:"#7ac486"}}>
+                    {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
+                  </text>
+                </div>
+              </div>
+              <div className="tokenSpecificGraphRenderTab">
+                <ChartJsLine
+                  data={{
+                    labels: graphLabels,
+                    datasets: [
+                      {
+                        label: asset,
+                        data: graphData,
+                        // @ts-ignore
+                        borderColor: coinDescription[asset].color,
+                        // @ts-ignore
+                        backgroundColor: coinDescription[asset].color,
+                        tension: 0.2,
+                        pointRadius: 0,
+                        pointHitRadius : 8
+                      },
+                    ],
+                  }}
+                  width={"99%"}
+                  options={{
+                    aspectRatio: 2,
+                    plugins: {
+                      legend: {
+                        display: false,
                       },
                     },
-                  },
-                }}
-                redraw={false}
-              />
+                    scales: {
+                      xAxes: {
+                        display: false,
+                      },
+                      yAxes: {
+                        beginAtZero: false,
+                        grid: {
+                          drawOnChartArea: false,
+                        },
+                      },
+                    },
+                  }}
+                  redraw={false}
+                />
+              </div>
+              <div className="tokenSpecificButtonRow">
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'h'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('h')}>{language=="es"?"H":"H"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'd'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('d')}>{language=="es"?"D":"D"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'w'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('w')}>{language=="es"?"S":"W"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'm'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('m')}>{language=="es"?"M":"M"}</button>
+                {/* @ts-ignore */}
+                <button style={{"color":ColorTheme.text[theme],}} className={time == 'y'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('y')}>{language=="es"?"A":"Y"}</button>
+              </div>
             </div>
-            <div className="tokenSpecificButtonRow">
-              <button className={time == 'h'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('h')}>H</button>
-              <button className={time == 'd'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('d')}>D</button>
-              <button className={time == 'w'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('w')}>W</button>
-              <button className={time == 'm'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('m')}>M</button>
-              <button className={time == 'y'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('y')}>Y</button>
+            <div className="tokenSpecificCoinStats">
+              {/* @ts-ignore */}
+              <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`¿Qué es ${coin.name}?`:`What is ${coin.name}?`}</header>
+              {/* @ts-ignore */}
+              <text>{coinDescription[asset][language]}</text>
+              {/* @ts-ignore */}
+              <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`El precio de ${coin.name}`:`Price of ${coin.name}`}</header>
+              {/* @ts-ignore */}
+              <text>{`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+            </div>
+          </div >
+          {/* @ts-ignore */}
+          <div className="tokenSpecificRightContainerTab">
+            {/* @ts-ignore */}
+            <div className="tokenSpecificTableCoinsContainerTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+              <TableCoins coins={coins} theme={theme}/>
             </div>
           </div>
-          <div className="tokenSpecificCoinStats">
-            <header>{`¿Qué es ${coin.name}?`}</header>
-            {/* @ts-ignore */}
-            <text>{coinDescription[asset].es}</text>
-            <header>{`El precio de ${coin.name} `}</header>
-            {/* @ts-ignore */}
-            <text>{`El precio de ${coin.name} hoy es de ${stats.current_price} con un volumen de comercio de ${stats.total_volume} en 24 horas. El precio cambiado a ${stats.price_change_percentage_24h} en las últimas 24 horas. Tiene una oferta circulante de ${stats.circulating_supply} millones${stats.symbol} monedas y una oferta total de ${stats.total_supply} millones. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+          <div>
+          
           </div>
-        </div>
-        <div className="tokenSpecificRightContainerTab">
-          <div className="tokenSpecificTableCoinsContainerTab">
-            <TableCoins coins={coins}/>
-          </div>
-        </div>
-        <div>
-        
         </div>
       </div>
     </div>
