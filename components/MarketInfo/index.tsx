@@ -7,9 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Box, Grid} from "@material-ui/core";
 
 export interface MarketInfoProps {
+  theme:string;
 }
 
 const MarketInfo = (props: MarketInfoProps) => {
+  const {theme} = props;
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const getData = async () => {
@@ -39,7 +41,7 @@ const MarketInfo = (props: MarketInfoProps) => {
           onChange={(e) => setSearch(e.target.value)}
         /> */}
 
-        <TableCoins coins={coins} search={search} />
+        <TableCoins coins={coins} search={search} theme={theme} />
       </div>
     </div>
   );

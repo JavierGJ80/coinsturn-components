@@ -90,11 +90,13 @@
 }
 
 .tokenSpecificButtonRow button:hover {
-  background-color: rgba(230, 168, 40, 0.5);
+  background-color: #fdf6eb;
+  color: #e6a829 !important;
 }
 
 .tokenSpecificActiveButton {
-  background-color: rgba(230, 168, 40, 1) !important;
+  background-color: rgba(230, 168, 40, 0.8) !important;
+  color: #ffffff !important;
 }
 
 .tokenSpecificGraphRender {
@@ -209,6 +211,7 @@
   overflow: hidden;
   padding-top: 20px;
   width: 408px;
+  width: 408px;
 }
 
 /* Tablet config */
@@ -283,7 +286,7 @@
   width: 100% !important;
   padding-left: 30px;
   padding-right: 30px;
-  
+
 }
 
 .tokenSpecificStatsTab {
@@ -374,7 +377,7 @@
     font-size: 10px !important;
   }
 
-  
+
 
   .tokenSpecificMainContainerTab {
     gap: 3px !important;
