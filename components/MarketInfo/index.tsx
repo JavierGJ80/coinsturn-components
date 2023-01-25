@@ -8,12 +8,14 @@ import {Box, Grid} from "@material-ui/core";
 
 export interface MarketInfoProps {
   theme:string;
+  resPartner : [{[key:string] : any;}];
 }
 
 const MarketInfo = (props: MarketInfoProps) => {
-  const {theme} = props;
+  const {theme, resPartner} = props;
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+  const language = resPartner[0].coinsturn_language
   const getData = async () => {
     try {
       const res = await axios.get(
@@ -41,7 +43,7 @@ const MarketInfo = (props: MarketInfoProps) => {
           onChange={(e) => setSearch(e.target.value)}
         /> */}
 
-        <TableCoins coins={coins} search={search} theme={theme} />
+        <TableCoins coins={coins} search={search} theme={theme} language={language} />
       </div>
     </div>
   );
