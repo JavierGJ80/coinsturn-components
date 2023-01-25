@@ -1,7 +1,8 @@
 import React from "react";
 import { LineChart, Line, YAxis } from "recharts";
+import ColorTheme from "../../MarketInfo/components/ColorTheme.json";
 
-const CoinRow = ({ coin, index }) => {
+const CoinRow = ({ coin, index, theme }) => {
   const data = [];
 
   return (
@@ -15,12 +16,16 @@ const CoinRow = ({ coin, index }) => {
           style={{ width: "60px", height: "60px" }}
         />
         <td style={{ display: "flex", flexDirection: "column" }}>
-          <span className='normal'>{coin.name}</span>
+          <span className='normal' style={{ color: ColorTheme.titles[theme] }}>
+            {coin.name}
+          </span>
           <span className='text-muted normal'>{coin.symbol}</span>
         </td>
       </td>
       <td>
-        <span className='normal'>${coin.current_price.toLocaleString()}</span>
+        <span className='normal' style={{ color: ColorTheme.numbers[theme] }}>
+          ${coin.current_price.toLocaleString()}
+        </span>
 
         <td
           className={

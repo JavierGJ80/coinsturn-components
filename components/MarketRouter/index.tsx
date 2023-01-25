@@ -9,19 +9,18 @@ import { createBrowserHistory } from 'history'
 import MarketRoutes from "./MarketRoutes";
 
 export interface MarketRouterProps {
-  backgroundColor : string;
-  fontColor : string;
   resPartner : [{[key:string] : any;}];
+  theme : string;
 }
 
 function MarketRouter(props: MarketRouterProps) {
-    const { backgroundColor, fontColor, resPartner } = props
+    const { theme, resPartner } = props
     const history = createBrowserHistory()
    
     return (
         // @ts-ignore
         <Router history={history}>
-            <Route path="/" component={()=><MarketRoutes backgroundColor={backgroundColor} fontColor={fontColor} resPartner={resPartner}/>}/>
+            <Route path="/" component={()=><MarketRoutes theme={theme} resPartner={resPartner}/>}/>
         </Router>
 
     );

@@ -1,8 +1,8 @@
 /// <reference types="react" />
 import "./FileUploader.css";
 import { FileType } from "../../scripts/scripts";
-type UploaderDesign = "SIMPLE" | "DETAILED" | "IMAGELESS";
-type FileUploaderProps = {
+declare type UploaderDesign = "SIMPLE" | "DETAILED" | "IMAGELESS";
+declare type FileUploaderProps = {
     endpoint: string;
     onUpload: (imgLink: string) => void;
     fileType: FileType;

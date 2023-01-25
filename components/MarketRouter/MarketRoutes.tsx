@@ -8,18 +8,17 @@ import MarketInfo from "../MarketInfo";
 import TokenSpecific from "../TokenSpecific";
 
 interface MarketRoutesProps {
-  backgroundColor : string;
-  fontColor : string;
   resPartner : [{[key:string] : any;}];
+  theme : string;
 }
 
 function MarketRoutes(props: MarketRoutesProps) {
-    const { backgroundColor, fontColor, resPartner } = props
+    const { theme, resPartner } = props
     const location = useLocation()
    
     return (
         <Switch>
-            <Route exact path="/markets/:asset/token" component={() => <TokenSpecific backgroundColor={backgroundColor} fontColor={fontColor} resPartner={resPartner}/>}/>
+            <Route exact path="/markets/:asset/token" component={() => <TokenSpecific theme={theme} resPartner={resPartner}/>}/>
             <Route exact path="/markets" component={MarketInfo}/>
         </Switch>
     );
