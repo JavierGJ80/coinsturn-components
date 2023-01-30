@@ -1,0 +1,27 @@
+.uploadPdfCont{
+  display: flex;
+  align-items: center;
+}
+
+.fileInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  width: 155px;
+  height: 40px;
+
+  background: #7BC485;
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 15px;
+}
+
+#file-chosen {
+  margin-left: 0.3rem;
+}
