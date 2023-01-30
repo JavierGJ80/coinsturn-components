@@ -1,71 +1,27 @@
-.react-datepicker__triangle {
-    display: none;
-  }
-  
-  .react-datepicker__day.react-datepicker__day--keyboard-selected {
-    border: none;
-    border-radius: 7px;
-    background-color: var(--dark);
-    color: var(--white);
-  }
-  
-  .react-datepicker__day.react-datepicker__day--keyboard-selected:hover {
-    border: none;
-    border-radius: 7px;
-    background-color: var(--dark);
-    color: var(--white);
-  }
-  
-  .react-datepicker-popper .react-datepicker__navigation {
-    padding-top: 12px;
-    color: rgb(223, 201, 201);
-  }
-  
-  .react-datepicker {
-    box-shadow: 0 0 20px 0 rgba(255, 1, 1, 0.189);
-    border: none !important;
-    font-family: "poppins" !important;
-  }
-  
-  .react-datepicker__header {
-    border-bottom: solid 5px var(--white) !important;
-    background: rgb(228, 228, 228) !important;
-  }
-  
-  .react-datepicker__current-month {
-    color: var(--white) !important;
-  }
-  
-  .react-datepicker__day.react-datepicker__day--today {
-    border-radius: 7px;
-    border: solid 2px var(--brand) !important;
-    background-color: rgb(123, 196, 133) !important;
-    color: white !important;
-    width: 30px;
-    height: 30px;
-  }
-  
-  .react-datepicker__day.react-datepicker__day--selected {
-    border: none;
-    border-radius: 7px;
-    background-color: rgb(123, 196, 133);
-    color: rgb(37, 40, 47);
-  }
-  
-  .react-datepicker__day--selected:hover,
-  .react-datepicker__day--in-selecting-range:hover,
-  .react-datepicker__day--in-range:hover,
-  .react-datepicker__month-text--selected:hover,
-  .react-datepicker__month-text--in-selecting-range:hover,
-  .react-datepicker__month-text--in-range:hover,
-  .react-datepicker__quarter-text--selected:hover,
-  .react-datepicker__quarter-text--in-selecting-range:hover,
-  .react-datepicker__quarter-text--in-range:hover,
-  .react-datepicker__year-text--selected:hover,
-  .react-datepicker__year-text--in-selecting-range:hover,
-  .react-datepicker__year-text--in-range:hover {
-    border: none;
-    border-radius: 7px !important;
-    background-color: var(--brand) !important;
-    color: var(--dark) !important;
-  }
+.uploadPdfCont{
+  display: flex;
+  align-items: center;
+}
+
+.fileInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  width: 155px;
+  height: 40px;
+
+  background: #7BC485;
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 15px;
+}
+
+#file-chosen {
+  margin-left: 0.3rem;
+}
