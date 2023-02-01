@@ -18,7 +18,7 @@ const showTitles = [
   { es: "Precio", en: "Price" },
 ];
 
-const TableCoins = ({ coins, search, theme, language }) => {
+const TableCoins = ({ coins, search, theme, language, onChange }) => {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -45,7 +45,13 @@ const TableCoins = ({ coins, search, theme, language }) => {
       </thead>
       <tbody>
         {filteredCoins.map((coin, index) => (
-          <CoinRow key={coin.id} coin={coin} index={index + 1} theme={theme} />
+          <CoinRow
+            key={coin.id}
+            coin={coin}
+            index={index + 1}
+            theme={theme}
+            onChange={onChange}
+          />
         ))}
       </tbody>
     </table>
