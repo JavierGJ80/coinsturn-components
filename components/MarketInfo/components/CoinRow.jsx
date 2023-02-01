@@ -9,9 +9,7 @@ import {
 } from "react-router-dom";
 import ColorTheme from "./ColorTheme.json";
 
-const CoinRow = ({ coin, index, theme }) => {
-  const history = useHistory();
-  const location = useLocation();
+const CoinRow = ({ coin, index, theme, onChange }) => {
   const data = [];
 
   for (
@@ -40,7 +38,7 @@ const CoinRow = ({ coin, index, theme }) => {
   return (
     <tr
       onClick={(e) => {
-        history.push(`/markets/${coin.id}/token`);
+        onChange(coin.id);
       }}
       style={{
         cursor: "pointer",
