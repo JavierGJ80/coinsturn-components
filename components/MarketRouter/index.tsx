@@ -18,9 +18,10 @@ function MarketRouter(props: MarketRouterProps) {
    
     return (
         // @ts-ignore
-        <Router history={history}>
-            <Route path="/" component={()=><MarketRoutes resPartner={resPartner}/>}/>
-        </Router>
+        <Route path="/" component={()=><MarketRoutes resPartner={resPartner}/>}/>
+        // <Router history={history}>
+        //     <Route path="/" component={()=><MarketRoutes resPartner={resPartner}/>}/>
+        // </Router>
 
     );
 }
