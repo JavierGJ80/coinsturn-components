@@ -6,6 +6,7 @@ export interface TokenSpecificProps {
         [key: string]: any;
     }];
     theme: string;
+    asset: string;
 }
 declare const TokenSpecific: (props: TokenSpecificProps) => JSX.Element;
 export default TokenSpecific;

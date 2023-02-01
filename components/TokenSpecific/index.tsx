@@ -45,6 +45,7 @@ const timeList: any = {
 export interface TokenSpecificProps {
   resPartner : [{[key:string] : any;}];
   theme: string;
+  asset: string;
 }
 
 interface Coin {
@@ -54,8 +55,7 @@ interface Coin {
 }
 
 const TokenSpecific = (props: TokenSpecificProps) => {
-  const { resPartner, theme } = props
-  const { asset } = useParams<{ asset : string }>();
+  const { resPartner, theme, asset } = props
   const [coin, setCoin] = useState<Coin>({});
   const [time, setTime] = useState('d');
   const [graphData, setGraphData] = useState([1]);
