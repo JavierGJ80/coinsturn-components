@@ -6,6 +6,7 @@ export interface MarketInfoProps {
     resPartner: [{
         [key: string]: any;
     }];
+    onChange: (params: any) => void;
 }
 declare const MarketInfo: (props: MarketInfoProps) => JSX.Element;
 export default MarketInfo;

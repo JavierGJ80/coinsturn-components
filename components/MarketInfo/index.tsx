@@ -9,10 +9,11 @@ import {Box, Grid} from "@material-ui/core";
 export interface MarketInfoProps {
   theme:string;
   resPartner : [{[key:string] : any;}];
+  onChange : (params: any) => void
 }
 
 const MarketInfo = (props: MarketInfoProps) => {
-  const {theme, resPartner} = props;
+  const {theme, resPartner, onChange} = props;
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const language = resPartner[0].coinsturn_language
@@ -43,7 +44,7 @@ const MarketInfo = (props: MarketInfoProps) => {
           onChange={(e) => setSearch(e.target.value)}
         /> */}
 
-        <TableCoins coins={coins} search={search} theme={theme} language={language} />
+        <TableCoins coins={coins} search={search} theme={theme} language={language} onChange={onChange} />
       </div>
     </div>
   );
