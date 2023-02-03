@@ -10,7 +10,7 @@ const TableCoins = ({ coins, theme }) => {
       className='table table-dark-coinsturn mt-4 '
       style={{
         borderColor: ColorTheme.strokes[theme],
-        "--bs-table-bg": ColorTheme.background[theme],
+        "--bs-table-bg": ColorTheme.div[theme],
       }}>
       <thead>
         <tr
