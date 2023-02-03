@@ -126,7 +126,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               </div>
             </div>
             {/* @ts-ignore */}
-            <div className="tokenSpecificGraphContainer" style={{"backgroundColor":ColorTheme.background[theme],"borderColor":ColorTheme.strokes[theme]}}>
+            <div className="tokenSpecificGraphContainer" style={{"backgroundColor":ColorTheme.div[theme],"borderColor":ColorTheme.strokes[theme]}}>
               <div className="headerGraphContainerTab">
                 {/* @ts-ignore */}
                 <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
@@ -206,7 +206,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           </div>
           <div className="tokenSpecificRightContainer">
             {/* @ts-ignore */}
-          <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+          <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               {/* @ts-ignore */}
               <header className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language=="es"?"Estadísticas de precio":"Price stats"}</header>
               {/* @ts-ignore */}
@@ -260,7 +260,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               </div>
             </div>
                 {/* @ts-ignore */}
-            <div className="tokenSpecificTableCoinsContainer" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+            <div className="tokenSpecificTableCoinsContainer" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               <TableCoins coins={coins} theme={theme}/>
             </div>
           </div>
@@ -278,7 +278,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               </div>
             </div>
             {/* @ts-ignore */}
-            <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+            <div className="tokenSpecificStatsTab" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               {/* @ts-ignore */}
               <header className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{language=="es"?"Estadísticas de precio":"Price stats"}</header>
               {/* @ts-ignore */}
@@ -332,7 +332,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               </div>
             </div>
             {/* @ts-ignore */}
-            <div className="tokenSpecificGraphContainerTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+            <div className="tokenSpecificGraphContainerTab" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               <div className="headerGraphContainerDesk">
                 <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:"#AEAEAE",}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
                 <div className="tokenSpecificGraphInfo">
@@ -410,7 +410,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
           {/* @ts-ignore */}
           <div className="tokenSpecificRightContainerTab">
             {/* @ts-ignore */}
-            <div className="tokenSpecificTableCoinsContainerTab" style={{"backgroundColor":ColorTheme.background[theme], "borderColor":ColorTheme.strokes[theme]}}>
+            <div className="tokenSpecificTableCoinsContainerTab" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               <TableCoins coins={coins} theme={theme}/>
             </div>
           </div>
