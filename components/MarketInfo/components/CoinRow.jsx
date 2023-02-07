@@ -49,7 +49,12 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
       <td className='text-muted' style={{}}>
         {index}
       </td>
-      <td style={{ display: "flex", displayDirection: "row" }}>
+      <td
+        style={{
+          display: "flex",
+          displayDirection: "row",
+          height: "77.5px",
+        }}>
         <img
           src={coin.image}
           alt=''
@@ -63,7 +68,7 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
       </td>
 
       <td className='hide-content'>
-        <span style={{ cursor: "pointer" }}>
+        <span style={{ cursor: "pointer", display: "flex" }}>
           <LineChart width={80} height={45} data={data}>
             <Line dataKey='uv' stroke={color} dot={false} />
             <YAxis
