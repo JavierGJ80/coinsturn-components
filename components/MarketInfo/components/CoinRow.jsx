@@ -42,7 +42,7 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
       }}
       style={{
         cursor: "pointer",
-        "--bs-table-bg": ColorTheme.div[theme],
+        "--bs-table-bg": ColorTheme.background[theme],
         "--bs-table-hover-bg": ColorTheme.hover[theme],
         borderColor: ColorTheme.strokes[theme],
       }}>
