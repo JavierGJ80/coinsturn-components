@@ -31,18 +31,19 @@ export interface BalancePerformanceProps {
     }
     borderColorBalance: string;
     borderColorContracts: string;
-
+    resPartner: [{[key:string] : any;}];
 }
 
 const BalancePerformance = (props: BalancePerformanceProps) => {
-    const { dataArray, borderColorBalance, borderColorContracts} = props;
+    const { dataArray, borderColorBalance, borderColorContracts, resPartner } = props;
+    const language = resPartner[0].coinsturn_language;
     return (
     <Line
       data={{
         labels: dataArray.labels,
         datasets: [
           {
-            label: "Coverage Value Performance",
+            label: language == "es"? "Rendimiento del Valor de Cobertura": "Coverage Value Performance",
             data: dataArray.balanceData,
             borderColor: borderColorBalance,
             backgroundColor: borderColorBalance,
@@ -51,7 +52,7 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
             pointHitRadius : 8
           },
           {
-            label: "Current Value Performance",
+            label: language == "es"? "Rendimiento del Valor Actual" : "Current Value Performance",
             data: dataArray.contractsData,
             borderColor: borderColorContracts,
             backgroundColor: borderColorContracts,
