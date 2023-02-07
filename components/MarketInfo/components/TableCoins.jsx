@@ -35,7 +35,7 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
           }}>
           {titles.map((title, i) => (
             <td
-              style={{ "--bs-table-bg": ColorTheme.div[theme] }}
+              style={{ "--bs-table-bg": ColorTheme.background[theme] }}
               key={i}
               className={showTitles.includes(title) ? "" : "hide-content"}>
               {title[language]}
