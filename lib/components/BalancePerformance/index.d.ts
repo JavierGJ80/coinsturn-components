@@ -7,6 +7,9 @@ export interface BalancePerformanceProps {
     };
     borderColorBalance: string;
     borderColorContracts: string;
+    resPartner: [{
+        [key: string]: any;
+    }];
 }
 declare const BalancePerformance: (props: BalancePerformanceProps) => JSX.Element;
 export default BalancePerformance;
