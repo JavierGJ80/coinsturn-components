@@ -4,11 +4,12 @@ import "./index.css";
 
 export interface UploadPdfProps {
   resPartner : [{[key:string] : any;}];
+  inputId : string;
   onChange : (params: any) => void
 }
 
 const UploadPdf = (props: UploadPdfProps) => {
-    const { resPartner, onChange } = props
+    const { resPartner, inputId, onChange } = props
     const language = resPartner[0].coinsturn_language
     const color = resPartner[0].coinsturn_theme
     const [fileTitle, setFileTitle] = useState(language=="es"?"No hay archivos":"No file chosen")
@@ -24,8 +25,8 @@ const UploadPdf = (props: UploadPdfProps) => {
     }
     return(
       <div className="uploadPdfCont">
-        <input id="In" type={"file"} name="file" accept="application/pdf" onChange={onChangeEvent} hidden multiple/>
-        <label className="fileInput" htmlFor="In">{language=="es"?"Subir Archivos":"Chose Files"}</label>
+        <input id={inputId} type={"file"} name="file" accept="application/pdf" onChange={onChangeEvent} hidden multiple/>
+        <label className="fileInput" htmlFor={inputId}>{language=="es"?"Subir Archivos":"Chose Files"}</label>
         <span id="file-chosen" style={{color:(color=="light"?"#000000":"#FFFFFF")}}>{fileTitle}</span>
       </div>
     );
