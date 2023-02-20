@@ -15,3 +15,4 @@ export { default as TokenSpecific } from "./TokenSpecific";
 export { default as TokenSpecificMobile } from "./TokenSpecificMobile";
 export { default as MarketRouter } from "./MarketRouter";
 export { default as UploadPdf } from "./UploadPdf";
+export { default as DateInputKyc } from "./DateInputKyc";
