@@ -15,6 +15,9 @@ export interface DateInputKycProps {
 const DateInputKyc = (props: DateInputKycProps) => {
     const { fontColor, onChange } = props;
     const [startDate, setStartDate] = useState(new Date());
+
+    const today = new Date();
+    const minDate = new Date(today.getFullYear() - 100,today.getMonth(), today.getDate());
     
     let DateInputCss: CSS.Properties = {
         backgroundColor: 'transparent',
@@ -37,12 +40,16 @@ const DateInputKyc = (props: DateInputKycProps) => {
     
     return (
 
-        <DatePicker
-      customInput={<DateInput/>}
-      selected={startDate}
-      onChange={(date:Date) => setStartDate(date)}
-      placeholderText="Select a date"
-    />    
+      <DatePicker
+        customInput={<DateInput/>}
+        selected={startDate}
+        showYearDropdown
+        yearDropdownItemNumber={100}
+        maxDate={today}
+        minDate={minDate}
+        onChange={(date:Date) => setStartDate(date)}
+        placeholderText="Select a date"
+      />    
     );
 };
 
