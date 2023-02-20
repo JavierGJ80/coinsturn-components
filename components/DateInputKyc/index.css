@@ -32,8 +32,12 @@
   color: rgb(223, 201, 201);
 }
 
+.react-datepicker__navigation:hover {
+  background-color: rgb(81, 81, 81) !important;
+}
+
 .react-datepicker {
-  box-shadow: 0 0 20px 0 rgba(123, 196, 133, 0.189);
+  box-shadow: 0 0 20px 0 rgba(81, 81, 81, 0.189);
   border: none !important;
   font-family: "poppins" !important;
 }
