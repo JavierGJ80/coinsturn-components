@@ -12,15 +12,13 @@ const imageTypes = [
 export type FileType = "IMAGE" | "FILE";
 
 export const uploadFile = async (
-  file: File,
+  files: [File],
   endpoint: string,
   type: FileType
 ) => {
-  return new Promise((resolve, reject) => {
-    if (!file) reject("Missing file");
-    if (type === "IMAGE" && !imageTypes.includes(file.type)) {
-      reject("Not an image");
-    }
+  const promises: Promise<unknown>[] = [];
+  files.map(file => {
+    promises.push(new Promise((resolve, reject) => {
 
     let formData = new FormData();
     const code = v4();
@@ -35,7 +33,9 @@ export const uploadFile = async (
       })
       .then((res) => resolve(res.data))
       .catch((err) => reject(err));
-  });
+  }))
+  })
+  return promises
 };
 
 export const gitSync = async (

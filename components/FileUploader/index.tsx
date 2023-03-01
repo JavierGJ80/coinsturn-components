@@ -35,7 +35,7 @@ const FileUploader = (props: FileUploaderProps) => {
 
   useEffect(() => {
     if (!file) return;
-    uploadFile(file, endpoint, fileType)
+    uploadFile([file], endpoint, fileType)
       .then((res) => {
         console.log(res);
         if (!res || typeof res !== "string") return;
