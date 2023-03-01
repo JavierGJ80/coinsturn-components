@@ -21,8 +21,15 @@
   color: white;
   font-size: 15px;
   font-weight: 700;
+
+  align-self: flex-start;
 }
 
 #file-chosen {
   margin-left: 0.3rem;
+}
+
+.titleList{
+  padding-left: 20px;
+  margin: 0px;
 }

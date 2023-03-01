@@ -1,9 +1,12 @@
 /// <reference types="react" />
 import "./index.css";
 export interface UploadPdfProps {
-    resPartner: [{
+    resPartner: {
         [key: string]: any;
-    }];
+    }[];
+    originalFiles: {
+        [key: string]: any;
+    }[];
     inputId: string;
     onChange: (params: any) => void;
 }
