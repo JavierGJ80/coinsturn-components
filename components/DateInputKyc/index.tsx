@@ -32,7 +32,7 @@ const DateInputKyc = (props: DateInputKycProps) => {
     const { fontColor, offset, initialDate, onChange } = props;
     const [startDate, setStartDate] = useState(initialDate? changeDate(initialDate) : changeDate(new Date()));
 
-    const dateOffset = offset? offset : 0;
+    const dateOffset = offset? (typeof offset == 'number'? offset : parseInt(offset)) : 0;
 
     const today = new Date();
     const maxDate = new Date(today.getFullYear() + dateOffset, today.getMonth(), today.getDate())
