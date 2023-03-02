@@ -8,7 +8,7 @@ import "./index.css";
 export interface DateInputKycProps {
     fontColor : string,
     offset : number,
-    initialDa : string,
+    initialDate : string,
     onChange : (params: any) => void
 }
 
@@ -29,8 +29,8 @@ const changeDate = (originalDate : any) => {
 };
 
 const DateInputKyc = (props: DateInputKycProps) => {
-    const { fontColor, offset, initialDa, onChange } = props;
-    const [startDate, setStartDate] = useState(initialDa? changeDate(initialDa) : changeDate(new Date()));
+    const { fontColor, offset, initialDate, onChange } = props;
+    const [startDate, setStartDate] = useState(initialDate? changeDate(initialDate) : changeDate(new Date()));
 
     const dateOffset = offset? offset : 0;
 
