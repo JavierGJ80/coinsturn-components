@@ -4,7 +4,7 @@ import "./index.css";
 export interface DateInputKycProps {
     fontColor: string;
     offset: number;
-    initialDa: string;
+    initialDate: string;
     onChange: (params: any) => void;
 }
 declare const DateInputKyc: (props: DateInputKycProps) => JSX.Element;
