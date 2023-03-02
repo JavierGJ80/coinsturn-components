@@ -31,6 +31,7 @@ const changeDate = (originalDate : any) => {
 const DateInputKyc = (props: DateInputKycProps) => {
     const { fontColor, offset, initialDate, onChange } = props;
     const [startDate, setStartDate] = useState(initialDate? changeDate(initialDate) : changeDate(new Date()));
+    const [flag , setFlag] = useState(true)
 
     const dateOffset = offset? (typeof offset == 'number'? offset : parseInt(offset)) : 0;
 
@@ -54,7 +55,11 @@ const DateInputKyc = (props: DateInputKycProps) => {
 
     useEffect(()=>{
         onChange(startDate.toISOString().split('T')[0]);
-    },[startDate])
+        if(flag && initialDate){
+          setStartDate(changeDate(initialDate))
+          setFlag(false);
+        }
+    },[startDate, initialDate])
 
     
     return (
