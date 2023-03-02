@@ -7,17 +7,36 @@ import "./index.css";
 
 export interface DateInputKycProps {
     fontColor : string,
+    offset : number,
+    initialDa : string,
     onChange : (params: any) => void
-    
 }
 
+const changeDate = (originalDate : any) => {
+  try{
+    const newDate = originalDate instanceof Date? originalDate : new Date(originalDate)
+    if(originalDate instanceof Date){
+      return newDate
+    }
+    else{
+      newDate.setHours(newDate.getHours() + 6)
+      return newDate
+    }
+  }
+  catch{
+    return new Date()
+  }
+};
 
 const DateInputKyc = (props: DateInputKycProps) => {
-    const { fontColor, onChange } = props;
-    const [startDate, setStartDate] = useState(new Date());
+    const { fontColor, offset, initialDa, onChange } = props;
+    const [startDate, setStartDate] = useState(initialDa? changeDate(initialDa) : changeDate(new Date()));
+
+    const dateOffset = offset? offset : 0;
 
     const today = new Date();
-    const minDate = new Date(today.getFullYear() - 100,today.getMonth(), today.getDate());
+    const maxDate = new Date(today.getFullYear() + dateOffset, today.getMonth(), today.getDate())
+    const minDate = new Date(today.getFullYear() - 100 + dateOffset, today.getMonth(), today.getDate());
     
     let DateInputCss: CSS.Properties = {
         backgroundColor: 'transparent',
@@ -45,7 +64,8 @@ const DateInputKyc = (props: DateInputKycProps) => {
         selected={startDate}
         showYearDropdown
         yearDropdownItemNumber={100}
-        maxDate={today}
+        showMonthDropdown
+        maxDate={maxDate}
         minDate={minDate}
         onChange={(date:Date) => setStartDate(date)}
         placeholderText="Select a date"
