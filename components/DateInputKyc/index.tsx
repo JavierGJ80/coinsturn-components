@@ -47,7 +47,7 @@ const DateInputKyc = (props: DateInputKycProps) => {
     };
 
     const DateInput = forwardRef<HTMLButtonElement>(({ value, onClick }:any, ref) => (
-    <button  style={DateInputCss} className="DateInputCss" onClick={onClick} ref={ref}>
+    <button  style={DateInputCss} type="button" className="DateInputCss" onClick={onClick} ref={ref}>
         
       {value}
     </button>
