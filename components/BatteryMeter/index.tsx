@@ -45,10 +45,12 @@ const BatteryMeter =(props: BatteryMeterProps) => {
       <div>
         <button className="button"
           onClick={handleDayClick}
-          style={{ backgroundColor: selectedButton === "day" ? "#7DC085" : "" }}
+          style={{ backgroundColor: selectedButton === "day" ? "#7DC085" : "",
+          color: color=="light"?"525252":"FFFFFF" }}
+          
           type = "button"
         >
-          {language=="es"?"Dia":"Day"}
+          {language=="es"?"1D":"1D"}
         </button>
         <button className="button"
           onClick={handleMonthClick}
@@ -57,7 +59,7 @@ const BatteryMeter =(props: BatteryMeterProps) => {
             color: color=="light"?"525252":"FFFFFF"
           }} type = "button"
         >
-          {language=="es"?"Mes":"Month"}
+          {language=="es"?"1M":"1M"}
         </button>
         <button className="button"
           onClick={handleYearClick}
@@ -66,7 +68,7 @@ const BatteryMeter =(props: BatteryMeterProps) => {
             color: color=="light"?"525252":"FFFFFF"
           }} type = "button"
         >
-          {language=="es"?"Año":"Year"}
+          {language=="es"?"1A":"1Y"}
         </button>
         
         
