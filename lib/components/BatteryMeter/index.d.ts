@@ -1,6 +1,6 @@
-import React from "react";
+/// <reference types="react" />
 export interface BatteryMeterProps {
     percent: number;
 }
-declare const BatteryMeter: React.FC<BatteryMeterProps>;
+declare const BatteryMeter: (props: BatteryMeterProps) => JSX.Element;
 export default BatteryMeter;

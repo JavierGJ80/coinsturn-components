@@ -1,10 +1,11 @@
 import React from "react";
 
- export interface BatteryMeterProps {
+export interface BatteryMeterProps {
   percent: number;
 }
 
-const BatteryMeter: React.FC<BatteryMeterProps> = ({ percent }) => {
+const BatteryMeter = (props : BatteryMeterProps) => {
+  const { percent } = props;
   const size = 100;
   const strokeWidth = 5;
   const radius = (size - strokeWidth) / 2;

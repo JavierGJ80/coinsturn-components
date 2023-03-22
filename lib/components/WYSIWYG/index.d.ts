@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-type WYSIWYGParams = {
+declare type WYSIWYGParams = {
     name: string;
     valueSaved: string;
     onChange: Function;
