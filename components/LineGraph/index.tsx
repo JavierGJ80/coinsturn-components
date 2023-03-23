@@ -21,7 +21,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
   data = typeof data === 'object' ? data : [];
 
   return (
-    <ResponsiveContainer width='100%' height={400} aspect={2}>
+    <ResponsiveContainer width='100%' aspect={2}>
       <AreaChart width={600} height={400} data={data}>
         <CartesianGrid strokeDasharray="0" stroke="transparent" />
         <XAxis dataKey={xDataKey} stroke={axisColor} />
