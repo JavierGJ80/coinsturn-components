@@ -11,7 +11,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
   const gradient = {
     offset: '5%',
     stopColor: '#E6A828',
-    stopOpacity: 1,
+    stopOpacity: 0.8,
     endStopColor: '#E6A828',
     endStopOpacity: 0.01,
     gradientUnits: 'userSpaceOnUse',
@@ -24,8 +24,8 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
     <ResponsiveContainer width='100%' aspect={2}>
       <AreaChart width={600} height={400} data={data}>
         <CartesianGrid strokeDasharray="0" stroke="transparent" />
-        <XAxis dataKey={xDataKey} stroke={axisColor} />
-        <YAxis stroke={axisColor} />
+        <XAxis dataKey={xDataKey} stroke={axisColor} tick={false} width={0}/>
+        <YAxis stroke={axisColor} tick={false} width={0}/>
         <Tooltip labelStyle={{ color: tooltipLabel }} wrapperStyle={{ stroke: '#E6A828' }} />
         {/* Agregamos la propiedad "wrapperStyle" con stroke personalizado */}
         <Area type="monotone" dataKey={yDataKey} stroke="#E6A828" fillOpacity={1} fill={`url(#color-${yDataKey})`} strokeWidth={3}/>
