@@ -24,7 +24,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
     <ResponsiveContainer width='100%' aspect={2}>
       <AreaChart width={600} height={400} data={data}>
         <CartesianGrid strokeDasharray="0" stroke="transparent" />
-        <XAxis dataKey={xDataKey} stroke={axisColor} tick={false} width={0}/>
+        <XAxis dataKey={xDataKey} stroke={axisColor} tick={false} height={0}/>
         <YAxis stroke={axisColor} tick={false} width={0}/>
         <Tooltip labelStyle={{ color: tooltipLabel }} wrapperStyle={{ stroke: '#E6A828' }} />
         {/* Agregamos la propiedad "wrapperStyle" con stroke personalizado */}
