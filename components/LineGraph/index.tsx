@@ -18,6 +18,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
   };
   const axisColor = 'transparent';
   const tooltipLabel = '#333333';
+  data = typeof data === 'object' ? data : [];
 
   return (
     <AreaChart width={600} height={400} data={data}>
@@ -26,7 +27,7 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
       <YAxis stroke={axisColor} />
       <Tooltip labelStyle={{ color: tooltipLabel }} wrapperStyle={{ stroke: '#E6A828' }} />
       {/* Agregamos la propiedad "wrapperStyle" con stroke personalizado */}
-      <Area type="linear" dataKey={yDataKey} stroke="#E6A828" fillOpacity={1} fill={`url(#color-${yDataKey})`} />
+      <Area type="linear" dataKey={yDataKey} stroke="#E6A828" fillOpacity={1} fill={`url(#color-${yDataKey})`} strokeWidth={3} />
       <defs>
         <linearGradient id={`color-${yDataKey}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset={gradient.offset} stopColor={gradient.stopColor} stopOpacity={gradient.stopOpacity} />
