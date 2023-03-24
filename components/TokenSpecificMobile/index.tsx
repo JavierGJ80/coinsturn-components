@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "@fontsource/poppins";
 import { prettifyNumber } from "./scripts"
-import { LineChart, Line, YAxis, } from 'recharts';
-import { ChartType } from "defi-sdk/lib/entities/Chart";
+//import { LineChart, Line, YAxis, } from 'recharts';
+//import { ChartType } from "defi-sdk/lib/entities/Chart";
 import coinDescription from "./diccionario.json";
 import TableCoins from "./components/TableCoins";
 import{Box, Grid} from "@material-ui/core";
