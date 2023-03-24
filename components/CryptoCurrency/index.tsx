@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { client, DataStatus, useAssetsCharts } from "defi-sdk";
-import { ChartType } from "defi-sdk/lib/entities/Chart";
+//import { client, DataStatus, useAssetsCharts } from "defi-sdk";
+//import { ChartType } from "defi-sdk/lib/entities/Chart";
 
 import {
   Chart as ChartJS,
@@ -39,7 +39,7 @@ const timeList: any = {
   y: 365,
 };
 
-client.configure({ url: "wss://api-v4.zerion.io/", apiToken: "BackofficeCoinsturn.1Vf6l3CiuLNaEoHsewF6OYiOzAzULZ2x" });
+//client.configure({ url: "wss://api-v4.zerion.io/", apiToken: "BackofficeCoinsturn.1Vf6l3CiuLNaEoHsewF6OYiOzAzULZ2x" });
 
 function AssetsCharts({
   asset,
@@ -47,15 +47,16 @@ function AssetsCharts({
   borderColor,
 }: {
   asset: string;
-  charts_type: ChartType;
+  charts_type: string;
   borderColor: string;
 }){
   let Labels:Date[] = [new Date()];
   let Values:number[] = [1];
-  const { data, status } = useAssetsCharts({asset_codes: [assetList[asset]], charts_type, currency : 'usd'})
+  //const { data, status } = useAssetsCharts({asset_codes: [assetList[asset]], charts_type, currency : 'usd'})
   // if (status === DataStatus.requested) {
   //   return <span>Loading...</span>;
   // }
+  const data : {[key:string] : any;}[] = []
   if (!data) {
     return <Line
       data={{
@@ -90,14 +91,16 @@ function AssetsCharts({
       redraw={false}
     />;
   }
+  //@ts-ignore
   Labels = Object.values(data!.charts)[0].map((entry) => {
         const epoch = new Date(0);
         epoch.setUTCSeconds(entry[0]);
         return epoch;
       });
   Labels = Labels.reverse()
+  //@ts-ignore
   Values = Object.values(data!.charts)[0].map(
-    (entry) => entry[1]
+    (entry: any) => entry[1]
   );
   Values = Values.reverse()
   return (
@@ -141,7 +144,7 @@ function AssetsCharts({
 
 export interface CryptoCurrencyProps {
     asset: string;
-    charts_type: ChartType;
+    charts_type: string;
     borderColor: string;
 }
 
