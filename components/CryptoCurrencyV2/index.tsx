@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { client, DataStatus, useAssetsCharts } from "defi-sdk";
-import { ChartType } from "defi-sdk/lib/entities/Chart";
+//import { client, DataStatus, useAssetsCharts } from "defi-sdk";
+//import { ChartType } from "defi-sdk/lib/entities/Chart";
 
 import {
   Chart as ChartJS,
@@ -41,7 +41,7 @@ const timeList: any = {
 
 export interface CryptoCurrencyV2Props {
     asset: string;
-    charts_type: ChartType;
+    charts_type: string;
     borderColor: string;
 }
 
