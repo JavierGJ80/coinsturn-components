@@ -52,3 +52,29 @@ const DonutGraph = (props: DonutGraphProps) => {
 };
 
 export default DonutGraph;
+
+/*
+{                
+  "EnvVars": [],                
+  "TypeComponent": "",               
+  "name": "CoverComposition",                
+  "attrs":[                                
+    {"name":"COVER_value", "type":"dynamic", "required":true},                          
+    {"name":"COVER_color", "type":"scalar", "required":true},                  
+    {"name":"BTC_value", "type":"dynamic", "required":true},                          
+    {"name":"BTC_color", "type":"scalar", "required":true},                  
+    {"name":"ETH_value", "type":"dynamic", "required":true},                          
+    {"name":"ETH_color", "type":"scalar", "required":true},                  
+    {"name":"USDT_value", "type":"dynamic", "required":true},                          
+    {"name":"USDT_color", "type":"scalar", "required":true},                            
+    {"name":"hoverOffset", "type":"scalar", "required":true}                
+  ],                
+  "events": [],                
+  "isWrapper": false,                
+  "PackageName": "coinsturn-plugins",                
+  "version": "0.0.3",             
+  "exportType": "named",                
+  "description": "Coinsturn external components",                
+  "origin": "https://github.com/JavierGJ80/coinsturn-components.git"    
+}
+*/

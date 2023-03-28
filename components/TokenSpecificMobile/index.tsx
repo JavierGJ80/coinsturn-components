@@ -242,3 +242,30 @@ const TokenSpecificMobile = (props: TokenSpecificMobileProps) => {
 
 export default TokenSpecificMobile;
 
+/*
+{                
+  "EnvVars": [],                
+  "TypeComponent": "",               
+  "name": "CoverComposition",                
+  "attrs":[                                
+    {"name":"digital_asset", "type":"dynamic", "required":true},                          
+    {"name":"color_01", "type":"scalar", "required":true},                  
+    {"name":"color_02", "type":"scalar", "required":true},                          
+    {"name":"color_03", "type":"scalar", "required":true},                  
+    {"name":"color_04", "type":"scalar", "required":true},                          
+    {"name":"color_05", "type":"scalar", "required":true},                  
+    {"name":"color_06", "type":"scalar", "required":true},                          
+    {"name":"color_07", "type":"scalar", "required":true},            
+    {"name":"color_08", "type":"scalar", "required":true},                          
+    {"name":"color_09", "type":"scalar", "required":true},                               
+    {"name":"hoverOffset", "type":"scalar", "required":true}                
+  ],                
+  "events": [],                
+  "isWrapper": false,                
+  "PackageName": "coinsturn-plugins",                
+  "version": "0.0.3",             
+  "exportType": "named",                
+  "description": "Coinsturn external components",                
+  "origin": "https://github.com/JavierGJ80/coinsturn-components.git"    
+}
+*/
