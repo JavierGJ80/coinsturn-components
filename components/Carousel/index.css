@@ -1,0 +1,68 @@
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-inner {
+  white-space: nowrap;
+}
+
+.carousel-text {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-text p {
+  display: inline-block;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.carousel-text h2 {
+  color: rgb(203, 215, 227);
+  margin-bottom: 0px;
+}
+
+.carousel-text p {
+  color: rgb(99, 59, 59);
+}
+
+.carousel-text.paused {
+  animation-play-state: paused;
+}
+
+.carousel-text:not(.paused) {
+  animation-play-state: running;
+}
+
+.carousel-text.start {
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-name: start;
+}
+
+@keyframes start {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.carousel-text.active {
+  animation-duration: 37s;
+  animation-name: scroll;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
