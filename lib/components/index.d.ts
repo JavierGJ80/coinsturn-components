@@ -16,4 +16,5 @@ export { default as MarketRouter } from "./MarketRouter";
 export { default as UploadPdf } from "./UploadPdf";
 export { default as DateInputKyc } from "./DateInputKyc";
 export { default as BatteryMeter } from "./BatteryMeter";
+export { default as Carousel } from "./Carousel";
 export { default as LineGraph } from "./LineGraph";
