@@ -33,3 +33,24 @@
   padding-left: 20px;
   margin: 0px;
 }
+
+@media (max-width: 990px) {
+  .elementList {
+    word-wrap: break-word;
+    width: calc(100vw - 350px);
+  }
+}
+
+ @media (min-width: 993px) and (max-width: 1190px) {
+  .elementList {
+    word-wrap: break-word;
+    width: calc(100vw - 425px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .elementList {
+    word-wrap: break-word;
+    width: calc(100vw - 600px);
+  }
+}

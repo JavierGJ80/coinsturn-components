@@ -53,7 +53,7 @@ const UploadPdf = (props: UploadPdfProps) => {
           <span id="file-chosen" style={{color:(color=="light"?"#000000":"#FFFFFF")}}>{fileTitles[0]}</span>:
           <ul className="titleList" id="file-chosen-list" style={{color:(color=="light"?"#000000":"#FFFFFF")}}>
             {fileTitles.map(file => (
-              <li key={file}>{file}</li>
+              <li key={file} className="elementList">{file}</li>
             ))}
           </ul>
         }
