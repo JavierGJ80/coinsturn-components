@@ -15,6 +15,7 @@ export interface DateInputProps {
 const DateInput = (props: DateInputProps) => {
     const { fontColor, onChange } = props;
     const [startDate, setStartDate] = useState(new Date());
+    const maxDate = new Date()
     
     let DateInputCss: CSS.Properties = {
         backgroundColor: 'transparent',
@@ -42,7 +43,7 @@ const DateInput = (props: DateInputProps) => {
       selected={startDate}
       onChange={(date:Date) => setStartDate(date)}
       minDate={subDays(new Date(), 365)}
-      maxDate={startDate}
+      maxDate={maxDate}
       placeholderText="Select a date"
     />    
     );
