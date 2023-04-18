@@ -20,6 +20,27 @@ const prettifyNumber = (number, decimals, suffix = '', prefix = '') => {
 	};
 };
 
+const numberAbbreviations = (num) => {
+	if (isNaN(num)) {
+		return num;
+	}
+	const abbreviations = {
+		K: 1000,
+		M: 1000000,
+		B: 1000000000,
+		T: 1000000000000,
+	};
+	const absNum = Math.abs(num);
+	for (const abbreviation in abbreviations) {
+		if (absNum / 1000 <= abbreviations[abbreviation]) {
+			const abbreviatedNum = Math.round((num / abbreviations[abbreviation]) * 100) / 100;
+			return abbreviatedNum.toString() + abbreviation;
+		}
+	}
+	return num.toString();
+}
+
 module.exports = {
-    prettifyNumber
+    prettifyNumber,
+	numberAbbreviations
 }
