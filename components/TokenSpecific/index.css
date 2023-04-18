@@ -53,6 +53,13 @@
   gap: 10px;
 }
 
+.tokenSpecificCoinStats {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
 .headerGraphContainerDesk {
   display: flex;
   flex-direction: column;
@@ -197,7 +204,7 @@
   padding-top: 20px;
   gap: 20px;
   align-content: flex-start;
-  width: 408px;
+  width: 360px;
 }
 
 .tokenSpecificTableCoinsContainer {
@@ -208,7 +215,7 @@
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: 408px;
+  width: 360px;
 }
 
 /* Tablet config */

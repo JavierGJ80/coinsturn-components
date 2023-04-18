@@ -5,9 +5,9 @@ import ColorTheme from "./ColorTheme.json";
 const titles = [
   { es: "#", en: "#" },
   { es: "Activo", en: "Token" },
-  { es: "Ultimos 7 días", en: "Las 7 days" },
+  { es: "Ultimos 7 días", en: "Last 7 days" },
   { es: "Precio", en: "Price" },
-  { es: "Ultimos 7 días", en: "Las 7 days" },
+  { es: "Ultimos 7 días", en: "Last 7 days" },
   { es: "Volumen 24h", en: "24h Volume" },
   { es: "Cap. de mercado", en: "Market cap." },
 ];

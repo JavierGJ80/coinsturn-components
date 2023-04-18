@@ -122,7 +122,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               <div className="dividerText">
                 {/* @ts-ignore */}
               <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.numbers[theme]}}>{coin.name}</span>
-              <span className='text-muted'>{coin.symbol}</span>
+              <span className='text-muted'>{coin.symbol?.toUpperCase()}</span>
               </div>
             </div>
             {/* @ts-ignore */}
@@ -191,15 +191,15 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               </div>
             </div>
             {/* @ts-ignore */}
-            <div className="tokenSpecificCoinStats" style={{"color":ColorTheme.text[theme]}}>
+            <div className="tokenSpecificCoinStats" style={{"color":ColorTheme.text[theme], backgroundColor:ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               {/* @ts-ignore */}
               <header style={{"color":ColorTheme.titles[theme]}}>{language=="es"?`¿Qué es ${coin.name}?`:`What is ${coin.name}?`}</header>
               {/* @ts-ignore */}
-              <text>{(coinDescription[asset] ? coinDescription[asset][language] : " ")}</text>
+              <text style={{fontSize: "18px", fontWeight: "lighter"}}>{(coinDescription[asset] ? coinDescription[asset][language] : " ")}</text>
               {/* @ts-ignore */}
               <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`El precio de ${coin.name}`:`Price of ${coin.name}`}</header>
               {/* @ts-ignore */}
-              <text>{language=="es"?`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${coin.name}, Coinsturn es actualmente el mercado mas seguro.`:
+              <text style={{fontSize: "18px", fontWeight: "lighter"}}>{language=="es"?`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${coin.name}, Coinsturn es actualmente el mercado mas seguro.`:
               /* @ts-ignore */
               `${coin.name} price today is ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} with a 24-hour trade volume of ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')}. The price changed to ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} in the last 24 hours. It has a circulating supply of ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} ${stats.symbol} coins and a total supply of ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. If you want to buy ${coin.name}, Coinsturn is currently the safest marketplace.`}</text>
             </div>
@@ -256,7 +256,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                 {/* @ts-ignore */}
                 <header style={{"color":ColorTheme.text[theme]}}>{language=="es"?"Total en circulación":"Total circulation"}</header>
                 {/* @ts-ignore */}
-                <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol}</text>
+                <text>{prettifyNumber(stats.circulating_supply, 2, 'null', 'null')} {stats.symbol?.toUpperCase()}</text>
               </div>
             </div>
                 {/* @ts-ignore */}
@@ -274,7 +274,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
               <div className="dividerText">
                 {/* @ts-ignore */}
               <span className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", "color":ColorTheme.text[theme]}}>{coin.name}</span>
-              <span className='text-muted'>{coin.symbol}</span>
+              <span className='text-muted'>{coin.symbol?.toUpperCase()}</span>
               </div>
             </div>
             {/* @ts-ignore */}
@@ -396,15 +396,16 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                 <button style={{"color":ColorTheme.text[theme],}} className={time == 'y'? "tokenSpecificActiveButton" : ""} onClick={(e) => setTime('y')}>{language=="es"?"A":"Y"}</button>
               </div>
             </div>
-            <div className="tokenSpecificCoinStats">
+            {/* @ts-ignore */}
+            <div className="tokenSpecificCoinStats" style={{"color":ColorTheme.text[theme], backgroundColor:ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
               {/* @ts-ignore */}
               <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`¿Qué es ${coin.name}?`:`What is ${coin.name}?`}</header>
               {/* @ts-ignore */}
-              <text>{coinDescription[asset][language]}</text>
+              <text style={{fontSize: "18px", fontWeight: "lighter"}}>{coinDescription[asset][language]}</text>
               {/* @ts-ignore */}
               <header style={{"color":ColorTheme.titles[theme],}}>{language=="es"?`El precio de ${coin.name}`:`Price of ${coin.name}`}</header>
               {/* @ts-ignore */}
-              <text>{`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
+              <text style={{fontSize: "18px", fontWeight: "lighter"}}>{`El precio de ${coin.name} hoy es de ${prettifyNumber(stats.current_price, 2, 'null', '$ ')} con un volumen de comercio de ${prettifyNumber(stats.total_volume, 2, 'null', '$ ')} en 24 horas. El precio cambiado a ${prettifyNumber(stats.price_change_percentage_24h, 0, 'null', 'null')} en las últimas 24 horas. Tiene una oferta circulante de ${prettifyNumber(stats.circulating_supply, 2, 'null', '$ ')} millones${stats.symbol} monedas y una oferta total de ${prettifyNumber(stats.total_supply, 2, 'null', 'null')}. Si quiere comprar ${asset}, Coinsturn es actualmente el mercado mas seguro.`}</text>
             </div>
           </div >
           {/* @ts-ignore */}
