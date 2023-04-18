@@ -18,6 +18,30 @@ export interface DonutGraphProps {
 
 const DonutGraph = (props: DonutGraphProps) => {
     const { COVER_value, COVER_color, BTC_value, BTC_color, ETH_value, ETH_color, USDT_value, USDT_color, hoverOffset} = props;
+    const labels = [];
+    const data = [];
+    const backgroundColor = [];
+
+    if(COVER_value){
+        labels.push('COVER');
+        data.push(COVER_value);
+        backgroundColor.push(COVER_color);
+    };
+    if(BTC_value){
+        labels.push('BTC');
+        data.push(BTC_value);
+        backgroundColor.push(BTC_color);
+    };
+    if(ETH_value){
+        labels.push('ETH');
+        data.push(ETH_value);
+        backgroundColor.push(ETH_color);
+    };
+    if(USDT_value){
+        labels.push('USDT');
+        data.push(USDT_value);
+        backgroundColor.push(USDT_color);
+    };
     // @ts-ignore
     return(<Doughnut options={
         {
@@ -37,13 +61,13 @@ const DonutGraph = (props: DonutGraphProps) => {
     } 
     data={ 
         {
-            labels: ["COVER", "BTC", "ETH", "USDT"],
+            labels: labels,
             datasets: [
                 {
                 label: 'Current crypto currency',
-                data: [COVER_value, BTC_value, ETH_value, USDT_value],
-                backgroundColor: [COVER_color, BTC_color, ETH_color, USDT_color],
-                borderColor: [COVER_color, BTC_color, ETH_color, USDT_color],
+                data: data,
+                backgroundColor: backgroundColor,
+                borderColor: backgroundColor,
                 hoverOffset : hoverOffset,
                 },
             ],
