@@ -199,7 +199,7 @@
   padding-top: 20px;
   gap: 20px;
   align-content: flex-start;
-  width: 408px;
+  width: 360px;
 }
 
 .tokenSpecificTableCoinsContainer {
@@ -210,8 +210,7 @@
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: 408px;
-  width: 408px;
+  width: 360px;
 }
 
 /* Tablet config */
