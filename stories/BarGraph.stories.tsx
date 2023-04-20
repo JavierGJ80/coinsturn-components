@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof BarGraph> = (
   args: BarGraphProps
 ) => <BarGraph {...args} />;
 
+
 export const Main = Template.bind({});
  

@@ -22,9 +22,10 @@ const BarGraph = ({ data }: BarGraphProps) => {
         {
           label: 'Trades',
           data: data.map((d) => d.trades),
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1,
+          backgroundColor: 'rgba(253, 181, 42, 0.2)',
+          borderColor: 'rgba(253, 181, 42, 1)',
+          borderWidth: 2,
+          borderRadius: 5,
         },
       ],
     };
@@ -32,7 +33,52 @@ const BarGraph = ({ data }: BarGraphProps) => {
     const chartConfig: ChartConfiguration<'bar'> = {
       type: 'bar',
       data: chartData,
-      options: {},
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+            
+          },
+        },
+        scales: {
+          y: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                family: 'Poppins',
+                size: 12,
+                weight: 'bold'
+              },
+              
+              
+            },
+            
+            
+          },
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                family: 'Poppins',
+                size: 12,
+                weight: 'bold'
+              }
+            }
+            
+            
+          },
+          legend: {
+            display: false,
+            position: "top"
+          }
+        }
+      },
+      
+    
     };
 
     const chart = new Chart(canvasRef.current, chartConfig);
