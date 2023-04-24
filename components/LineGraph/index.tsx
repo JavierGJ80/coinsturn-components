@@ -33,7 +33,6 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
       const ctx = canvasRef.current.getContext('2d');
       if (ctx) {
         let totalProfitLoss = 0;
-        console.log(data)
         const chartData = data.map((d, i) => {
           totalProfitLoss += d.profitLoss; // actualiza el profit/loss total
           return {

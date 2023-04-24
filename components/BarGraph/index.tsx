@@ -11,6 +11,7 @@ const BarGraph = ({ data }: BarGraphProps) => {
   const canvasRef: RefObject<HTMLCanvasElement> = useRef(null);
 
   useEffect(() => {
+    console.log(data)
     if (!canvasRef.current) {
       return;
     }
