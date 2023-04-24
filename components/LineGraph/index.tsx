@@ -24,7 +24,6 @@ export interface LineGraphProps {
   data: DataItem[];
 };
 
-
 const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -38,14 +37,10 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
           return {
             x: d.tradeNumber,
             y: totalProfitLoss,
-            pl: totalProfitLoss - d.profitLoss,
-           
+            pl: totalProfitLoss - d.profitLoss
              // usa el profit/loss total en el eje Y
           };
         });
-        const gradient = ctx.createLinearGradient(0, 0, 0, 500);
-gradient.addColorStop(0, '#C5C5C5');
-gradient.addColorStop(1, '#C5C5C5');
         const chart = new Chart(ctx, {
           type: 'line',
           data: {
@@ -53,8 +48,7 @@ gradient.addColorStop(1, '#C5C5C5');
             datasets: [
               {
                 data: chartData, // usa el nuevo conjunto de datos con el profit/loss acumulado
-                borderColor: gradient,
-              
+                borderColor: 'rgba(75,192,192,1)',
                 backgroundColor: 'rgba(75,192,192,0.2)', // add background color with alpha value
                 pointBackgroundColor: 'white',
                 pointBorderColor: 'rgba(75,192,192,1)',
@@ -62,16 +56,12 @@ gradient.addColorStop(1, '#C5C5C5');
                 pointHoverRadius: 3,
                 pointHitRadius: 10,
                 pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                fill: {above:'rgba(123,196,133,0.3)',below:'rgba(251,64,64,0.3)', target:{value:0}},
+                fill: true,
                 clip: undefined,
-                borderWidth: 2,
-                
                   
               },
             ],
           },
-          
-          
           options: {
             
             scales: {
@@ -82,35 +72,23 @@ gradient.addColorStop(1, '#C5C5C5');
                   
                 },
                 grid: {
-                  color: 'transparent',
-                  
+                  color: 'transparent'
                 },
                 ticks: {
                   color: 'rgba(0,0,0,0)' // Agrega la propiedad color con valor transparente
                 }
                 
-                
               },
-              
               y: {
-                grid: {
-                  display: true,
-                 
-                },
                 title: {
                   display: false,
-                  
+                  text: 'Profit/Loss',
                 },
                 
                 ticks: {
-                  font: {
-                    family: 'Poppins',
-                    size: 12,
-                    weight: 'bold'
-                  },
                   
                   callback: function (value) {
-                    return  + value;
+                    return '$' + value;
                   }, 
                   
                   
@@ -146,15 +124,37 @@ gradient.addColorStop(1, '#C5C5C5');
                 },
               },
               
-              
-
-              
-            }
-            
+              annotation: {
+                annotations: [
+                  {
+                    type: 'line',
+                    borderDash: [10, 10],
+                    scaleID: 'y- axis-0',
+                    value: data[0].profitLoss,
+                    borderColor: 'red',
+                    borderWidth: 1,
+                    label: {
+                      content: 'Initial Value',
+                      position: 'end',
+                    } as LabelOptions,
+                  },
+                  {
+                    type: 'line',
+                    borderDash: [10, 10],
+                    scaleID: 'y',
+                    value: data[data.length - 1].profitLoss,
+                    borderColor: 'green',
+                    borderWidth: 1,
+                    label: {
+                      content: `Final Value: ${data[data.length - 1].profitLoss}`,
+                      position: 'end',
+                    } as LabelOptions,
+                  }
+                ],
+              },
+            },
           },
-          
-        }
-        );
+        });
 
         return () => {
           chart.destroy();
