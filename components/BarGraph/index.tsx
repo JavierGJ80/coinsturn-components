@@ -23,6 +23,7 @@ const BarGraph = ({ data }: BarGraphProps) => {
           backgroundColor: 'rgba(253, 181, 42, 0.2)',
           borderColor: 'rgba(253, 181, 42, 1)',
           borderWidth: 2,
+          borderRadius : 6
         },
       ],
     };
