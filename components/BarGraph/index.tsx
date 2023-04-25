@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import Chart, { ChartConfiguration, ChartData, ChartDatasetProperties, ChartTypeRegistry } from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 import type { RefObject } from 'react';
 import React from 'react';
 
@@ -8,8 +8,7 @@ export interface BarGraphProps {
 }
 
 const BarGraph = ({ data }: BarGraphProps) => {
-  const canvasRef: RefObject<HTMLCanvasElement> = useRef(null);
-
+  /*
   useEffect(() => {
     console.log(data)
     if (!canvasRef.current) {
@@ -73,8 +72,8 @@ const BarGraph = ({ data }: BarGraphProps) => {
       chart.destroy();
     };
   }, [data]);
-
-  return <canvas ref={canvasRef} />;
+*/
+  return <Bar data={{ labels: data.map(item=>item.label), datasets: [{ 'label': 'Trade', data: data.map(item=>item.trades), backgroundColor: '#000' } ] }} />;
 };
 
 export default BarGraph;
