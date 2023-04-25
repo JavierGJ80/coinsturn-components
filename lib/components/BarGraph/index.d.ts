@@ -1,9 +1,9 @@
-/// <reference types="react" />
+import React from 'react';
 export interface BarGraphProps {
     data: {
         label: string;
         trades: number;
     }[];
 }
-declare const BarGraph: ({ data }: BarGraphProps) => JSX.Element;
+declare const BarGraph: React.FC<BarGraphProps>;
 export default BarGraph;
