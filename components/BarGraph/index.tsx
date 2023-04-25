@@ -1,35 +1,80 @@
-import React, { useRef, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useEffect, useRef } from 'react';
+import Chart, { ChartConfiguration, ChartData, ChartDatasetProperties, ChartTypeRegistry } from 'chart.js/auto';
+import type { RefObject } from 'react';
+import React from 'react';
 
 export interface BarGraphProps {
   data: { label: string; trades: number }[];
 }
 
-const BarGraph: React.FC<BarGraphProps> = ({ data }) => {
-  const chartRef = useRef(null);
+const BarGraph = ({ data }: BarGraphProps) => {
+  const canvasRef: RefObject<HTMLCanvasElement> = useRef(null);
 
   useEffect(() => {
-    if (!chartRef.current) {
+    console.log(data)
+    if (!canvasRef.current) {
       return;
     }
 
-    // Agregamos el código para destruir el gráfico cuando el componente se desmonte
-    return () => {
-      chartRef.current = null;
+    const chartData: ChartData<'bar', number[], string> = {
+      labels: data.map((d) => d.label),
+      datasets: [
+        {
+          data: data.map((d) => d.trades),
+          backgroundColor: 'rgba(253, 181, 42, 0.2)',
+          borderColor: 'rgba(253, 181, 42, 1)',
+          borderWidth: 2,
+          borderRadius : 6
+        },
+      ],
     };
-  }, []);
 
-  return (
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data} ref={chartRef}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="label" />
-        <YAxis />
-        <Tooltip />
-        <Bar dataKey="trades" fill="#FDB52A" radius={[6, 6, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
-  );
+    const chartConfig: ChartConfiguration<'bar', number[], string> = {
+      type: 'bar',
+      data: chartData,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        scales: {
+          y: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                family: 'Poppins',
+                size: 12,
+                weight: 'bold'
+              },
+            },
+          },
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                family: 'Poppins',
+                size: 12,
+                weight: 'bold'
+              }
+            },
+          },
+        },
+      },
+    };
+
+    const chart = new Chart(canvasRef.current, chartConfig);
+
+    return () => {
+      chart.destroy();
+    };
+  }, [data]);
+
+  return <canvas ref={canvasRef} />;
 };
 
 export default BarGraph;
