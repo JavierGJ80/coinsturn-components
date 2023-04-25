@@ -12,5 +12,7 @@ const Template: ComponentStory<typeof BarGraph> = (
   args: BarGraphProps
 ) => <BarGraph {...args} />;
 
-
 export const Main = Template.bind({});
+Main.args = {
+  data: [{label:'ED', trades: 45}, {label:'EDT', trades: 450}]
+}
