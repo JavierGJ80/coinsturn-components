@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { Bar } from 'react-chartjs-2';
-import type { RefObject } from 'react';
 import React from 'react';
 
 export interface BarGraphProps {
@@ -8,30 +7,24 @@ export interface BarGraphProps {
 }
 
 const BarGraph = ({ data }: BarGraphProps) => {
-  /*
+  
+  const chartRef = useRef<any>(null);
+
   useEffect(() => {
-    console.log(data)
-    if (!canvasRef.current) {
-      return;
-    }
-
-    const chartData: ChartData<'bar', number[], string> = {
-      labels: data.map((d) => d.label),
-      datasets: [
-        {
-          data: data.map((d) => d.trades),
-          backgroundColor: 'rgba(253, 181, 42, 0.2)',
-          borderColor: 'rgba(253, 181, 42, 1)',
-          borderWidth: 2,
-          borderRadius : 6
-        },
-      ],
-    };
-
-    const chartConfig: ChartConfiguration<'bar', number[], string> = {
-      type: 'bar',
-      data: chartData,
-      options: {
+    if (chartRef && chartRef.current) {
+      const chartData = {
+        labels: data.map((d) => d.label),
+        datasets: [
+          {
+            data: data.map((d) => d.trades),
+            backgroundColor: 'rgba(253, 181, 42, 0.2)',
+            borderColor: 'rgba(253, 181, 42, 1)',
+            borderWidth: 2,
+            borderRadius: 6,
+          },
+        ],
+      };
+      const chartOptions = {
         plugins: {
           legend: {
             display: false,
@@ -40,40 +33,51 @@ const BarGraph = ({ data }: BarGraphProps) => {
         scales: {
           y: {
             grid: {
-              display: false
+              display: false,
             },
             ticks: {
               font: {
                 family: 'Poppins',
                 size: 12,
-                weight: 'bold'
+                weight: 'bold',
               },
             },
           },
           x: {
             grid: {
-              display: false
+              display: false,
             },
             ticks: {
               font: {
                 family: 'Poppins',
                 size: 12,
-                weight: 'bold'
-              }
+                weight: 'bold',
+              },
             },
           },
         },
-      },
-    };
-
-    const chart = new Chart(canvasRef.current, chartConfig);
-
-    return () => {
-      chart.destroy();
-    };
+      };
+      chartRef.current.data = chartData;
+      chartRef.current.options = chartOptions;
+      chartRef.current.update();
+    }
   }, [data]);
-*/
-  return <Bar data={{ labels: data.map(item=>item.label), datasets: [{ 'label': 'Trade', data: data.map(item=>item.trades), backgroundColor: '#000' } ] }} />;
+
+  return (
+    <Bar
+      ref={chartRef}
+      data={{
+        labels: data.map((item) => item.label),
+        datasets: [
+          {
+            label: 'Trade',
+            data: data.map((item) => item.trades),
+            backgroundColor: '#000',
+          },
+        ],
+      }}
+    />
+  );
 };
 
 export default BarGraph;
