@@ -44,8 +44,8 @@ const LineGraph: React.FC<LineGraphProps> = ({ data }) => {
           };
         });
         const gradient = ctx.createLinearGradient(0, 0, 0, 500);
-gradient.addColorStop(0, '#C5C5C5');
-gradient.addColorStop(1, '#C5C5C5');
+gradient.addColorStop(0, '#ECECEC');
+gradient.addColorStop(1, '#ECECEC');
         const chart = new Chart(ctx, {
           type: 'line',
           data: {
@@ -64,7 +64,8 @@ gradient.addColorStop(1, '#C5C5C5');
                 pointHoverBackgroundColor: 'rgba(75,192,192,1)',
                 fill: {above:'rgba(123,196,133,0.3)',below:'rgba(251,64,64,0.3)', target:{value:0}},
                 clip: undefined,
-                borderWidth: 2,
+                borderWidth: 1,
+                borderDash: [5, 5]
                 
                   
               },
@@ -139,7 +140,7 @@ gradient.addColorStop(1, '#C5C5C5');
                     const sum = chartData[index].y; // Obtén la sumatoria del chartData
                     const sign = pl < 0 ? '-' : '+';
                     return `${d.date}: $${Math.abs(sum)} (${sign}${
-                      Math.abs(pl) !== 1 ? Math.abs(pl) + 'tne' : '1 tne'
+                      Math.abs(pl) !== 1 ? Math.abs(pl) + 'PNL' : '1 PNL'
                     })`;
                   },
                 
