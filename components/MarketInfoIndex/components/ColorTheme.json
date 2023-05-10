@@ -1,0 +1,91 @@
+{
+    "background" : {
+        "light" : "#FFFFFF",
+        "dark" : "#141D25"
+    },
+
+    "div" : {
+        "light" : "#FFFFFF",
+        "dark" : "#1C2733"
+    },
+    "notifications" : {
+        "light" : "#f2f2f2",
+        "dark" : "#121a20"
+    },
+    "content" : {
+        "light" : "#FaFaFa",
+        "dark" : "#141D25"
+    },
+    "text" : {
+        "light" : "#5D626D",
+        "dark" : "#FFFFFF"
+    },
+    "textgray" : {
+        "light" : "#AEAEAE",
+        "dark" : "#AEAEAE"
+    },
+    "titles" : {
+        "light" : "#5D626D",
+        "dark" : "#AEAEAE"
+    },
+    "strokes" : {
+        "light" : "#E4E6EA",
+        "dark" : "#252c3d"
+    },
+        "secondBackground" : {
+        "light" : "#E4E6EA",
+        "dark" : "#333a48"
+    },
+    "numbers" : {
+        "light" : "#4C4F57",
+        "dark" : "#FFFFFF"
+    },
+    "hover" : {
+        "light" : "#DEDEDE",
+        "dark" : "#151F2B"
+    },
+    "click" : {
+        "light" : "#B4B4B4",
+        "dark" : "#25282F"
+    },
+    "modal" : {
+        "light" : "#F5F5F5",
+        "dark" : "#111a26"
+    },
+    "stateline" : {
+        "light" : "#000000",
+        "dark" : "#FFFFFF"
+    },
+    "statext" : {
+        "light" : "#000000",
+        "dark" : "#FFFFFF"
+    },
+    "wrapperBackground" : {
+        "light" : "#FFFFFF",
+        "dark": "#20242C"
+    },
+    "secondButton" : {
+        "light" : "#7BC485",
+        "dark": "#FFFFFF"
+    },
+    "buttonUnActive" : {
+        "light" : "#CACACA",
+        "dark": "#283645"
+    },
+    "buttonActive" : {
+        "light" : "#94EA9E",
+        "dark": "#7DC085"
+    },
+    "buttonHover" : {
+        "light" : "#86D291",
+        "dark": "#90E49B"
+    },
+    "buttonClick" : {
+        "light" : "#7DC085",
+        "dark": "#A4FFAF"
+    },
+    "default" : {
+        "light" : "#FFFFFF",
+        "dark" : "#000000"
+    }
+}
