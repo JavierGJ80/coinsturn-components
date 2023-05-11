@@ -40,25 +40,7 @@ const MarketInfoIndex = (props: MarketInfoIndexProps) => {
 
   return (
     <div className="container">
-      <div className="row" style={{gap: "15px"}}>
-        {language == "es" ?
-          // @ts-ignore
-          <span className="total-supply-index" style={{ color: ColorTheme.text[theme] }}>
-            Hoy, la capitalización de mercado global de las criptomonedas es de&nbsp;
-            <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
-            , lo que supone un cambio del&nbsp;
-            <span style={{fontWeight: 'bold'}}>{prettifyNumber(coins.total_supply_percentage,2,'%','null')}</span> 
-            &nbsp;en las últimas 24 horas
-          </span>:
-          // @ts-ignore
-          <span className="total-supply-index" style={{ color: ColorTheme.text[theme] }}>
-            Today, the global cryptocurrency market cap is&nbsp;
-            <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
-            , which is a change of&nbsp;
-            <span style={{fontWeight: 'bold'}}>{prettifyNumber(coins.total_supply_percentage,2,'%','null')}</span> 
-            &nbsp;in the last 24 hours.
-          </span>
-        }
+      <div className="row" style={{gap: "15px", height: "auto"}}>
         <TableCoins coins={coins} search={search} theme={theme} language={language} onChange={onChange} />
       </div>
     </div>
