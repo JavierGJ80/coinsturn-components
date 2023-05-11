@@ -50,6 +50,21 @@
     "color": "#119ECD",
     "es":"Fantom es una red centrada en ofrecer smart contracts avanzados (compatibles con EVM) para aplicaciones DeFi. Por ejemplo, en Fantom podemos tener acceso a servicios DeFi cómo Curve o SushiSwap, que usan su red para ofrecer servicios DEX que son mucho más rápidos y económicos que sus contrapartes en Ethereum.",
     "en":"Fantom is a network focused on offering advanced smart contracts (EVM compatible) for DeFi applications. For example, on Fantom we can access DeFi services such as Curve or SushiSwap, which use their network to offer DEX services that are much faster and cheaper than their Ethereum counterparts."
-    }
+    },
+"wrapped-solana":{
+     "color": "#2aabb2",
+        "es":"Wrapped SOL es la Representación de la criptomoneda Solana (SOL) en otras cadenas de bloques mediante tokens envueltos.",
+        "en":"Wrapped SOL is a Representation of the Solana cryptocurrency (SOL) on other blockchains through wrapped tokens"
+        },
+"loopring":{
+            "color": "#1c60ff",
+        "es":"Loopring es un protocolo de intercambio descentralizado (DEX) de capa 2 construido en la cadena de bloques de Ethereum.",
+        "en":"Loopring is a layer 2 decentralized exchange (DEX) protocol built on the Ethereum blockchain."
+        },
+"crypto-com":{
+            "color": "#012d75",
+        "es":"Cronos es una cadena de bloques de capa 2 construida en el ecosistema de Cosmos, diseñada para proporcionar escalabilidad e interoperabilidad para aplicaciones descentralizadas (dApps).",
+        "en":"Cronos is a layer 2 blockchain built on the Cosmos ecosystem, designed to provide scalability and interoperability for decentralized applications (dApps)."
+        }
                
 }
