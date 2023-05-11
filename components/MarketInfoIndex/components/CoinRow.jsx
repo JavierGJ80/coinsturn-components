@@ -1,35 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { LineChart, Line, YAxis } from "recharts";
-import {
-  Route,
-  useHistory,
-  useParams,
-  withRouter,
-  useLocation,
-} from "react-router-dom";
+import React from "react";
 import ColorTheme from "./ColorTheme.json";
 
 const CoinRow = ({ coin, index, theme, onChange }) => {
-  const data = [];
-
-  for (
-    let price_len = 0;
-    price_len < coin.sparkline_in_7d.price.length - 1;
-    price_len += parseInt(coin.sparkline_in_7d.price.length / 7)
-  ) {
-    const next_number =
-      price_len + parseInt(coin.sparkline_in_7d.price.length / 7);
-    data.push(
-      next_number >= coin.sparkline_in_7d.price.length - 1
-        ? {
-            name: "",
-            uv: coin.sparkline_in_7d.price[
-              coin.sparkline_in_7d.price.length - 1
-            ],
-          }
-        : { name: "", uv: coin.sparkline_in_7d.price[price_len] }
-    );
-  }
   const color =
     coin.sparkline_in_7d.price[0] <
     coin.sparkline_in_7d.price[coin.sparkline_in_7d.price.length - 1]
@@ -46,15 +18,8 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
         "--bs-table-hover-bg": ColorTheme.hover[theme],
         borderColor: ColorTheme.strokes[theme],
       }}>
-      <td className='text-muted' style={{}}>
-        {index}
-      </td>
-      <td
-        style={{
-          display: "flex",
-          displayDirection: "row",
-          height: "77.5px",
-        }}>
+      <td className='text-muted'>{index}</td>
+      <td style={{ display: "flex", flexDirection: "row", height: "77.5px" }}>
         <img
           src={coin.image}
           alt=''
@@ -66,23 +31,7 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           <span className='text-muted'>{coin.symbol.toUpperCase()}</span>
         </div>
       </td>
-
-      <td className='hide-content'>
-        <span style={{ cursor: "pointer", display: "flex" }}>
-          <LineChart width={80} height={45} data={data}>
-            <Line dataKey='uv' stroke={color} dot={false} />
-            <YAxis
-              type='number'
-              domain={["dataMin", "dataMax"]}
-              axisLine={false}
-              tick={false}
-              hide
-              dataKey='uv'
-            />
-          </LineChart>
-        </span>
-      </td>
-
+      <td></td> {/* Columna vacía para reemplazar la gráfica */}
       <td>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ color: ColorTheme.text[theme] }}>
@@ -98,7 +47,6 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           </span>
         </div>
       </td>
-
       <td
         className={
           coin.price_change_percentage_7d_in_currency > 0
@@ -109,7 +57,6 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
         </span>
       </td>
-
       <td style={{ color: ColorTheme.text[theme] }} className='hide-content'>
         ${coin.total_volume.toLocaleString()}
       </td>
