@@ -58,7 +58,6 @@
   border-radius: 10px;
   overflow: hidden;
   padding-top: 20px;
-  width: px;
 }
 
 .tokenSpecificRightContainer {
@@ -77,10 +76,11 @@
   width: 388px;
 }
 
-.total-supply {
-  width: 100%;
+.total-supply-index {
+  opacity: 0;
+  height: 0px;
   display: flex;
-  padding: 0px!important;
+  padding: 0px !important;
   justify-content: flex-start;
 }
 
@@ -94,4 +94,12 @@
   .show-content {
     display: none;
   }
+}
+
+.hide-graph {
+  display: none;
+}
+
+.hide-title {
+  display: none;
 }

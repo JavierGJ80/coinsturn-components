@@ -43,7 +43,7 @@ const MarketInfoIndex = (props: MarketInfoIndexProps) => {
       <div className="row" style={{gap: "15px"}}>
         {language == "es" ?
           // @ts-ignore
-          <span className="total-supply" style={{ color: ColorTheme.text[theme] }}>
+          <span className="total-supply-index" style={{ color: ColorTheme.text[theme] }}>
             Hoy, la capitalización de mercado global de las criptomonedas es de&nbsp;
             <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
             , lo que supone un cambio del&nbsp;
@@ -51,7 +51,7 @@ const MarketInfoIndex = (props: MarketInfoIndexProps) => {
             &nbsp;en las últimas 24 horas
           </span>:
           // @ts-ignore
-          <span className="total-supply" style={{ color: ColorTheme.text[theme] }}>
+          <span className="total-supply-index" style={{ color: ColorTheme.text[theme] }}>
             Today, the global cryptocurrency market cap is&nbsp;
             <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
             , which is a change of&nbsp;
