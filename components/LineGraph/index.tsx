@@ -74,8 +74,7 @@ gradient.addColorStop(1, '#ECECEC');
           
           
           options: {
-            responsive: true, // Agregado para hacer la gráfica responsiva
-            maintainAspectRatio: false,
+         
             
             scales: {
               x: {
@@ -166,7 +165,7 @@ gradient.addColorStop(1, '#ECECEC');
     }
   }, [data]);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} style={{ width: '50vw', height: '25vw' }} />;
 };
 
 export default LineGraph;
