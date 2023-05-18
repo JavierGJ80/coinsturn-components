@@ -74,6 +74,8 @@ gradient.addColorStop(1, '#ECECEC');
           
           
           options: {
+            responsive: true, // Agregado para hacer la gráfica responsiva
+            maintainAspectRatio: false,
             
             scales: {
               x: {
