@@ -25,8 +25,7 @@ const BarGraph = ({ data }: BarGraphProps) => {
         ],
       };
       const chartOptions = {
-        responsive: true,  // Agregado para hacer la gráfica responsiva
-        maintainAspectRatio: false,
+      
         plugins: {
           legend: {
             display: false,
@@ -78,6 +77,7 @@ const BarGraph = ({ data }: BarGraphProps) => {
           },
         ],
       }}
+      style={{ width: '50vw', height: '25vw' }}
     />
   );
 };
