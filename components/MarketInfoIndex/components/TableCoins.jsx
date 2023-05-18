@@ -5,7 +5,6 @@ import ColorTheme from "./ColorTheme.json";
 const titles = [
   { es: "#", en: "#" },
   { es: "Activo", en: "Token" },
-  { es: "Ultimos 7 días", en: "Last 7 days" },
   { es: "Precio", en: "Price" },
   { es: "Ultimos 7 días", en: "Last 7 days" },
   { es: "Volumen 24h", en: "24h Volume" },
@@ -26,41 +25,51 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
   if (!coins) return <div>no coins</div>;
 
   return (
-    <table className='table table-dark-coinsturn mt-4 table-hover'>
-      <thead>
-        <tr
-          style={{
-            color: ColorTheme.text[theme],
-            borderColor: ColorTheme.strokes[theme],
-          }}>
-          {titles.map((title, i) => (
-            <td
-              style={{
-                "--bs-table-bg": ColorTheme.background[theme],
-                visibility: i === 2 ? "hidden" : "visible",
-              }}
-              key={i}
-              className={
-                showTitles.includes(title) && i !== 2 ? "" : "hide-content"
-              }>
-              {title[language]}
-            </td>
+    <div style={{ 
+      borderRadius: '10px', 
+      overflow: 'hidden',
+      border: '1px solid #25282F',
+      color: ColorTheme.text[theme],
+              borderColor: ColorTheme.strokes[theme], 
+              background: ColorTheme.background[theme],  // Este es solo un ejemplo, puedes usar el color que necesites
+    }}>
+      <table className='table table-dark-coinsturn mt-4 table-hover'>
+        <thead>
+          <tr
+            style={{
+              color: ColorTheme.text[theme],
+              borderColor: ColorTheme.strokes[theme],
+            }}>
+            {titles.map((title, i) => (
+              <td
+                style={{
+                  "--bs-table-bg": ColorTheme.background[theme],
+                  
+                }}
+                key={i}
+                className={
+                  showTitles.includes(title) && i !== 2 ? "" : "hide-content"
+                }>
+                {title[language]}
+              </td>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {filteredCoins.map((coin, index) => (
+            <CoinRow
+              key={coin.id}
+              coin={coin}
+              index={index + 1}
+              theme={theme}
+              onChange={onChange}
+            />
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        {filteredCoins.map((coin, index) => (
-          <CoinRow
-            key={coin.id}
-            coin={coin}
-            index={index + 1}
-            theme={theme}
-            onChange={onChange}
-          />
-        ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
 export default TableCoins;
+

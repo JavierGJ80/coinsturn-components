@@ -31,7 +31,7 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           <span className='text-muted'>{coin.symbol.toUpperCase()}</span>
         </div>
       </td>
-      <td></td> {/* Columna vacía para reemplazar la gráfica */}
+      
       <td>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ color: ColorTheme.text[theme] }}>

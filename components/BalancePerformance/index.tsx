@@ -68,7 +68,10 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
     maintainAspectRatio: false,
     scales: {
       x: {
+        display:false,
         ticks: {
+
+          display: false,
           autoSkip: true,
           maxTicksLimit: 12,
           maxRotation: 0,
@@ -76,8 +79,15 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
         },
       },
       y: {
-        beginAtZero: true,
-        precision: 0,
+        
+        ticks: {
+          
+          beginAtZero: true,
+          precision: 0,
+        },
+        grid: {
+          display: false, // Oculta las líneas de la grilla del eje Y
+        },
       },
     },
     plugins: {
@@ -88,8 +98,8 @@ const BalancePerformance = (props: BalancePerformanceProps) => {
   };
 
   return (
-    <div ref={chartContainer} style={{ width: "100%", height: "100vh" }}>
-      <Line data={data} options={options} width={"100vw"} height={341} redraw={false} />
+    <div ref={chartContainer} style={{ width: "100%", height: "100%" }}>
+      <Line data={data} options={options} width={"100%"} height={341} redraw={false} />
     </div>
   );
 };
