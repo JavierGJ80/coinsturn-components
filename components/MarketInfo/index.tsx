@@ -18,6 +18,7 @@ const MarketInfo = (props: MarketInfoProps) => {
   const {theme, resPartner, onChange} = props;
   const [coins, setCoins] = useState<{[key:string] : any;}>([]);
   const [search, setSearch] = useState("");
+  console.log(resPartner)
   const language = resPartner[0].coinsturn_language
   const getData = async () => {
     try {

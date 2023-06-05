@@ -6,6 +6,9 @@ export default {
   title: "Components/MarketInfo",
   component: MarketInfo,
   argTypes: {},
+  args : {
+    resPartner : [{ coinsturn_theme: "light", coinsturn_language: "es"}]
+  }
 } as ComponentMeta<typeof MarketInfo>;
 
 const Template: ComponentStory<typeof MarketInfo> = (
