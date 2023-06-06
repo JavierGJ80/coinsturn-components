@@ -12,11 +12,7 @@ const titles = [
   { es: "Cap. de mercado", en: "Market cap." },
 ];
 
-const showTitles = [
-  { es: "#", en: "#" },
-  { es: "Activo", en: "Token" },
-  { es: "Precio", en: "Price" },
-];
+const showTitlesMobile = ["#","Activo","Token","Precio","Price"]; 
 
 const TableCoins = ({ coins, search, theme, language, onChange }) => {
   const filteredCoins = coins.filter((coin) =>
@@ -25,21 +21,38 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
 
   if (!coins) return <div>no coins</div>;
 
+  const isMobile = window.innerWidth <= 768; 
+
   return (
-    <table className='table table-dark-coinsturn mt-4 table-hover'>
+    <table className="table table-dark-coinsturn mt-4 table-hover">
       <thead>
         <tr
           style={{
             color: ColorTheme.text[theme],
             borderColor: ColorTheme.strokes[theme],
-          }}>
+          }}
+        >
           {titles.map((title, i) => (
-            <td
-              style={{ "--bs-table-bg": ColorTheme.background[theme] }}
+            <th
+              style={{
+                fontWeight: "normal",
+                "--bs-table-bg": ColorTheme.background[theme],
+                color:
+                  (isMobile &&
+                    !showTitlesMobile.includes(title[language]) &&
+                    title[language] !== "Precio") 
+                    ? "red" 
+                    : "#5d626d",
+              }}
               key={i}
-              className={showTitles.includes(title) ? "" : "hide-content"}>
+              className={
+                isMobile && !showTitlesMobile.includes(title[language])
+                  ? "hide-content"
+                  : "grey"
+              }
+            >
               {title[language]}
-            </td>
+            </th>
           ))}
         </tr>
       </thead>
@@ -59,3 +72,6 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
 };
 
 export default TableCoins;
+
+
+

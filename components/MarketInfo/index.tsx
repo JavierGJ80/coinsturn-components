@@ -14,6 +14,7 @@ export interface MarketInfoProps {
   onChange : (params: any) => void
 }
 
+
 const MarketInfo = (props: MarketInfoProps) => {
   const {theme, resPartner, onChange} = props;
   const [coins, setCoins] = useState<{[key:string] : any;}>([]);
@@ -44,23 +45,27 @@ const MarketInfo = (props: MarketInfoProps) => {
       <div className="row" style={{gap: "15px"}}>
         {language == "es" ?
           // @ts-ignore
-          <span className="total-supply" style={{ color: ColorTheme.text[theme] }}>
-            Hoy, la capitalización de mercado global de las criptomonedas es de&nbsp;
-            <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
-            , lo que supone un cambio del&nbsp;
-            <span style={{fontWeight: 'bold'}}>{prettifyNumber(coins.total_supply_percentage,2,'%','null')}</span> 
-            &nbsp;en las últimas 24 horas
-          </span>:
+          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold' }}>
+          Hoy, la capitalización de mercado global de las criptomonedas es de&nbsp;
+          {numberAbbreviations(coins.total_supply)}
+          , lo que supone un cambio del&nbsp;
+          {prettifyNumber(coins.total_supply_percentage, 2, '%', 'null')}
+          &nbsp;en las últimas 24 horas
+        </div>:
           // @ts-ignore
-          <span className="total-supply" style={{ color: ColorTheme.text[theme] }}>
-            Today, the global cryptocurrency market cap is&nbsp;
-            <span style={{fontWeight: 'bold'}}>${numberAbbreviations(coins.total_supply)}</span>
-            , which is a change of&nbsp;
-            <span style={{fontWeight: 'bold'}}>{prettifyNumber(coins.total_supply_percentage,2,'%','null')}</span> 
-            &nbsp;in the last 24 hours.
-          </span>
+          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold' }}>
+          Today, the global cryptocurrency market cap is&nbsp;
+          ${numberAbbreviations(coins.total_supply)}
+          , which is a change of&nbsp;
+          {prettifyNumber(coins.total_supply_percentage, 2, '%', 'null')}
+          &nbsp;in the last 24 hours.
+        </div>
         }
         <TableCoins coins={coins} search={search} theme={theme} language={language} onChange={onChange} />
+        <div style={{fontFamily: "var(--bs-body-font-family)", color: "#5d626d", fontSize: "14px", marginLeft:"-12px"}}>
+        Información extraída de:
+        <img src="https://res.cloudinary.com/dkczjaruj/image/upload/v1686003770/Coinsturn/cglogo_1_dnicns.png" alt="Imagen" style={{ width: "100px", paddingLeft:"5px", paddingBottom:"3px" }} />
+      </div>
       </div>
     </div>
   );
