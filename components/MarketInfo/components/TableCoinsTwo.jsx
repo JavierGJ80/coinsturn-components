@@ -1,15 +1,20 @@
 import React from "react";
 import CoinRowTwo from "./CoinRowTwo";
+import ColorTheme from "./ColorTheme.json";
 
+const titles = [
+  { es: "#", en: "#" },
+  { es: "Activo", en: "Token" },
+  { es: "Precio", en: "Price" },
+];
 
+const showTitlesMobile = ["#", "Activo", "Precio", "Price"];
 
 const TableCoinsTwo = ({ coins }) => {
   if (!coins) return <div>no coins</div>;
- 
-
 
   return (
-    <table className='table table-dark-coinsturn mt-4 table-hover '>
+    <table className="table table-dark-coinsturn mt-4 table-hover ">
       <thead>
         <tr
           style={{
@@ -17,10 +22,21 @@ const TableCoinsTwo = ({ coins }) => {
             fontSize: "24px",
             lineHeight: "100%",
             color: "rgba(174, 174, 174, 1)",
-          }}>
-          <td colSpan={3} style={{ paddingLeft: "20px" }}>
-            {""}
-          </td>
+          }}
+        >
+          {titles.map((title, i) => (
+            <th
+              key={i}
+              className={
+                showTitlesMobile.includes(title.en) ? "" : "hide-content"
+              }
+              style={{
+                color: showTitlesMobile.includes(title.en) ? "" : "red",
+              }}
+            >
+              {title.en}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody>
