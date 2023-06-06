@@ -1,5 +1,5 @@
+/// <reference types="react" />
 import "./index.css";
-import React from "react";
 import "@fontsource/poppins";
 export interface TokenSpecificMobileProps {
     backgroundColor: string;
@@ -9,5 +9,5 @@ export interface TokenSpecificMobileProps {
         [key: string]: any;
     }];
 }
-declare const TokenSpecificMobile: (props: TokenSpecificMobileProps) => React.JSX.Element;
+declare const TokenSpecificMobile: (props: TokenSpecificMobileProps) => JSX.Element;
 export default TokenSpecificMobile;
