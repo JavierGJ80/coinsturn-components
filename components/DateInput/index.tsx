@@ -25,8 +25,7 @@ const DateInput = (props: DateInputProps) => {
     };
 
     const DateInput = forwardRef<HTMLButtonElement>(({ value, onClick }:any, ref) => (
-    <button  style={DateInputCss} className="DateInputCss" onClick={onClick} ref={ref}>
-        
+    <button  style={DateInputCss} className="DateInputCss" onClick={onClick} ref={ref} type="button">
       {value}
     </button>
   ));

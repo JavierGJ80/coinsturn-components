@@ -1,4 +1,4 @@
-import React from "react";
+/// <reference types="react" />
 import "react-datepicker/dist/react-datepicker.css";
 import "./index.css";
 export interface DateInputKycProps {
@@ -7,5 +7,5 @@ export interface DateInputKycProps {
     initialDate: string;
     onChange: (params: any) => void;
 }
-declare const DateInputKyc: (props: DateInputKycProps) => React.JSX.Element;
+declare const DateInputKyc: (props: DateInputKycProps) => JSX.Element;
 export default DateInputKyc;

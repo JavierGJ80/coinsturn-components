@@ -5,5 +5,4 @@ declare function TableCoins({ coins, search, theme, language, onChange }: {
     theme: any;
     language: any;
     onChange: any;
-}): React.JSX.Element;
-import React from "react";
+}): JSX.Element;

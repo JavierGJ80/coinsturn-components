@@ -1,4 +1,4 @@
-import React from "react";
+/// <reference types="react" />
 export interface BalancePerformanceProps {
     dataArray: {
         labels: string[];
@@ -11,5 +11,5 @@ export interface BalancePerformanceProps {
         [key: string]: any;
     }];
 }
-declare const BalancePerformance: (props: BalancePerformanceProps) => React.JSX.Element;
+declare const BalancePerformance: (props: BalancePerformanceProps) => JSX.Element;
 export default BalancePerformance;
