@@ -11,14 +11,23 @@ export interface DateInputProps {
     onChange : (params: any) => void
 }
 
+interface technologyMinDates {
+  [key : string] : string
+}
+
 
 const DateInput = (props: DateInputProps) => {
     const { fontColor,technology, onChange } = props;
     const [startDate, setStartDate] = useState(new Date());
     const maxDate = new Date()
     let minDate = subDays(new Date(), 365)
-    if(technology && ['trading_cover', 'quantum_cover', 'quantum_trading'].includes(technology)){
-      minDate = new Date('2023-02-01')
+    const technologyMinDates : technologyMinDates = {
+      quantum_cover : '2023-02-01',
+      trading_cover : '2023-05-01'
+    }
+
+    if(technologyMinDates[technology]){
+      minDate = new Date(technologyMinDates[technology])
     }
     
     let DateInputCss: CSS.Properties = {
@@ -36,6 +45,9 @@ const DateInput = (props: DateInputProps) => {
 
     useEffect(()=>{
         onChange(startDate.toISOString().split('T')[0]);
+        if(['quantum_cover', 'trading_cover'].includes(technology) && startDate < new Date(technologyMinDates[technology])){
+          setStartDate(new Date())
+        }
         
     },[startDate, technology])
 
