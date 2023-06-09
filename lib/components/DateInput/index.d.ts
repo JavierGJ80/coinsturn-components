@@ -1,9 +1,9 @@
-/// <reference types="react" />
+import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "./index.css";
 export interface DateInputProps {
     fontColor: string;
     onChange: (params: any) => void;
 }
-declare const DateInput: (props: DateInputProps) => JSX.Element;
+declare const DateInput: (props: DateInputProps) => React.JSX.Element;
 export default DateInput;

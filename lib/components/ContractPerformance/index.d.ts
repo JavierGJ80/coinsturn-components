@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from "react";
 export interface ContractPerformanceProps {
     dataArray: {
         labels: string[];
@@ -6,5 +6,5 @@ export interface ContractPerformanceProps {
     };
     borderColor: string;
 }
-declare const ContractPerformance: (props: ContractPerformanceProps) => JSX.Element;
+declare const ContractPerformance: (props: ContractPerformanceProps) => React.JSX.Element;
 export default ContractPerformance;
