@@ -1,4 +1,4 @@
-import React from "react";
+/// <reference types="react" />
 export interface DonutGraphProps {
     COVER_value: number;
     COVER_color: string;
@@ -10,5 +10,5 @@ export interface DonutGraphProps {
     USDT_color: string;
     hoverOffset: number;
 }
-declare const DonutGraph: (props: DonutGraphProps) => React.JSX.Element;
+declare const DonutGraph: (props: DonutGraphProps) => JSX.Element;
 export default DonutGraph;
