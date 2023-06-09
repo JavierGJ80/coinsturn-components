@@ -1,3 +1,3 @@
-import React from "react";
-declare const MainComp: () => React.JSX.Element;
+/// <reference types="react" />
+declare const MainComp: () => JSX.Element;
 export default MainComp;

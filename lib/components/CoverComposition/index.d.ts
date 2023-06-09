@@ -1,4 +1,4 @@
-import React from "react";
+/// <reference types="react" />
 export interface CoverCompositionProps {
     digital_asset: [
         {
@@ -22,5 +22,5 @@ export interface CoverCompositionProps {
     color_09: string;
     hoverOffset: number;
 }
-declare const CoverComposition: (props: CoverCompositionProps) => React.JSX.Element;
+declare const CoverComposition: (props: CoverCompositionProps) => JSX.Element;
 export default CoverComposition;
