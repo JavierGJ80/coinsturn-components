@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import React from 'react';
 export interface MarketRouterProps {
     resPartner: [{
         [key: string]: any;
     }];
 }
-declare function MarketRouter(props: MarketRouterProps): JSX.Element;
+declare function MarketRouter(props: MarketRouterProps): React.JSX.Element;
 export default MarketRouter;

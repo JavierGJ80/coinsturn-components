@@ -35,6 +35,8 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
     coin.sparkline_in_7d.price[coin.sparkline_in_7d.price.length - 1]
       ? "green"
       : "red";
+  const isTablet = window.innerWidth <= 990;
+
   return (
     <tr
       onClick={(e) => {
@@ -67,21 +69,23 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
         </div>
       </td>
 
-      <td className='hide-content'>
-        <span style={{ cursor: "pointer", display: "flex" }}>
-          <LineChart width={80} height={45} data={data}>
-            <Line dataKey='uv' stroke={color} dot={false} />
-            <YAxis
-              type='number'
-              domain={["dataMin", "dataMax"]}
-              axisLine={false}
-              tick={false}
-              hide
-              dataKey='uv'
-            />
-          </LineChart>
-        </span>
-      </td>
+      {!isTablet && (
+        <td className='hide-content'>
+          <span style={{ cursor: "pointer", display: "flex" }}>
+            <LineChart width={80} height={45} data={data}>
+              <Line dataKey='uv' stroke={color} dot={false} />
+              <YAxis
+                type='number'
+                domain={["dataMin", "dataMax"]}
+                axisLine={false}
+                tick={false}
+                hide
+                dataKey='uv'
+              />
+            </LineChart>
+          </span>
+        </td>
+      )}
 
       <td>
         <div style={{ display: "flex", flexDirection: "column" }}>
