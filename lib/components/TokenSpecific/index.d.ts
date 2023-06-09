@@ -1,5 +1,5 @@
-/// <reference types="react" />
 import "./index.css";
+import React from "react";
 import "@fontsource/poppins";
 export interface TokenSpecificProps {
     resPartner: [{
@@ -8,5 +8,5 @@ export interface TokenSpecificProps {
     theme: string;
     asset: string;
 }
-declare const TokenSpecific: (props: TokenSpecificProps) => JSX.Element;
+declare const TokenSpecific: (props: TokenSpecificProps) => React.JSX.Element;
 export default TokenSpecific;

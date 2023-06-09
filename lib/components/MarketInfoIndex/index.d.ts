@@ -1,5 +1,5 @@
-/// <reference types="react" />
 import "./index.css";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 export interface MarketInfoIndexProps {
     theme: string;
@@ -8,5 +8,5 @@ export interface MarketInfoIndexProps {
     }];
     onChange: (params: any) => void;
 }
-declare const MarketInfoIndex: (props: MarketInfoIndexProps) => JSX.Element;
+declare const MarketInfoIndex: (props: MarketInfoIndexProps) => React.JSX.Element;
 export default MarketInfoIndex;
