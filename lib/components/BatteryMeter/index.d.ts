@@ -1,4 +1,4 @@
-import React from "react";
+/// <reference types="react" />
 import "./index.css";
 export interface BatteryMeterProps {
     dayPercent: number;
@@ -8,5 +8,5 @@ export interface BatteryMeterProps {
         [key: string]: any;
     }[];
 }
-declare const BatteryMeter: (props: BatteryMeterProps) => React.JSX.Element;
+declare const BatteryMeter: (props: BatteryMeterProps) => JSX.Element;
 export default BatteryMeter;
