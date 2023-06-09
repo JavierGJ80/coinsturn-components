@@ -7,15 +7,28 @@ import "./index.css";
 
 export interface DateInputProps {
     fontColor : string,
+    technology : string,
     onChange : (params: any) => void
-    
+}
+
+interface technologyMinDates {
+  [key : string] : string
 }
 
 
 const DateInput = (props: DateInputProps) => {
-    const { fontColor, onChange } = props;
+    const { fontColor,technology, onChange } = props;
     const [startDate, setStartDate] = useState(new Date());
     const maxDate = new Date()
+    let minDate = subDays(new Date(), 365)
+    const technologyMinDates : technologyMinDates = {
+      quantum_cover : '2023-02-01',
+      trading_cover : '2023-05-01'
+    }
+
+    if(technologyMinDates[technology]){
+      minDate = new Date(technologyMinDates[technology])
+    }
     
     let DateInputCss: CSS.Properties = {
         backgroundColor: 'transparent',
@@ -32,7 +45,11 @@ const DateInput = (props: DateInputProps) => {
 
     useEffect(()=>{
         onChange(startDate.toISOString().split('T')[0]);
-    },[startDate])
+        if(['quantum_cover', 'trading_cover'].includes(technology) && startDate < new Date(technologyMinDates[technology])){
+          setStartDate(new Date())
+        }
+        
+    },[startDate, technology])
 
     
     return (
@@ -41,7 +58,7 @@ const DateInput = (props: DateInputProps) => {
       customInput={<DateInput/>}
       selected={startDate}
       onChange={(date:Date) => setStartDate(date)}
-      minDate={subDays(new Date(), 365)}
+      minDate={minDate}
       maxDate={maxDate}
       placeholderText="Select a date"
     />    
