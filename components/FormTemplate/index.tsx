@@ -94,12 +94,18 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
 
   const modalStyle = {
     content: {
+      height: '50%',
+      display: 'flex',
+      flexDirection: 'column' as const,
+      alignItems: 'center',
+      justifyContent: 'center',
       maxWidth: '50%',
       margin: 'auto',
-      borderRadius: '10px',
+      borderRadius: `${borderRadius}px`,
       border: `1px solid ${borderColor}`,
       backgroundColor: bgColor,
       padding: '20px',
+      color: 'white',
     },
   };
 
@@ -112,17 +118,17 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
       <textarea name="message" placeholder="Message" onChange={handleInputChange} style={{ ...inputStyle, resize: 'none', height: '100px' }} required />
       <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
       <div style={{width:"100%", display:'flex', justifyContent:'center'}}>
-        <input type="submit" value="Send" className="sendButton" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : '#b5b0b0' , maxWidth:'212px', borderRadius:borderRadius, color: isFormFilled && isCaptchaCompleted ? 'white' : 'black' }} />
+        <input type="submit" value="Send" className="sendButton" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : '#b5b0b0' , maxWidth:'212px', borderRadius:`${borderRadius}px`, color: isFormFilled && isCaptchaCompleted ? 'white' : 'black' }} />
       </div>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        contentLabel="Formulario Enviado"
+        contentLabel="Form Submitted"
         ariaHideApp={false}
-        style={modalStyle}
+        style={modalStyle as Modal.Styles}
       >
-        <h2>Formulario Enviado</h2>
-        <p>Sent with success</p>
+        <h2>Sent with Success</h2>
+        <p>Your form has been successfully submitted.</p>
         <button
           onClick={closeModal}
           style={{
@@ -130,12 +136,12 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
             backgroundColor: '#e74c3c',
             color: 'white',
             border: 'none',
-            borderRadius: '4px',
+            borderRadius: `${borderRadius}px`,
             cursor: 'pointer',
             marginTop: '10px',
           }}
         >
-          Cerrar
+          Close
         </button>
       </Modal>
     </form>
