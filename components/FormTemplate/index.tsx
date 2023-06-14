@@ -12,7 +12,7 @@ export interface IFormValues extends Record<string, unknown> {
   captcha: string | null;
 }
 
-export interface FormProps {
+export interface FormTemplateProps {
   borderColor: string;
   bgColor: string;
   emailTo: string;
@@ -23,7 +23,7 @@ export interface FormProps {
   recaptchaSiteKey: string;
 }
 
-const Form: React.FC<FormProps> = ({ borderColor, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
+const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
   const [formValues, setFormValues] = useState<IFormValues>({
     name: '',
     email: '',
@@ -139,4 +139,4 @@ const Form: React.FC<FormProps> = ({ borderColor, bgColor, emailTo, buttonColor,
   );
 }
 
-export default Form;
+export default FormTemplate;

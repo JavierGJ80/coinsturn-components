@@ -1,16 +1,16 @@
 import React from "react";
-import Form, { FormProps } from "../components/Form";
+import FormTemplate, { FormTemplateProps } from "../components/FormTemplate";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   title: "Components/Form",
-  component: Form,
+  component: FormTemplate,
   argTypes: {},
-} as ComponentMeta<typeof Form>;
+} as ComponentMeta<typeof FormTemplate>;
 
-const Template: ComponentStory<typeof Form> = (
-  args: FormProps
-) => <Form {...args} />;
+const Template: ComponentStory<typeof FormTemplate> = (
+  args: FormTemplateProps
+) => <FormTemplate {...args} />;
 
 export const Main = Template.bind({});
  
