@@ -9,6 +9,7 @@ export interface IFormValues extends Record<string, unknown> {
 }
 export interface FormTemplateProps {
     borderColor: string;
+    borderRadius: number;
     bgColor: string;
     emailTo: string;
     buttonColor: string;

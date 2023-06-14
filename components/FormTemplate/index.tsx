@@ -14,6 +14,7 @@ export interface IFormValues extends Record<string, unknown> {
 
 export interface FormTemplateProps {
   borderColor: string;
+  borderRadius: number;
   bgColor: string;
   emailTo: string;
   buttonColor: string;
@@ -23,7 +24,7 @@ export interface FormTemplateProps {
   recaptchaSiteKey: string;
 }
 
-const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
+const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
   const [formValues, setFormValues] = useState<IFormValues>({
     name: '',
     email: '',
@@ -110,7 +111,9 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, bgColor, email
       <input type="text" name="company" placeholder="Company" onChange={handleInputChange} style={inputStyle} required />
       <textarea name="message" placeholder="Message" onChange={handleInputChange} style={{ ...inputStyle, resize: 'none', height: '100px' }} required />
       <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
-      <input type="submit" value="Enviar" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : 'grey' }} />
+      <div style={{width:"100%", display:'flex', justifyContent:'center'}}>
+        <input type="submit" value="Send" className="sendButton" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : '#b5b0b0' , maxWidth:'212px', borderRadius:borderRadius, color: isFormFilled && isCaptchaCompleted ? 'white' : 'black' }} />
+      </div>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -119,7 +122,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, bgColor, email
         style={modalStyle}
       >
         <h2>Formulario Enviado</h2>
-        <p>Tu formulario ha sido enviado con éxito.</p>
+        <p>Sent with success</p>
         <button
           onClick={closeModal}
           style={{
