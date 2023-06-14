@@ -1,0 +1,47 @@
+body {
+  background-color: #000000;
+  color: #fff;
+}
+
+.stripe-pay-form {
+  margin: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: rgb(255, 0, 0);
+}
+
+.success-message {
+  color: rgb(0, 255, 0);
+}
+
+.pay-button {
+  /* Estilos para el botón de pago */
+  background-color: rgb(35, 137, 221);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: poppins;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: #666;
+  border: none;
+  border-radius: 4px;
+}
