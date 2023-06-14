@@ -1,0 +1,142 @@
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import emailjs from 'emailjs-com';
+import ReCAPTCHA from "react-google-recaptcha";
+import Modal from 'react-modal';
+
+export interface IFormValues extends Record<string, unknown> {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
+  captcha: string | null;
+}
+
+export interface FormProps {
+  borderColor: string;
+  bgColor: string;
+  emailTo: string;
+  buttonColor: string;
+  serviceId: string;
+  templateId: string;
+  userId: string;
+  recaptchaSiteKey: string;
+}
+
+const Form: React.FC<FormProps> = ({ borderColor, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
+  const [formValues, setFormValues] = useState<IFormValues>({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: '',
+    captcha: null,
+  });
+
+  const [isFormFilled, setIsFormFilled] = useState<boolean>(false);
+  const [isCaptchaCompleted, setIsCaptchaCompleted] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const inputStyle = {
+    margin: "10px 0",
+    padding: "10px",
+    borderRadius: "5px",
+    border: `1px solid ${borderColor}`,
+    width: "100%",
+  };
+
+  const checkFormFilled = () => {
+    for (let key in formValues) {
+      if (key !== 'captcha' && (formValues[key as keyof IFormValues] === '')) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormValues({
+      ...formValues,
+      [event.target.name]: event.target.value,
+    });
+
+    setIsFormFilled(checkFormFilled());
+  };
+
+  const handleCaptchaChange = (value: string | null) => {
+    setFormValues({
+      ...formValues,
+      captcha: value,
+    });
+
+    setIsCaptchaCompleted(!!value);
+    setIsFormFilled(checkFormFilled());
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    if (formValues.captcha) {
+      emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
+        .then((result) => {
+          console.log(result.text);
+          setIsModalOpen(true); // Abrir el modal al enviar el formulario con éxito
+        }, (error) => {
+          console.log(error.text);
+        });
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const modalStyle = {
+    content: {
+      maxWidth: '50%',
+      margin: 'auto',
+      borderRadius: '10px',
+      border: `1px solid ${borderColor}`,
+      backgroundColor: bgColor,
+      padding: '20px',
+    },
+  };
+
+  return (
+    <form onSubmit={handleSubmit} style={{ backgroundColor: bgColor, border: `1px solid ${borderColor}`, borderRadius: '10px', maxWidth: '752px', padding: '20px' }}>
+      <input type="text" name="name" placeholder="Name" onChange={handleInputChange} style={inputStyle} required />
+      <input type="email" name="email" placeholder="Email" onChange={handleInputChange} style={inputStyle} required />
+      <input type="text" name="phone" placeholder="Phone" onChange={handleInputChange} style={inputStyle} required />
+      <input type="text" name="company" placeholder="Company" onChange={handleInputChange} style={inputStyle} required />
+      <textarea name="message" placeholder="Message" onChange={handleInputChange} style={{ ...inputStyle, resize: 'none', height: '100px' }} required />
+      <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
+      <input type="submit" value="Enviar" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : 'grey' }} />
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Formulario Enviado"
+        ariaHideApp={false}
+        style={modalStyle}
+      >
+        <h2>Formulario Enviado</h2>
+        <p>Tu formulario ha sido enviado con éxito.</p>
+        <button
+          onClick={closeModal}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#e74c3c',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            marginTop: '10px',
+          }}
+        >
+          Cerrar
+        </button>
+      </Modal>
+    </form>
+  );
+}
+
+export default Form;

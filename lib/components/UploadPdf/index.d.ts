@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from "react";
 import "./index.css";
 export interface UploadPdfProps {
     resPartner: {
@@ -10,5 +10,5 @@ export interface UploadPdfProps {
     inputId: string;
     onChange: (params: any) => void;
 }
-declare const UploadPdf: (props: UploadPdfProps) => JSX.Element;
+declare const UploadPdf: (props: UploadPdfProps) => React.JSX.Element;
 export default UploadPdf;
