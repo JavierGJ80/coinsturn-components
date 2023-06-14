@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from "react";
 import "./FileUploader.css";
 import { FileType } from "../../scripts/scripts";
 type UploaderDesign = "SIMPLE" | "DETAILED" | "IMAGELESS";
@@ -11,5 +11,5 @@ type FileUploaderProps = {
     description?: string;
     uploadText?: string;
 };
-declare const FileUploader: (props: FileUploaderProps) => JSX.Element;
+declare const FileUploader: (props: FileUploaderProps) => React.JSX.Element;
 export default FileUploader;
