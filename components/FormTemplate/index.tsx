@@ -109,6 +109,27 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
     }),
   };
 
+  const modalStyle = {
+    content: {
+      height: '50%',
+      display: 'flex',
+      flexDirection: 'column' as const,
+      alignItems: 'center',
+      justifyContent: 'center',
+      maxWidth: '50%',
+      margin: 'auto',
+      borderRadius: `${borderRadius}px`,
+      border: `1px solid ${borderColor}`,
+      backgroundColor: bgColor,
+      padding: '20px',
+      color: 'white',
+      ...(backdropFilterOn && {
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+      }),
+    },
+  };
+
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
       <input type="text" name="name" placeholder="Name" onChange={handleInputChange} style={inputStyle} required />
@@ -125,6 +146,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
         onRequestClose={closeModal}
         contentLabel="Form Submitted"
         ariaHideApp={false}
+        style={modalStyle as Modal.Styles}
       >
         <h2>Sent with Success</h2>
         <p>Your form has been successfully submitted.</p>
