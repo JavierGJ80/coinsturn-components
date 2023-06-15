@@ -11,6 +11,8 @@ export interface FormTemplateProps {
     borderColor: string;
     borderRadius: number;
     bgColor: string;
+    textColor: string;
+    inputBgColor: string;
     emailTo: string;
     buttonColor: string;
     serviceId: string;
