@@ -19,6 +19,7 @@ export interface FormTemplateProps {
     templateId: string;
     userId: string;
     recaptchaSiteKey: string;
+    backdropFilterOn: boolean;
 }
 declare const FormTemplate: React.FC<FormTemplateProps>;
 export default FormTemplate;
