@@ -16,6 +16,8 @@ export interface FormTemplateProps {
   borderColor: string;
   borderRadius: number;
   bgColor: string;
+  textColor: string;
+  inputBgColor: string;
   emailTo: string;
   buttonColor: string;
   serviceId: string;
@@ -24,7 +26,7 @@ export interface FormTemplateProps {
   recaptchaSiteKey: string;
 }
 
-const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, bgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
+const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, bgColor, textColor, inputBgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
   const [formValues, setFormValues] = useState<IFormValues>({
     name: '',
     email: '',
@@ -44,6 +46,8 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
     borderRadius: "5px",
     border: `1px solid ${borderColor}`,
     width: "100%",
+    color: textColor,
+    backgroundColor: inputBgColor,
   };
 
   const checkFormFilled = () => {
