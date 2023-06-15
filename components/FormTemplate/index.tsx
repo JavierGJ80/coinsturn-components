@@ -24,9 +24,10 @@ export interface FormTemplateProps {
   templateId: string;
   userId: string;
   recaptchaSiteKey: string;
+  backdropFilterOn: boolean;
 }
 
-const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, bgColor, textColor, inputBgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey }) => {
+const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, bgColor, textColor, inputBgColor, emailTo, buttonColor, serviceId, templateId, userId, recaptchaSiteKey, backdropFilterOn }) => {
   const [formValues, setFormValues] = useState<IFormValues>({
     name: '',
     email: '',
@@ -96,40 +97,34 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
     setIsModalOpen(false);
   };
 
-  const modalStyle = {
-    content: {
-      height: '50%',
-      display: 'flex',
-      flexDirection: 'column' as const,
-      alignItems: 'center',
-      justifyContent: 'center',
-      maxWidth: '50%',
-      margin: 'auto',
-      borderRadius: `${borderRadius}px`,
-      border: `1px solid ${borderColor}`,
-      backgroundColor: bgColor,
-      padding: '20px',
-      color: 'white',
-    },
+  const formStyle = {
+    backgroundColor: bgColor,
+    border: `1px solid ${borderColor}`,
+    borderRadius: '10px',
+    maxWidth: '752px',
+    padding: '20px',
+    ...(backdropFilterOn && {
+      backdropFilter: 'blur(15px)',
+      WebkitBackdropFilter: 'blur(15px)',
+    }),
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ backgroundColor: bgColor, border: `1px solid ${borderColor}`, borderRadius: '10px', maxWidth: '752px', padding: '20px' }}>
+    <form onSubmit={handleSubmit} style={formStyle}>
       <input type="text" name="name" placeholder="Name" onChange={handleInputChange} style={inputStyle} required />
       <input type="email" name="email" placeholder="Email" onChange={handleInputChange} style={inputStyle} required />
       <input type="text" name="phone" placeholder="Phone" onChange={handleInputChange} style={inputStyle} required />
       <input type="text" name="company" placeholder="Company" onChange={handleInputChange} style={inputStyle} required />
       <textarea name="message" placeholder="Message" onChange={handleInputChange} style={{ ...inputStyle, resize: 'none', height: '100px' }} required />
       <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={handleCaptchaChange} style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }} />
-      <div style={{width:"100%", display:'flex', justifyContent:'center'}}>
-        <input type="submit" value="Send" className="sendButton" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : '#b5b0b0' , maxWidth:'212px', borderRadius:`${borderRadius}px`, color: isFormFilled && isCaptchaCompleted ? 'white' : 'black' }} />
+      <div style={{ width: "100%", display: 'flex', justifyContent: 'center' }}>
+        <input type="submit" value="Send" className="sendButton" style={{ ...inputStyle, cursor: 'pointer', marginTop: '20px', backgroundColor: isFormFilled && isCaptchaCompleted ? buttonColor : '#b5b0b0', maxWidth: '212px', borderRadius: `${borderRadius}px`, color: isFormFilled && isCaptchaCompleted ? 'white' : 'black' }} />
       </div>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Form Submitted"
         ariaHideApp={false}
-        style={modalStyle as Modal.Styles}
       >
         <h2>Sent with Success</h2>
         <p>Your form has been successfully submitted.</p>
