@@ -115,6 +115,9 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
   };
 
   const modalStyle = {
+    overlay: {
+      backgroundColor: 'YOUR_OVERLAY_BACKGROUND_COLOR', // Cambia esto por tu color de fondo deseado para el overlay
+    },
     content: {
       height: '50%',
       display: 'flex',
@@ -125,7 +128,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
       margin: 'auto',
       borderRadius: `${borderRadius}px`,
       border: `1px solid ${borderColor}`,
-      backgroundColor: bgColor.length == 9 ? bgColor.slice(0,-2) : bgColor,
+      backgroundColor: 'YOUR_MODAL_BACKGROUND_COLOR', // Cambia esto por tu color de fondo deseado para el modal
       padding: '20px',
       color: 'white',
       ...(backdropFilterOn && {
@@ -152,6 +155,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
         contentLabel="Form Submitted"
         ariaHideApp={false}
         style={modalStyle as Modal.Styles}
+        overlayClassName="my-overlay-class"
       >
         <h2>Sent with Success</h2>
         <p>Your form has been successfully submitted.</p>
