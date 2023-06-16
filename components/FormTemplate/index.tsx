@@ -116,19 +116,19 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
 
   const modalStyle = {
     overlay: {
-      backgroundColor: 'YOUR_OVERLAY_BACKGROUND_COLOR', // Cambia esto por tu color de fondo deseado para el overlay
+      backgroundColor: bgColor.length == 9? bgColor.slice(0,-2) : bgColor
     },
     content: {
-      height: '50%',
+      height: '30%',
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
       justifyContent: 'center',
-      maxWidth: '50%',
+      maxWidth: '70%',
       margin: 'auto',
       borderRadius: `${borderRadius}px`,
       border: `1px solid ${borderColor}`,
-      backgroundColor: 'YOUR_MODAL_BACKGROUND_COLOR', // Cambia esto por tu color de fondo deseado para el modal
+      backgroundColor: bgColor.slice(0,-2) + 'CC',
       padding: '20px',
       color: 'white',
       ...(backdropFilterOn && {
