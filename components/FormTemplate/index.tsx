@@ -80,23 +80,18 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
   };
 
   const handleSubmit = (event: FormEvent) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  if (formValues.captcha) {
-    const templateParams = {
-      ...formValues,
-      emailTo: emailTo,
-    };
-
-    emailjs.send(serviceId, templateId, templateParams as unknown as Record<string, unknown>, userId)
-      .then((result) => {
-        console.log(result.text);
-        setIsModalOpen(true); // Abrir el modal al enviar el formulario con éxito
-      }, (error) => {
-        console.log(error.text);
-      });
-  }
-};
+    if (formValues.captcha) {
+      emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
+        .then((result) => {
+          console.log(result.text);
+          setIsModalOpen(true); // Abrir el modal al enviar el formulario con éxito
+        }, (error) => {
+          console.log(error.text);
+        });
+    }
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -116,7 +111,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
 
   const modalStyle = {
     overlay: {
-      backgroundColor: bgColor.length == 9? bgColor.slice(0,-2) : bgColor
+      backgroundColor: "rgb(20 20 20 / 81%)",
     },
     content: {
       height: '30%',
@@ -128,8 +123,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
       margin: 'auto',
       borderRadius: `${borderRadius}px`,
       border: `1px solid ${borderColor}`,
-      backgroundColor: bgColor.slice(0,-2) + 'CC',
-      padding: '20px',
+      backgroundColor: bgColor.length == 9? bgColor.slice(0,-2) : bgColor,
       color: 'white',
       ...(backdropFilterOn && {
         backdropFilter: 'none',
@@ -137,6 +131,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
       }),
     },
   };
+  
 
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
@@ -155,7 +150,6 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
         contentLabel="Form Submitted"
         ariaHideApp={false}
         style={modalStyle as Modal.Styles}
-        overlayClassName="my-overlay-class"
       >
         <h2>Sent with Success</h2>
         <p>Your form has been successfully submitted.</p>
