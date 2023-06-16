@@ -80,18 +80,23 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
   };
 
   const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (formValues.captcha) {
-      emailjs.send(serviceId, templateId, formValues as unknown as Record<string, unknown>, userId)
-        .then((result) => {
-          console.log(result.text);
-          setIsModalOpen(true); // Abrir el modal al enviar el formulario con éxito
-        }, (error) => {
-          console.log(error.text);
-        });
-    }
-  };
+  if (formValues.captcha) {
+    const templateParams = {
+      ...formValues,
+      emailTo: emailTo,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams as unknown as Record<string, unknown>, userId)
+      .then((result) => {
+        console.log(result.text);
+        setIsModalOpen(true); // Abrir el modal al enviar el formulario con éxito
+      }, (error) => {
+        console.log(error.text);
+      });
+  }
+};
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -120,7 +125,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({ borderColor, borderRadius, 
       margin: 'auto',
       borderRadius: `${borderRadius}px`,
       border: `1px solid ${borderColor}`,
-      backgroundColor: bgColor,
+      backgroundColor: bgColor.length == 9 ? bgColor.slice(0,-2) : bgColor,
       padding: '20px',
       color: 'white',
       ...(backdropFilterOn && {
