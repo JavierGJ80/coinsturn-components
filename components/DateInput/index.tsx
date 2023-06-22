@@ -22,12 +22,16 @@ const DateInput = (props: DateInputProps) => {
     const maxDate = new Date()
     let minDate = subDays(new Date(), 365)
     const technologyMinDates : technologyMinDates = {
-      quantum_cover : '2023-02-01',
-      trading_cover : '2023-05-01'
+      quantum_cover : '2023-05-01',
+      trading_cover : '2023-02-01'
     }
 
     if(technologyMinDates[technology]){
       minDate = new Date(technologyMinDates[technology])
+      if(minDate.getDate() != 1){
+        minDate.setDate(1)
+        minDate.setMonth(minDate.getMonth() + 1)
+      }
     }
     
     let DateInputCss: CSS.Properties = {
