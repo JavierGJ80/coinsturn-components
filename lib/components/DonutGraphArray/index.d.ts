@@ -1,4 +1,5 @@
 import React from 'react';
+import "./DonutGraphArray.css";
 export interface AssetData {
     symbol: string;
     spot_info: {
