@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import chroma from 'chroma-js';
+import "./DonutGraphArray.css"
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -47,7 +48,7 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
     };
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div className='mainDonutContainer' style={{ position: 'relative' }}>
             <Doughnut
                 options={{
                     onHover: handleHover,
@@ -79,9 +80,9 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
                 }}
             />
             {selectedValue !== null && selectedSymbol !== null && (
-                <div style={{
+                <div className='centeredText' style={{
                     position: 'absolute',
-                    top: '50%',
+                    top: '60%',
                     left: '50%', // Cambiado a 40%
                     transform: 'translate(-50%, -50%)',
                     fontWeight: 'bold',
