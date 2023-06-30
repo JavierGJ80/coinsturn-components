@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import chroma from 'chroma-js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -28,15 +29,11 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
     const labels = assets.map(asset => asset.symbol);
     const data = assets.map(asset => asset.spot_info.sum_accounts.values.value);
 
-    const colorBase = "#E6A828";
-    const colorLight = "#F2CC60";
-    const backgroundColor = assets.map((_, index) => {
-        const color = index % 2 === 0 ? colorBase : colorLight;
-        return color;
-    });
+    const colorScale = chroma.scale(['#E6A828', '#7BC485']).colors(assets.length);
+    const backgroundColor = colorScale;
 
-    const [selectedValue, setSelectedValue] = useState<null | number>(null);
-    const [selectedSymbol, setSelectedSymbol] = useState<string | null>(null);
+    const [selectedValue, setSelectedValue] = useState<null | number>(data[0]);
+    const [selectedSymbol, setSelectedSymbol] = useState<string | null>(labels[0]);
 
     const handleHover = (evt: any, elements: any[], chart: any) => {
         if (elements.length > 0) {
@@ -56,7 +53,7 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
                     onHover: handleHover,
                     plugins: {
                         legend: {
-                            position: 'right',
+                            position: 'top',
                             rtl: true,
                             labels: {
                                 usePointStyle: true,
@@ -74,7 +71,7 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
                             label: 'Current crypto currency',
                             data: data,
                             backgroundColor: backgroundColor,
-                            borderColor: backgroundColor,
+                            borderColor: "white",
                             borderWidth: borderWidth,
                             hoverOffset: hoverOffset,
                         },
@@ -85,7 +82,7 @@ const DonutGraphArray = (props: DonutGraphArrayProps) => {
                 <div style={{
                     position: 'absolute',
                     top: '50%',
-                    left: '40%', // Cambiado a 40%
+                    left: '50%', // Cambiado a 40%
                     transform: 'translate(-50%, -50%)',
                     fontWeight: 'bold',
                     fontSize: '1.5em',
