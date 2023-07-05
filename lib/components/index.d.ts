@@ -22,3 +22,4 @@ export { default as LineGraph } from "./LineGraph";
 export { default as BarGraph } from "./BarGraph";
 export { default as FormTemplate } from "./FormTemplate";
 export { default as DonutGraphArray } from "./DonutGraphArray";
+export { default as DonutGraphHome } from "./DonutGraphHome";
