@@ -1,5 +1,5 @@
 import React from "react";
-export interface DonutGraphHomeProps {
+export interface HomeDonutProps {
     data: {
         symbol: string;
         contracts_aggregate: {
@@ -11,5 +11,5 @@ export interface DonutGraphHomeProps {
         };
     }[];
 }
-declare const DonutGraphHome: (props: DonutGraphHomeProps) => React.JSX.Element;
-export default DonutGraphHome;
+declare const HomeDonut: (props: HomeDonutProps) => React.JSX.Element;
+export default HomeDonut;

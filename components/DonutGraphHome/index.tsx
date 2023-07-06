@@ -1,7 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-export interface DonutGraphHomeProps {
+export interface HomeDonutProps {
   data: {
     symbol: string;
     contracts_aggregate: {
@@ -14,7 +14,7 @@ export interface DonutGraphHomeProps {
   }[];
 }
 
-const DonutGraphHome = (props: DonutGraphHomeProps) => {
+const HomeDonut = (props: HomeDonutProps) => {
   const dummyData = [
     {
       symbol: "USDT",
@@ -128,4 +128,4 @@ const DonutGraphHome = (props: DonutGraphHomeProps) => {
   );
 };
 
-export default DonutGraphHome;
+export default HomeDonut;
