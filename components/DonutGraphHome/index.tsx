@@ -15,7 +15,64 @@ export interface DonutGraphHomeProps {
 }
 
 const DonutGraphHome = (props: DonutGraphHomeProps) => {
-  const { data } = props;
+  const dummyData = [
+    {
+      symbol: "USDT",
+      contracts_aggregate: {
+        aggregate: {
+          sum: {
+            current_value: 64785.4
+          }
+        }
+      }
+    },
+    {
+      symbol: "ETH",
+      contracts_aggregate: {
+        aggregate: {
+          sum: {
+            current_value: 4642.44
+          }
+        }
+      }
+    },
+    {
+      symbol: "BTC",
+      contracts_aggregate: {
+        aggregate: {
+          sum: {
+            current_value: 886411.87
+          }
+        }
+      }
+    },
+    {
+      symbol: "BTC/BUSD",
+      contracts_aggregate: {
+        aggregate: {
+          sum: {
+            current_value: 51000
+          }
+        }
+      }
+    },
+    {
+      symbol: "COVER",
+      contracts_aggregate: {
+        aggregate: {
+          sum: {
+            current_value: 827.77
+          }
+        }
+      }
+    }
+  ];
+  const data = props.data ? props.data : dummyData;
+
+  console.log(`Used data in component`);
+  console.log(data);
+  console.log('Input Data');
+  console.log(props)
 
   const labels = data.map((item) => item.symbol);
   const values = data.map((item) => item.contracts_aggregate.aggregate.sum.current_value);
