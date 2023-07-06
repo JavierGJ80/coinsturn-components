@@ -1,20 +1,20 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-export interface HomeDonutProps {
-  data: {
-    symbol: string;
-    contracts_aggregate: {
-      aggregate: {
-        sum: {
-          current_value: number;
-        };
-      };
-    };
-  }[];
-}
+// export interface HomeDonutProps {
+//   data: {
+//     symbol: string;
+//     contracts_aggregate: {
+//       aggregate: {
+//         sum: {
+//           current_value: number;
+//         };
+//       };
+//     };
+//   }[];
+// }
 
-const HomeDonut = (props: HomeDonutProps) => {
+const HomeDonut = (props: any) => {
   const dummyData = [
     {
       symbol: "USDT",
@@ -74,9 +74,9 @@ const HomeDonut = (props: HomeDonutProps) => {
   console.log('Input Data');
   console.log(props)
 
-  const labels = data.map((item) => item.symbol);
-  const values = data.map((item) => item.contracts_aggregate.aggregate.sum.current_value);
-  const backgroundColor = data.map((item) => {
+  const labels = data.map((item : any) => item.symbol);
+  const values = data.map((item : any) => item.contracts_aggregate.aggregate.sum.current_value);
+  const backgroundColor = data.map((item : any) => {
     if (item.symbol === "USDT") {
       return "#41AC8B"; // Verde suave
     } else if (item.symbol === "BTC") {
