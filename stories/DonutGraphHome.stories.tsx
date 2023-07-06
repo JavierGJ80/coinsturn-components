@@ -1,15 +1,69 @@
 import React from "react";
-import DonutGraphHome, { DonutGraphHomeProps } from "../components/DonutGraphHome";
+import HomeDonut, { HomeDonutProps } from "../components/DonutGraphHome";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
-  title: "Components/DonutGraphHome",
-  component: DonutGraphHome,
+  title: "Components/HomeDonut",
+  component: HomeDonut,
   argTypes: {},
-} as ComponentMeta<typeof DonutGraphHome>;
+} as ComponentMeta<typeof HomeDonut>;
 
-const Template: ComponentStory<typeof DonutGraphHome> = (
-  args: DonutGraphHomeProps
-) => <DonutGraphHome {...args} />;
+const Template: ComponentStory<typeof HomeDonut> = (
+  args: HomeDonutProps
+) => <HomeDonut {...args} />;
 
 export const Main = Template.bind({});
+Main.args = {
+  data: [
+      {
+        "symbol": "USDT",
+        "contracts_aggregate": {
+          "aggregate": {
+            "sum": {
+              "current_value": 64785.4
+            }
+          }
+        }
+      },
+      {
+        "symbol": "ETH",
+        "contracts_aggregate": {
+          "aggregate": {
+            "sum": {
+              "current_value": 4642.44
+            }
+          }
+        }
+      },
+      {
+        "symbol": "BTC",
+        "contracts_aggregate": {
+          "aggregate": {
+            "sum": {
+              "current_value": 886411.87
+            }
+          }
+        }
+      },
+      {
+        "symbol": "BTC/BUSD",
+        "contracts_aggregate": {
+          "aggregate": {
+            "sum": {
+              "current_value": 51000
+            }
+          }
+        }
+      },
+      {
+        "symbol": "COVER",
+        "contracts_aggregate": {
+          "aggregate": {
+            "sum": {
+              "current_value": 827.77
+            }
+          }
+        }
+      }
+    ]
+}
