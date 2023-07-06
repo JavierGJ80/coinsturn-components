@@ -1,5 +1,6 @@
 import React from "react";
-import HomeDonut, { HomeDonutProps } from "../components/DonutGraphHome";
+// import HomeDonut, { HomeDonutProps } from "../components/DonutGraphHome";
+import HomeDonut from "../components/DonutGraphHome";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
@@ -9,7 +10,7 @@ export default {
 } as ComponentMeta<typeof HomeDonut>;
 
 const Template: ComponentStory<typeof HomeDonut> = (
-  args: HomeDonutProps
+  args: any
 ) => <HomeDonut {...args} />;
 
 export const Main = Template.bind({});
