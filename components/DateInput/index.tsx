@@ -23,7 +23,7 @@ const DateInput = (props: DateInputProps) => {
     let minDate = subDays(new Date(), 365)
     const technologyMinDates : technologyMinDates = {
       '2' : '2023-05-01',
-      '3' : '2023-02-01'
+      '1' : '2023-02-01'
     }
 
     if(technologyMinDates[technology]){
