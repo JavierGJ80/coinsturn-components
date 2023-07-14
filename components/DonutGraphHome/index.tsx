@@ -80,7 +80,7 @@ const DonutHome = (props: DonutGraphProps) => {
   };
 
   return (
-    <div className="mainDonutContainer" style={{ position: "relative" }}>
+    <div className="mainDonutContainer" style={{ position: "relative", width:"100%" }}>
       <Doughnut
         options={{
           onHover: handleHover,
