@@ -67,7 +67,9 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ color: ColorTheme.text[theme] }}>{coin.name}</span>
-          <span className="text-muted">{coin.symbol.toUpperCase()}</span>
+          <span style={{ color: ColorTheme.textgray[theme] }}>
+            {coin.symbol.toUpperCase()}
+          </span>
         </div>
       </td>
 
