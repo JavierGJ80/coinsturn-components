@@ -45,6 +45,7 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
             color: ColorTheme.text[theme],
             borderColor: ColorTheme.strokes[theme],
             fontFamily: "Poppins",
+            fontWeight: 700,
           }}
         >
           {titles.map((title, i) => {
@@ -53,7 +54,6 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
             return (
               <th
                 style={{
-                  fontWeight: "normal",
                   "--bs-table-bg": ColorTheme.background[theme],
                   color:
                     (isMobile &&

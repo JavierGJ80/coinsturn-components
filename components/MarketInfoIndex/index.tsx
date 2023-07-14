@@ -5,7 +5,7 @@ import TableCoins from "./components/TableCoins";
 import TableCoinsTwo from "./components/TableCoinsTwo";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Box, Grid} from "@material-ui/core";
-import { numberAbbreviations, prettifyNumber } from "../TokenSpecificMobile/scripts";
+import { numberAbbreviations, prettifyNumber } from "../TokenSpecific/scripts";
 import ColorTheme from "./components/ColorTheme.json";
 
 export interface MarketInfoIndexProps {
