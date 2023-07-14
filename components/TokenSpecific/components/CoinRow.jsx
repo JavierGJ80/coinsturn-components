@@ -19,12 +19,7 @@ const CoinRow = ({ coin, index, theme }) => {
           <span className="normal" style={{ color: ColorTheme.titles[theme] }}>
             {coin.name}
           </span>
-          <span
-            className="text-muted normal"
-            style={{ color: ColorTheme.textgray[theme] }}
-          >
-            {coin.symbol.toUpperCase()}
-          </span>
+          <span style={{ color: "#AEAEAE" }}>{coin.symbol.toUpperCase()}</span>
         </td>
       </td>
       <td>

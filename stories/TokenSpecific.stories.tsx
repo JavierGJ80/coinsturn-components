@@ -13,4 +13,8 @@ const Template: ComponentStory<typeof TokenSpecific> = (
 ) => <TokenSpecific {...args} />;
 
 export const Main = Template.bind({});
+
+Main.args = {
+  resPartner : [{ coinsturn_theme: "light", coinsturn_language: "en"}]
+}
  
