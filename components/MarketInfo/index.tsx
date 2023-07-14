@@ -5,7 +5,7 @@ import TableCoins from "./components/TableCoins";
 import TableCoinsTwo from "./components/TableCoinsTwo";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Box, Grid} from "@material-ui/core";
-import { numberAbbreviations, prettifyNumber } from "../TokenSpecificMobile/scripts";
+import { numberAbbreviations, prettifyNumber } from "../TokenSpecific/scripts";
 import ColorTheme from "./components/ColorTheme.json";
 
 export interface MarketInfoProps {
@@ -41,8 +41,7 @@ const MarketInfo = (props: MarketInfoProps) => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row" style={{gap: "15px"}}>
+      <div className="row" style={{gap: "15px", padding:"1rem", width:"100%", height: "auto", margin: "0px"}}>
         {language == "es" ?
           // @ts-ignore
           <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold', fontFamily: 'Poppins' }}>
@@ -67,7 +66,6 @@ const MarketInfo = (props: MarketInfoProps) => {
         <img src="https://res.cloudinary.com/dkczjaruj/image/upload/v1686003770/Coinsturn/cglogo_1_dnicns.png" alt="Imagen" style={{ width: "100px", paddingLeft:"5px", paddingBottom:"3px" }} />
       </div>
       </div>
-    </div>
   );
 };
 
