@@ -47,8 +47,9 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
         "--bs-table-bg": ColorTheme.background[theme],
         "--bs-table-hover-bg": ColorTheme.hover[theme],
         borderColor: ColorTheme.strokes[theme],
-      }}>
-      <td className='text-muted' style={{}}>
+      }}
+    >
+      <td className="text-muted" style={{}}>
         {index}
       </td>
       <td
@@ -56,31 +57,32 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           display: "flex",
           displayDirection: "row",
           height: "77.5px",
-        }}>
+        }}
+      >
         <img
           src={coin.image}
-          alt=''
-          className='img-fluid me-4'
-          style={{ width: "60px", height: "60px" }}
+          alt=""
+          className="img-fluid me-4"
+          style={{ width: "60px", height: "60px", borderRadius: "60px" }}
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ color: ColorTheme.text[theme] }}>{coin.name}</span>
-          <span className='text-muted'>{coin.symbol.toUpperCase()}</span>
+          <span className="text-muted">{coin.symbol.toUpperCase()}</span>
         </div>
       </td>
 
       {!isTablet && (
-        <td className='hide-content'>
+        <td className="hide-content">
           <span style={{ cursor: "pointer", display: "flex" }}>
             <LineChart width={80} height={45} data={data}>
-              <Line dataKey='uv' stroke={color} dot={false} />
+              <Line dataKey="uv" stroke={color} dot={false} />
               <YAxis
-                type='number'
+                type="number"
                 domain={["dataMin", "dataMax"]}
                 axisLine={false}
                 tick={false}
                 hide
-                dataKey='uv'
+                dataKey="uv"
               />
             </LineChart>
           </span>
@@ -97,7 +99,8 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
               coin.price_change_percentage_7d_in_currency > 0
                 ? "text-success show-content"
                 : "text-danger show-content"
-            }>
+            }
+          >
             {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
           </span>
         </div>
@@ -108,16 +111,17 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
           coin.price_change_percentage_7d_in_currency > 0
             ? "text-success hide-content"
             : "text-danger hide-content"
-        }>
+        }
+      >
         <span>
           {`${coin.price_change_percentage_7d_in_currency.toFixed(2)}%`}
         </span>
       </td>
 
-      <td style={{ color: ColorTheme.text[theme] }} className='hide-content'>
+      <td style={{ color: ColorTheme.text[theme] }} className="hide-content">
         ${coin.total_volume.toLocaleString()}
       </td>
-      <td style={{ color: ColorTheme.text[theme] }} className='hide-content'>
+      <td style={{ color: ColorTheme.text[theme] }} className="hide-content">
         ${coin.market_cap.toLocaleString()}
       </td>
     </tr>

@@ -1,78 +1,43 @@
 import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
+import chroma from "chroma-js";
 
-const HomeDonut = (props: any) => {
-  const dummyData = [
-    {
-      symbol: "USDT",
-      contracts_aggregate: {
-        aggregate: {
-          sum: {
-            current_value: 64785.4
-          }
-        }
-      }
-    },
-    {
-      symbol: "ETH",
-      contracts_aggregate: {
-        aggregate: {
-          sum: {
-            current_value: 4642.44
-          }
-        }
-      }
-    },
-    {
-      symbol: "BTC",
-      contracts_aggregate: {
-        aggregate: {
-          sum: {
-            current_value: 886411.87
-          }
-        }
-      }
-    },
-    {
-      symbol: "BTC/BUSD",
-      contracts_aggregate: {
-        aggregate: {
-          sum: {
-            current_value: 51000
-          }
-        }
-      }
-    },
-    {
-      symbol: "COVER",
-      contracts_aggregate: {
-        aggregate: {
-          sum: {
-            current_value: 827.77
-          }
-        }
-      }
-    }
-  ];
-  
-  const data = props.data ? props.data : dummyData;
+export interface AssetData {
+  symbol: string;
+  contracts_aggregate: {
+    aggregate: {
+      sum: {
+        current_value: number;
+      };
+    };
+  };
+}
 
-  const labels = data.map((item : any) => item.symbol);
-  const values = data.map((item : any) => item.contracts_aggregate.aggregate.sum.current_value);
-  
-  const backgroundColor = data.map((item : any) => {
+export interface DonutGraphProps {
+  data: AssetData[];
+}
+
+const DonutHome = (props: DonutGraphProps) => {
+  const { data } = props;
+
+  const labels = data.map((item) => item.symbol);
+  const values = data.map(
+    (item) => item.contracts_aggregate.aggregate.sum.current_value
+  );
+
+  const backgroundColor = data.map((item) => {
     if (item.symbol === "USDT") {
-      return "#41AC8B";
+      return "#41AC8B"; // Color personalizado para USDT
     } else if (item.symbol === "BTC") {
-      return "#FFAC0B";
+      return "#FFAC0B"; // Color personalizado para BTC
     } else if (item.symbol === "ETH") {
-      return "#758EEC";
-    } else if (item.symbol === "BTC/BUSD") {
-      return "#FFD80B";
+      return "#758EEC"; // Color personalizado para ETH
     } else if (item.symbol === "COVER") {
-      return "#306AFF";
+      return "#306AFF"; // Color personalizado para COVER
+    } else if (item.symbol === "BTC/BUSD") {
+      return "#FFD80B"; // Color personalizado para BTC/BUSD
     } else {
-      return getRandomColor();
+      return getRandomColor(); // Colores aleatorios suaves para las demás monedas
     }
   });
 
@@ -85,22 +50,37 @@ const HomeDonut = (props: any) => {
     return color;
   }
 
-  const [currentValue, setCurrentValue] = useState<number | null>(null);
-  const [currentSymbol, setCurrentSymbol] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<null | number>(
+    values[0]
+  );
+  const [selectedSymbol, setSelectedSymbol] = useState<string | null>(
+    labels[0]
+  );
 
-  const handleHover = (event: any, chartElement: any) => {
-    if (chartElement.length > 0) {
-      const { index } = chartElement[0];
-      setCurrentValue(values[index]);
-      setCurrentSymbol(labels[index]);
+  const handleHover = (evt: any, elements: any[], chart: any) => {
+    if (elements.length > 0) {
+      const index = elements[0].index;
+      setSelectedValue(values[index]);
+      setSelectedSymbol(labels[index]);
     } else {
-      setCurrentValue(null);
-      setCurrentSymbol(null);
+      setSelectedValue(null);
+      setSelectedSymbol(null);
     }
   };
 
+  const centeredTextStyle: React.CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    left: "35%",
+    transform: "translate(-50%, -50%)",
+    fontWeight: "bold",
+    fontSize: "1em",
+    color: "grey",
+    textAlign: "center"
+  };
+
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="mainDonutContainer" style={{ position: "relative" }}>
       <Doughnut
         options={{
           onHover: handleHover,
@@ -111,11 +91,11 @@ const HomeDonut = (props: any) => {
               labels: {
                 usePointStyle: true,
                 pointStyle: "circle",
-                padding: 20,
-              },
-            },
+                padding: 20
+              }
+            }
           },
-          cutout: "96%",
+          cutout: "96%"
         }}
         data={{
           labels: labels,
@@ -124,28 +104,19 @@ const HomeDonut = (props: any) => {
               label: "Current crypto currency",
               data: values,
               backgroundColor: backgroundColor,
-              borderColor: backgroundColor,
-            },
-          ],
+              borderColor: backgroundColor
+            }
+          ]
         }}
       />
-      {currentValue !== null && currentSymbol !== null && (
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '40%',
-          transform: 'translate(-50%, -50%)',
-          fontWeight: 'bold',
-          fontSize: '1.5em',
-          color: 'grey',
-          textAlign: 'center'
-        }}>
-          <div>{currentSymbol}</div>
-          <div>${' ' + currentValue.toFixed(2)}</div>
+      {selectedValue !== null && selectedSymbol !== null && (
+        <div className="centeredText" style={centeredTextStyle}>
+          <div>{selectedSymbol}</div>
+          <div>${" " + selectedValue.toFixed(2)}</div>
         </div>
       )}
     </div>
   );
 };
 
-export default HomeDonut;
+export default DonutHome;

@@ -63,7 +63,7 @@ const MarketInfo = (props: MarketInfoProps) => {
         }
         <TableCoins coins={coins} search={search} theme={theme} language={language} onChange={onChange} />
         <div style={{fontFamily: "var(--bs-body-font-family)", color: "#5d626d", fontSize: "14px", marginLeft:"-12px"}}>
-        Información extraída de:
+        Source:
         <img src="https://res.cloudinary.com/dkczjaruj/image/upload/v1686003770/Coinsturn/cglogo_1_dnicns.png" alt="Imagen" style={{ width: "100px", paddingLeft:"5px", paddingBottom:"3px" }} />
       </div>
       </div>
