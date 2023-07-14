@@ -47,6 +47,7 @@ const CoinRow = ({ coin, index, theme, onChange }) => {
         "--bs-table-bg": ColorTheme.background[theme],
         "--bs-table-hover-bg": ColorTheme.hover[theme],
         borderColor: ColorTheme.strokes[theme],
+        fontFamily: "Poppins",
       }}
     >
       <td className="text-muted" style={{}}>

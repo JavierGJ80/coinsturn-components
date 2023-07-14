@@ -45,7 +45,7 @@ const MarketInfo = (props: MarketInfoProps) => {
       <div className="row" style={{gap: "15px"}}>
         {language == "es" ?
           // @ts-ignore
-          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold' }}>
+          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold', fontFamily: 'Poppins' }}>
           Hoy, la capitalización de mercado global de las criptomonedas es de&nbsp;
           {numberAbbreviations(coins.total_supply)}
           , lo que supone un cambio del&nbsp;
@@ -53,7 +53,7 @@ const MarketInfo = (props: MarketInfoProps) => {
           &nbsp;en las últimas 24 horas
         </div>:
           // @ts-ignore
-          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold' }}>
+          <div className="total-supply" style={{ display: 'flex', flexDirection: 'row', color: ColorTheme.text[theme], fontWeight: 'bold', fontFamily: 'Poppins' }}>
           Today, the global cryptocurrency market cap is&nbsp;
           ${numberAbbreviations(coins.total_supply)}
           , which is a change of&nbsp;
@@ -62,7 +62,7 @@ const MarketInfo = (props: MarketInfoProps) => {
         </div>
         }
         <TableCoins coins={coins} search={search} theme={theme} language={language} onChange={onChange} />
-        <div style={{fontFamily: "var(--bs-body-font-family)", color: "#5d626d", fontSize: "14px", marginLeft:"-12px"}}>
+        <div style={{color: "#5d626d", fontSize: "14px", marginLeft:"-12px", fontFamily: 'Poppins'}}>
         Source:
         <img src="https://res.cloudinary.com/dkczjaruj/image/upload/v1686003770/Coinsturn/cglogo_1_dnicns.png" alt="Imagen" style={{ width: "100px", paddingLeft:"5px", paddingBottom:"3px" }} />
       </div>
