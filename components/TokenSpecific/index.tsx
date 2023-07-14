@@ -114,7 +114,7 @@ const TokenSpecific = (props: TokenSpecificProps) => {
   return (
     <div>
       {/* @ts-ignore */}
-      <div className="full-component" style={{"backgroundColor":ColorTheme.content[theme]}}>
+      <div className="full-component" style={{"backgroundColor":ColorTheme.content[theme], padding:"1rem"}}>
         <div className="tokenSpecificMainContainer">
           <div className="tokenSpecificLeftContainer">
             <div className="tokenSpecificHeader">
