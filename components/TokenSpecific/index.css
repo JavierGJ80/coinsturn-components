@@ -301,7 +301,8 @@
   border-width: 1px;
   padding: 20px;
   justify-content: space-between;
-  height: 408px;
+  height: auto;
+  row-gap: 20px;
   width: 100% !important;
 }
 
