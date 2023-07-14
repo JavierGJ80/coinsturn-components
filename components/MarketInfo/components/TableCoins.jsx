@@ -44,6 +44,7 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
           style={{
             color: ColorTheme.text[theme],
             borderColor: ColorTheme.strokes[theme],
+            fontFamily: "Poppins",
           }}
         >
           {titles.map((title, i) => {
@@ -94,8 +95,3 @@ const TableCoins = ({ coins, search, theme, language, onChange }) => {
 };
 
 export default TableCoins;
-
-
-
-
-
