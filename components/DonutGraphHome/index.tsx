@@ -19,13 +19,13 @@ export interface DonutGraphProps {
 
 const DonutHome = (props: DonutGraphProps) => {
   const { data } = props;
-
-  const labels = data.map((item) => item.symbol);
-  const values = data.map(
+  const parsedData = data ? data : []
+  const labels = parsedData.map((item) => item.symbol);
+  const values = parsedData.map(
     (item) => item.contracts_aggregate.aggregate.sum.current_value
   );
 
-  const backgroundColor = data.map((item) => {
+  const backgroundColor = parsedData.map((item) => {
     if (item.symbol === "USDT") {
       return "#41AC8B"; // Color personalizado para USDT
     } else if (item.symbol === "BTC") {
