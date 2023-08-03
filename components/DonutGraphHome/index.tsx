@@ -112,7 +112,7 @@ const DonutHome = (props: DonutGraphProps) => {
       {selectedValue !== null && selectedSymbol !== null && (
         <div className="centeredText" style={centeredTextStyle}>
           <div>{selectedSymbol}</div>
-          <div>${" " + selectedValue.toFixed(2)}</div>
+          <div>${" " + selectedValue? selectedValue.toFixed(2) : " "}</div>
         </div>
       )}
     </div>
