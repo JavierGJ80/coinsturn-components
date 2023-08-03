@@ -51,10 +51,10 @@ const DonutHome = (props: DonutGraphProps) => {
   }
 
   const [selectedValue, setSelectedValue] = useState<null | number>(
-    values[0]
+    values[0] ? values[0] : null
   );
   const [selectedSymbol, setSelectedSymbol] = useState<string | null>(
-    labels[0]
+    labels[0] ? labels[0] : null
   );
 
   const handleHover = (evt: any, elements: any[], chart: any) => {
