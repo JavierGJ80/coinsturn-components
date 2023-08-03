@@ -78,45 +78,53 @@ const DonutHome = (props: DonutGraphProps) => {
     color: "grey",
     textAlign: "center"
   };
-
-  return (
-    <div className="mainDonutContainer" style={{ position: "relative", width:"100%" }}>
-      <Doughnut
-        options={{
-          onHover: handleHover,
-          plugins: {
-            legend: {
-              position: "right",
-              rtl: true,
-              labels: {
-                usePointStyle: true,
-                pointStyle: "circle",
-                padding: 20
+  try{
+    return (
+      <div className="mainDonutContainer" style={{ position: "relative", width:"100%" }}>
+        <Doughnut
+          options={{
+            onHover: handleHover,
+            plugins: {
+              legend: {
+                position: "right",
+                rtl: true,
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: "circle",
+                  padding: 20
+                }
               }
-            }
-          },
-          cutout: "96%"
-        }}
-        data={{
-          labels: labels,
-          datasets: [
-            {
-              label: "Current crypto currency",
-              data: values,
-              backgroundColor: backgroundColor,
-              borderColor: backgroundColor
-            }
-          ]
-        }}
-      />
-      {selectedValue !== null && selectedSymbol !== null && (
-        <div className="centeredText" style={centeredTextStyle}>
-          <div>{selectedSymbol}</div>
-          <div>${" " + selectedValue? selectedValue.toFixed(2) : " "}</div>
-        </div>
-      )}
-    </div>
-  );
+            },
+            cutout: "96%"
+          }}
+          data={{
+            labels: labels,
+            datasets: [
+              {
+                label: "Current crypto currency",
+                data: values,
+                backgroundColor: backgroundColor,
+                borderColor: backgroundColor
+              }
+            ]
+          }}
+        />
+        {selectedValue !== null && selectedSymbol !== null && (
+          <div className="centeredText" style={centeredTextStyle}>
+            <div>{selectedSymbol}</div>
+            <div>${" " + selectedValue? selectedValue.toFixed(2) : " "}</div>
+          </div>
+        )}
+      </div>
+    );
+  }
+  catch(e){
+    return(
+      <div>
+        
+      </div>
+    );
+  }
 };
 
 export default DonutHome;
