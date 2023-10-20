@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "@fontsource/poppins";
 import { prettifyNumber } from "./scripts"
-import { LineChart, Line, YAxis, } from 'recharts';
+import { Line } from 'react-chartjs-2';
 //import { ChartType } from "defi-sdk/lib/entities/Chart";
 import coinDescription from "./diccionario.json";
 import TableCoins from "./components/TableCoins";
@@ -111,6 +111,56 @@ const TokenSpecific = (props: TokenSpecificProps) => {
     getData()
   }, [time]);
 
+  const renderData = {
+    labels: graphLabels,
+    datasets: [
+      {
+        label: asset,
+        data: graphData,
+        // @ts-ignore
+        borderColor: coinDescription[asset].color,
+        // @ts-ignore
+        backgroundColor: coinDescription[asset].color,
+        tension: 0.2,
+        pointRadius: 0,
+        pointHitRadius: 8,
+      }
+    ],
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        display:false,
+        ticks: {
+
+          display: false,
+          autoSkip: true,
+          maxTicksLimit: 12,
+          maxRotation: 0,
+          minRotation: 0,
+        },
+      },
+      y: {
+        
+        ticks: {
+          
+          beginAtZero: true,
+          precision: 0,
+        },
+        grid: {
+          display: false, // Oculta las líneas de la grilla del eje Y
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+
   return (
     <div>
       {/* @ts-ignore */}
@@ -138,44 +188,12 @@ const TokenSpecific = (props: TokenSpecificProps) => {
                   </text>
                 </div>
               </div>
-              <div className="tokenSpecificGraphRender">
-                <ChartJsLine
-                  data={{
-                    labels: graphLabels,
-                    datasets: [
-                      {
-                        label: asset,
-                        data: graphData,
-                        // @ts-ignore
-                        borderColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
-                        // @ts-ignore
-                        backgroundColor: (coinDescription[asset]? coinDescription[asset].color : "white"),
-                        tension: 0.2,
-                        pointRadius: 0,
-                        pointHitRadius : 8
-                      },
-                    ],
-                  }}
-                  options={{
-                    plugins: {
-                      legend: {
-                        display: false,
-                      },
-                    },
-                    scales: {
-                      xAxes: {
-                        display: false,
-                      },
-                      yAxes: {
-                        beginAtZero: false,
-                        grid: {
-                          drawOnChartArea: false,
-                        },
-                      },
-                    },
-                  }}
-                  redraw={false}
-                />
+              <div className="scalableGraphContainer">
+                <div className="scalableGraphRelativeContainer">
+                  <div className="scalableGraphAbsoluteContainer">
+                    <Line data={renderData} options={options} width={"100%"} height={341} redraw={false} />
+                  </div>
+                </div>
               </div>
               <div className="tokenSpecificButtonRow">
                 {/* @ts-ignore */}
@@ -333,16 +351,16 @@ const TokenSpecific = (props: TokenSpecificProps) => {
             </div>
             {/* @ts-ignore */}
             <div className="tokenSpecificGraphContainerTab" style={{"backgroundColor":ColorTheme.div[theme], "borderColor":ColorTheme.strokes[theme]}}>
-              <div className="headerGraphContainerDesk">
-                {/* @ts-ignore */}
-                <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:ColorTheme.titles[theme],}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
-                <div className="tokenSpecificGraphInfo">
-                  <text className="gig" style={{fontWeight:500, fontSize:"26px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
-                  <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:"#7ac486"}}>
-                    {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
-                  </text>
+                <div className="headerGraphContainerDesk">
+                  {/* @ts-ignore */}
+                  <text className="tit" style={{fontWeight:400, fontSize:"24px", lineHeight:"100%", color:ColorTheme.titles[theme],}}>{language == "es" ? `Precio de ${coin.name}`: `${coin.name} price`}</text>
+                  <div className="tokenSpecificGraphInfo">
+                    <text className="gig" style={{fontWeight:500, fontSize:"26px", lineHeight:"100%"}}>{prettifyNumber(coin.current_price, 2, 'null', '$ ')}</text>
+                    <text className="med" style={{fontWeight:400, fontSize:"18px", lineHeight:"100%", color:"#7ac486"}}>
+                      {coin.price_change_percentage_7d_in_currency < 0 ? prettifyNumber(Math.abs(coin.price_change_percentage_7d_in_currency),2,'%','↘︎'):prettifyNumber(coin.price_change_percentage_7d_in_currency,2,'%','↗︎')}
+                    </text>
+                  </div>
                 </div>
-              </div>
               <div className="tokenSpecificGraphRenderTab">
                 <ChartJsLine
                   data={{

@@ -1,7 +1,4 @@
 .full-component {
-  position: absolute;
-  left: 0px;
-  top: 0px;
   width: 100%;
 }
 
@@ -25,7 +22,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 758px;
+  max-width: 758px;
+  flex: 1;
 }
 
 .tokenSpecificHeader {
@@ -252,7 +250,6 @@
   padding-top: 30px;
   padding-bottom: 10px;
   gap: 10px;
-  width: 360;
 }
 
 .headerGraphContainerTab {
@@ -282,6 +279,25 @@
   width: 100% !important;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.scalableGraphContainer{
+  width: 100% !important;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 350px;
+}
+
+.scalableGraphRelativeContainer{
+  width: 100%;
+  position: relative;
+}
+
+.scalableGraphAbsoluteContainer{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 
 .tokenSpecificStatsTab {
@@ -319,7 +335,7 @@
 
 /*Conditionals*/
 
-@media (max-width: 1080px) {
+@media (max-width: 1079px) {
   .tokenSpecificMainContainer {
     display: none;
   }
