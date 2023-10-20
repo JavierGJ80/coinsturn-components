@@ -145,9 +145,8 @@ const TokenSpecific = (props: TokenSpecificProps) => {
       y: {
         
         ticks: {
-          
-          beginAtZero: true,
-          precision: 0,
+          beginAtZero: false,
+          precision: 3,
         },
         grid: {
           display: false, // Oculta las líneas de la grilla del eje Y
