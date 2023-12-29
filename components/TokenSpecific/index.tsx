@@ -1,7 +1,6 @@
 import "./index.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "@fontsource/poppins";
 import { prettifyNumber } from "./scripts"
 import { Line } from 'react-chartjs-2';
 //import { ChartType } from "defi-sdk/lib/entities/Chart";

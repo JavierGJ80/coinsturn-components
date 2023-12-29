@@ -100,7 +100,7 @@ const BatteryMeter =(props: BatteryMeterProps) => {
           textAnchor="middle"
           fill="#7DC085"
           fontSize="24"
-          fontFamily="poppins"
+          fontFamily="Poppins"
         >
           {percent}%
         </text>
