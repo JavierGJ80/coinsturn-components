@@ -1,6 +1,5 @@
 import "./index.css";
 import React from "react";
-import "@fontsource/poppins";
 export interface TokenSpecificProps {
     resPartner: [{
         [key: string]: any;
